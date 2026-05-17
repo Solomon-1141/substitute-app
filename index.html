@@ -139,6 +139,36 @@ select:last-child, input:last-child { margin-bottom: 0; }
 /* Config alert */
 .config-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: 0.78rem; color: #744210; }
 .config-alert strong { display: block; margin-bottom: 4px; }
+
+/* Records tab redesign */
+.rec-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.rec-toolbar h3 { font-size: 0.9rem; font-weight: 700; flex: 1; }
+.btn-line {
+  background: #06c755; color: white; border: none; border-radius: 8px;
+  padding: 7px 13px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn-line:hover { background: #05a847; }
+.btn-line:active { transform: scale(0.97); }
+
+/* Summary table */
+.summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.summary-table th {
+  background: var(--blue-dark); color: white; font-size: 0.72rem; font-weight: 700;
+  padding: 9px 10px; text-align: left;
+}
+.summary-table td { padding: 10px; font-size: 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover td { background: var(--blue-light); }
+.td-period { font-weight: 700; color: white; background: var(--blue) !important; text-align: center; border-radius: 0; white-space: nowrap; width: 52px; }
+.td-period.double { background: #6b46c1 !important; }
+.td-time { color: var(--gray); font-size: 0.72rem; white-space: nowrap; }
+.td-arrow { font-size: 0.75rem; color: var(--gray); }
+.td-absent { color: #744210; font-weight: 600; }
+.td-sub { color: var(--green); font-weight: 700; font-size: 0.88rem; }
+.td-cls { color: var(--gray); font-size: 0.72rem; }
+.del-btn-wrap { text-align: center; width: 30px; }
+.btn-del-rec { border: none; background: none; cursor: pointer; color: #fc8181; font-size: 1rem; padding: 4px; border-radius: 6px; }
+.btn-del-rec:hover { background: var(--red-light); }
 </style>
 </head>
 <body>
@@ -188,8 +218,9 @@ select:last-child, input:last-child { margin-bottom: 0; }
 
 <!-- Tab 2: Records -->
 <div class="tab-pane" id="tab-records">
-  <div class="rec-header">
+  <div class="rec-toolbar">
     <h3 id="rec-title">รายการวันนี้</h3>
+    <button class="btn-line" id="btn-copy-line" onclick="copyForLine()" style="display:none">📋 คัดลอกสำหรับ LINE</button>
     <button class="btn-refresh" onclick="loadRecords()">↻ รีเฟรช</button>
   </div>
   <div id="records-list">
@@ -467,23 +498,77 @@ async function loadRecords() {
   }
 }
 
+let _lastRecords = [];
+
+function shortName(n) { return (n || '').replace(/^(นาย|นางสาว|นาง)\s*/, ''); }
+
 function renderRecords(records) {
+  _lastRecords = records;
   const list = document.getElementById('records-list');
+  const copyBtn = document.getElementById('btn-copy-line');
+
   if (records.length === 0) {
     list.innerHTML = '<div class="empty-msg"><div class="icon">📋</div><p>ยังไม่มีรายการวันนี้</p></div>';
+    copyBtn.style.display = 'none';
     return;
   }
-  list.innerHTML = records.map(r => `
-    <div class="rec-item">
-      <div class="rec-period">คาบ ${r.period}</div>
-      <div class="rec-body">
-        <div class="rec-absent">ครูที่ลา: ${r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</div>
-        <div class="rec-sub">→ ${r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</div>
-        <div class="rec-detail">${r.cls} · ${r.subject} · ห้อง ${r.room} · ${r.time}</div>
-      </div>
-      <button class="btn-del-rec" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
-    </div>
-  `).join('');
+
+  copyBtn.style.display = '';
+
+  const rows = records.map(r => {
+    const isDouble = r.period.includes('+');
+    return `
+    <tr>
+      <td class="td-period${isDouble ? ' double' : ''}">คาบ<br>${r.period}</td>
+      <td>
+        <div class="td-time">${r.time}</div>
+        <div class="td-cls">${r.cls} · ${r.subject} · ห้อง ${r.room}</div>
+      </td>
+      <td>
+        <div class="td-absent">⬆ ${shortName(r.absentTeacher)} ลา</div>
+        <div class="td-arrow">↓</div>
+        <div class="td-sub">${shortName(r.substitute)} สอนแทน</div>
+      </td>
+      <td class="del-btn-wrap">
+        <button class="btn-del-rec" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
+      </td>
+    </tr>`;
+  }).join('');
+
+  list.innerHTML = `
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>คาบ</th>
+          <th>เวลา / ชั้น</th>
+          <th>ครูที่ลา → สอนแทน</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function copyForLine() {
+  if (_lastRecords.length === 0) return;
+  const dateObj = new Date(currentDate + 'T00:00:00');
+  const dayTh = DAYS_TH[dateObj.getDay()];
+  const months = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const [y, m, d] = currentDate.split('-');
+  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y) + 543}`;
+
+  const lines = [
+    `📋 จัดสอนแทน ${dateStr}`,
+    `โรงเรียนเมืองแกพิทยาสรรค์`,
+    `───────────────────`,
+    ..._lastRecords.map(r =>
+      `คาบ ${r.period} (${r.time})\n${shortName(r.absentTeacher)} ลา → ${shortName(r.substitute)} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`
+    )
+  ];
+
+  navigator.clipboard.writeText(lines.join('\n\n'))
+    .then(() => showToast('คัดลอกแล้ว ✓ วางใน LINE ได้เลย', 'green'))
+    .catch(() => showToast('คัดลอกไม่สำเร็จ', 'red'));
 }
 
 async function deleteRecord(rowIndex) {
