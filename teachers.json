@@ -1,0 +1,1787 @@
+[
+  {
+    "name": "นายชัชวาล มั่นคง ผู้อำนวยการโรงเรียน",
+    "schedule": {}
+  },
+  {
+    "name": "นางสาวกาญจนา ศรีราช",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.3/2",
+          "room": "215",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.3/2",
+          "room": "215",
+          "time": "12:30-14:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท21101",
+          "class": "1/1",
+          "room": "321",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท21101",
+          "class": "1/1",
+          "room": "321",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.3/1",
+          "room": "215",
+          "time": "13:30-15:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.3/1",
+          "room": "215",
+          "time": "13:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ท31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ท33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "I20201",
+          "class": "1/1",
+          "room": "321",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I20201",
+          "class": "1/1",
+          "room": "321",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท21101",
+          "class": "1/1",
+          "room": "321",
+          "time": "12:30-13:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางยุภาวดี สิงหาด",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท23101",
+          "class": "ม.3/1",
+          "room": "326",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ท32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "13:30-14:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "09:30-11:30"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "09:30-11:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I30201 (การสืบค้นและนำเสนอฯ)",
+          "class": "ม.5",
+          "room": "322",
+          "time": "13:30-15:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "I30201 (การสืบค้นและนำเสนอฯ)",
+          "class": "ม.5",
+          "room": "322",
+          "time": "13:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายกฤตภาส มูลทอง",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:30-11:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค23101",
+          "class": "ม.3/2",
+          "room": "328",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค23101",
+          "class": "ม.3/1ค",
+          "room": "325",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค21101",
+          "class": "ม.1/1",
+          "room": "321",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค21101",
+          "class": "ม.1/1",
+          "room": "321",
+          "time": "08:30-10:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค21101",
+          "class": "ม. 1",
+          "room": "321",
+          "time": "10:30-11:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายภูริณัฐ กลิ่นกำเนิด",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33103",
+          "class": "ม.6",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33103",
+          "class": "ม.6",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค31201",
+          "class": "ม.4",
+          "room": "328",
+          "time": "10:30-11:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33201",
+          "class": "ม.6",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33201",
+          "class": "ม.6",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค32201",
+          "class": "ม.5",
+          "room": "322",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ค32201",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-13:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค31201",
+          "class": "ม.4",
+          "room": "328",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค31201",
+          "class": "ม.4",
+          "room": "328",
+          "time": "08:30-10:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค32103",
+          "class": "ม.5",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค32103",
+          "class": "ม.5",
+          "room": "323",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค33201",
+          "class": "ม.6ค",
+          "room": "323",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค31103",
+          "class": "ม.4",
+          "room": "328",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค31103",
+          "class": "ม.4",
+          "room": "328",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค32201",
+          "class": "ม.5",
+          "room": "322",
+          "time": "10:30-11:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางณัฐยา ชิตบัณฑิตย์",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว22101",
+          "class": "ม.2",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว22101",
+          "class": "ม.2",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว30244",
+          "class": "ม.6",
+          "room": "211",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว30244",
+          "class": "ม.6",
+          "room": "211",
+          "time": "12:30-14:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": false,
+          "subject": "ว22101",
+          "class": "ม.2",
+          "room": "211",
+          "time": "08:30-09:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว21101",
+          "class": "ม.1",
+          "room": "211",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว21101",
+          "class": "ม.1/1",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว21101",
+          "class": "ม.1/1",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30244",
+          "class": "ม.6",
+          "room": "211",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31103",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31103",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30242",
+          "class": "ม.5",
+          "room": "211",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30242",
+          "class": "ม.5",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30242",
+          "class": "ม.5",
+          "room": "211",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว31103",
+          "class": "ม.4",
+          "room": "211",
+          "time": "10:30-11:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางธัญพร ทองหล่อ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31102",
+          "class": "ม.4",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31102",
+          "class": "ม.4",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30224",
+          "class": "ม.6",
+          "room": "125",
+          "time": "10:30-11:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30222",
+          "class": "ม.5",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30222",
+          "class": "ม.5",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30222",
+          "class": "ม.4",
+          "room": "126",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30224",
+          "class": "ม.6",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30224",
+          "class": "ม.6",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30222",
+          "class": "ม.5",
+          "room": "126",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว23101",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว23101",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว23101",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว23101",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว23101",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว23101",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "10:30-11:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายนพพร กาแก้ว",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30202",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30202",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31106",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31106",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว31104",
+          "class": "ม.6",
+          "room": "125",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31104",
+          "class": "ม.6",
+          "room": "125",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30202",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30202",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว31106",
+          "class": "ม.4",
+          "room": "125",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30204",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30204",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว31106",
+          "class": "ม.4",
+          "room": "125",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30204",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30204",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวพรนภา บุญมี",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20205",
+          "class": "3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205",
+          "class": "3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20205",
+          "class": "3/2",
+          "room": "326",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205",
+          "class": "3/2",
+          "room": "326",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "วิชาเพิ่มเติม",
+          "class": "2/1",
+          "room": "213",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "วิชาเพิ่มเติม",
+          "class": "2/1",
+          "room": "213",
+          "time": "12:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายพงศธร เอื้อเฟื้อสุข (อัตราจ้างชั่วคราว)",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว20214",
+          "class": "ม.1",
+          "room": "คอมฯ",
+          "time": "09:30-11:30"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว20214",
+          "class": "ม.1",
+          "room": "คอมฯ",
+          "time": "09:30-11:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว30228",
+          "class": "ม.6",
+          "room": "คอมฯ",
+          "time": "14:30-16:30"
+        },
+        {
+          "period": 7,
+          "isDouble": true,
+          "subject": "ว30228",
+          "class": "ม.6",
+          "room": "คอมฯ",
+          "time": "14:30-16:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20210",
+          "class": "ม.3/2",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20210",
+          "class": "ม.3/2",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว20210",
+          "class": "ม.3/1",
+          "room": "คอมฯ",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว20210",
+          "class": "ม.3/1",
+          "room": "คอมฯ",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20209",
+          "class": "ม.2",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20209",
+          "class": "ม.2",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว31105",
+          "class": "ม.4",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31105",
+          "class": "ม.4",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว31107",
+          "class": "ม.5",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31107",
+          "class": "ม.5",
+          "room": "คอมฯ",
+          "time": "12:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวฤทัยรัตน์ บุตรศรีมาศ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง31101",
+          "class": "4/1",
+          "room": "328",
+          "time": "14:30-16:30"
+        },
+        {
+          "period": 7,
+          "isDouble": true,
+          "subject": "ง31101",
+          "class": "4/1",
+          "room": "328",
+          "time": "14:30-16:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส23165",
+          "class": "ม.3/1",
+          "room": "326",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ส31161",
+          "class": "ม.4",
+          "room": "328",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ส32163",
+          "class": "ม.5",
+          "room": "322",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส23165",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "12:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายปัณณวิชญ์ นาไชย",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ส23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "14:30-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ส23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส22163",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส23101",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส22101",
+          "class": "ม.2 ค",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส22101",
+          "class": "ม.2 ค",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ส21161",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางมนทกานต์ ธนสีริวรกุล",
+    "schedule": {
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ22101",
+          "class": "2",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ22101",
+          "class": "2",
+          "room": "213",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:30-11:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:30"
+        }
+      ],
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101",
+          "class": "3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101",
+          "class": "3/1",
+          "room": "325",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ23101",
+          "class": "3/2",
+          "room": "325",
+          "time": "10:30-11:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ23101",
+          "class": "3/1",
+          "room": "326",
+          "time": "10:30-11:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101",
+          "class": "3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101",
+          "class": "3/2",
+          "room": "326",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ22101",
+          "class": "2",
+          "room": "213",
+          "time": "10:30-11:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายรักเกียรติ สุภิษะ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": false,
+          "subject": "ต20201",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-09:30"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ20203",
+          "class": "3/2",
+          "room": "326",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "อ32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "14:30-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ20203",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "อ31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "13:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "อ33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "อ31101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ31101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "ต30201",
+          "class": "ม.4",
+          "room": "328",
+          "time": "14:30-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "อ33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "อ31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวจิตรา อินทร์ปัญญา (พนักงานราชการ)",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ32101",
+          "class": "ม.5",
+          "room": "322",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:30-15:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ศ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:30-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ศ23101",
+          "class": "ม.3/2",
+          "room": "324",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ศ23101",
+          "class": "ม.3/2",
+          "room": "324",
+          "time": "08:30-10:30"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ศ31101",
+          "class": "ม.4",
+          "room": "328",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.2",
+          "room": "125",
+          "time": "13:30-15:30"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง22101",
+          "class": "ม.2",
+          "room": "125",
+          "time": "13:30-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ง21101",
+          "class": "ม.1",
+          "room": "125",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง21101",
+          "class": "ม.1",
+          "room": "125",
+          "time": "12:30-14:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ศ22101",
+          "class": "ม.2",
+          "room": "321",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ22101",
+          "class": "ม.2",
+          "room": "321",
+          "time": "12:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ33101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:30-11:30"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ศ23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ23101",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "12:30-14:30"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายนพคุณ แซ่ลิ้ม (อัตราจ้างชั่วคราว)",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ22101",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:30-14:30"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ22102",
+          "class": "ม.2",
+          "room": "สนาม",
+          "time": "14:30-15:30"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "พ32101",
+          "class": "ม.5",
+          "room": "สนาม",
+          "time": "15:30-16:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ21101",
+          "class": "ม.1",
+          "room": "321",
+          "time": "14:30-15:30"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "พ31101",
+          "class": "ม.4",
+          "room": "สนาม",
+          "time": "15:30-16:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ33201",
+          "class": "ม.6",
+          "room": "214",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ31101",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:30-14:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ23101",
+          "class": "3/1",
+          "room": "325",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ23102",
+          "class": "3/1",
+          "room": "สนาม",
+          "time": "13:30-14:30"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ23101",
+          "class": "3/2",
+          "room": "325",
+          "time": "12:30-13:30"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ23102",
+          "class": "3/2",
+          "room": "สนาม",
+          "time": "13:30-14:30"
+        }
+      ]
+    }
+  }
+]

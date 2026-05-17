@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ระบบจัดสอนแทน — MKP</title>
+<style>
+:root {
+  --blue: #2b6cb0; --blue-light: #ebf8ff; --blue-dark: #1e4e8c;
+  --green: #276749; --green-light: #f0fff4; --green-mid: #38a169;
+  --red: #c53030; --red-light: #fff5f5;
+  --gray: #718096; --border: #e2e8f0; --bg: #f0f4f8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: #1a202c; min-height: 100vh; }
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+  color: white; padding: 14px 16px; position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+header h1 { font-size: 1rem; font-weight: 700; }
+header p  { font-size: 0.72rem; opacity: 0.8; margin-top: 2px; }
+
+/* Tabs */
+.tabs { display: flex; background: white; border-bottom: 2px solid var(--border); }
+.tab-btn {
+  flex: 1; padding: 11px; border: none; background: none; cursor: pointer;
+  font-size: 0.82rem; font-weight: 600; color: var(--gray);
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.15s;
+}
+.tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* Content */
+.tab-pane { display: none; padding: 14px; max-width: 600px; margin: 0 auto; }
+.tab-pane.active { display: block; }
+
+/* Cards */
+.card {
+  background: white; border-radius: 12px; padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px;
+}
+.card-title { font-size: 0.78rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+
+/* Form elements */
+label { display: block; font-size: 0.75rem; font-weight: 600; color: #4a5568; margin-bottom: 5px; }
+select, input[type=date] {
+  width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 9px 10px; font-size: 0.85rem; color: #1a202c;
+  background: white; outline: none; margin-bottom: 12px;
+  transition: border-color 0.15s; appearance: none;
+}
+select:focus, input[type=date]:focus { border-color: var(--blue); }
+select:last-child, input:last-child { margin-bottom: 0; }
+
+/* Period cards */
+.period-card {
+  background: white; border-radius: 10px; padding: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 10px;
+  border-left: 4px solid var(--blue);
+}
+.period-card.assigned { border-left-color: var(--green-mid); }
+.period-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.period-badge {
+  background: var(--blue); color: white; border-radius: 8px;
+  padding: 4px 10px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+}
+.period-badge.double { background: #6b46c1; }
+.period-info { flex: 1; }
+.period-class { font-weight: 700; font-size: 0.9rem; }
+.period-subj { font-size: 0.75rem; color: var(--gray); }
+.period-time { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-top: 1px; }
+.room-tag { background: #f7fafc; border: 1px solid var(--border); border-radius: 6px; padding: 2px 7px; font-size: 0.7rem; color: var(--gray); }
+
+.sub-label { font-size: 0.72rem; font-weight: 700; color: var(--gray); margin-bottom: 5px; display: block; }
+.sub-select {
+  width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 8px 10px; font-size: 0.82rem; color: #1a202c;
+  background: white; outline: none; transition: border-color 0.15s;
+}
+.sub-select:focus { border-color: var(--green-mid); }
+.sub-select.selected { border-color: var(--green-mid); background: var(--green-light); }
+.free-count { font-size: 0.7rem; color: var(--green); margin-top: 4px; }
+
+/* Submit button */
+.btn-submit {
+  width: 100%; padding: 14px; border-radius: 10px; border: none;
+  background: var(--blue); color: white; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s; margin-top: 4px;
+}
+.btn-submit:hover { background: var(--blue-dark); }
+.btn-submit:disabled { background: #a0aec0; cursor: not-allowed; }
+
+/* No schedule */
+.empty-msg { text-align: center; padding: 32px 16px; color: var(--gray); }
+.empty-msg .icon { font-size: 2.5rem; margin-bottom: 8px; }
+.empty-msg p { font-size: 0.85rem; }
+
+/* Records tab */
+.rec-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.rec-header h3 { font-size: 0.9rem; font-weight: 700; }
+.btn-refresh {
+  border: 1.5px solid var(--border); border-radius: 8px; background: white;
+  padding: 6px 12px; font-size: 0.75rem; cursor: pointer; color: var(--gray);
+}
+.btn-refresh:hover { border-color: var(--blue); color: var(--blue); }
+.rec-item {
+  background: white; border-radius: 10px; padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07); margin-bottom: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+.rec-period { background: var(--blue); color: white; border-radius: 6px; padding: 4px 8px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; text-align: center; min-width: 44px; }
+.rec-body { flex: 1; }
+.rec-absent { font-size: 0.78rem; color: var(--gray); }
+.rec-sub { font-size: 0.85rem; font-weight: 700; color: var(--blue); }
+.rec-detail { font-size: 0.7rem; color: var(--gray); margin-top: 1px; }
+.btn-del-rec {
+  border: none; background: none; cursor: pointer; color: #fc8181;
+  font-size: 1rem; padding: 4px; border-radius: 6px;
+}
+.btn-del-rec:hover { background: var(--red-light); }
+
+/* Loading / spinner */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #bee3f8; border-top-color: var(--blue); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(10px);
+  background: #1a202c; color: white; border-radius: 10px; padding: 10px 20px;
+  font-size: 0.82rem; font-weight: 600; opacity: 0; transition: all 0.25s;
+  pointer-events: none; z-index: 100; white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.green { background: var(--green); }
+.toast.red { background: var(--red); }
+
+/* Config alert */
+.config-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: 0.78rem; color: #744210; }
+.config-alert strong { display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ระบบจัดสอนแทน — โรงเรียนเมืองแกพิทยาสรรค์</h1>
+  <p>ภาคเรียนที่ 1/2569</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('assign')">จัดสอนแทน</button>
+  <button class="tab-btn" onclick="switchTab('records')">บันทึกวันนี้</button>
+</div>
+
+<!-- Tab 1: Assign -->
+<div class="tab-pane active" id="tab-assign">
+
+  <div id="api-warning" class="config-alert" style="display:none">
+    <strong>⚠ ยังไม่ได้ตั้งค่า API URL</strong>
+    แก้ไข <code>API_URL</code> ในไฟล์ index.html ให้เป็น URL ของ Apps Script
+  </div>
+
+  <div class="card">
+    <div class="card-title">เลือกครูที่ลา</div>
+
+    <label>วันที่</label>
+    <input type="date" id="date-input" onchange="onDateChange()">
+
+    <label>ครูที่ลา</label>
+    <select id="teacher-select" onchange="onTeacherChange()">
+      <option value="">— เลือกครู —</option>
+    </select>
+
+    <label>ฉันคือ</label>
+    <select id="user-select">
+      <option value="ครูภูริณัฐ">ครูภูริณัฐ</option>
+      <option value="ครูพงศธร">ครูพงศธร</option>
+    </select>
+  </div>
+
+  <div id="periods-container"></div>
+
+  <button class="btn-submit" id="submit-btn" onclick="submitAll()" style="display:none">
+    บันทึกการจัดสอนแทน
+  </button>
+</div>
+
+<!-- Tab 2: Records -->
+<div class="tab-pane" id="tab-records">
+  <div class="rec-header">
+    <h3 id="rec-title">รายการวันนี้</h3>
+    <button class="btn-refresh" onclick="loadRecords()">↻ รีเฟรช</button>
+  </div>
+  <div id="records-list">
+    <div class="empty-msg"><div class="icon">📋</div><p>กด รีเฟรช เพื่อดูข้อมูล</p></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════
+//  CONFIG — เปลี่ยน URL ด้านล่างหลัง Deploy Apps Script
+// ══════════════════════════════════════════════════════
+const API_URL = 'https://script.google.com/macros/s/AKfycbyf-T_GRggQC2Ba2zpHEcikS057blfXAh_asBNKYn6n2E2vTsqxLIhM-Y4v4-W0FtnKJg/exec';
+
+// ══════════════════════════════════════════════════════
+const DAYS_TH = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
+
+let TEACHERS = [];
+let currentDate = '';
+let currentDay  = '';
+
+// ── Init ──────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', async () => {
+  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
+    document.getElementById('api-warning').style.display = 'block';
+  }
+
+  // Restore saved user
+  const saved = localStorage.getItem('mkp_user');
+  if (saved) document.getElementById('user-select').value = saved;
+  document.getElementById('user-select').addEventListener('change', e => {
+    localStorage.setItem('mkp_user', e.target.value);
+  });
+
+  // Set today's date
+  const today = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  currentDate = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  document.getElementById('date-input').value = currentDate;
+  currentDay = DAYS_TH[today.getDay()];
+
+  // Load teachers.json
+  try {
+    const res = await fetch('./teachers.json');
+    TEACHERS = await res.json();
+    populateTeacherSelect();
+  } catch(e) {
+    showToast('โหลด teachers.json ไม่ได้', 'red');
+  }
+});
+
+// ── Date change ───────────────────────────────────────
+function onDateChange() {
+  currentDate = document.getElementById('date-input').value;
+  const d = new Date(currentDate + 'T12:00:00');
+  currentDay = DAYS_TH[d.getDay()];
+  onTeacherChange();
+}
+
+// ── Populate teacher dropdown ─────────────────────────
+function populateTeacherSelect() {
+  const sel = document.getElementById('teacher-select');
+  // Only teachers with actual schedule
+  const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
+  active.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.name;
+    opt.textContent = t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+    sel.appendChild(opt);
+  });
+}
+
+// ── Teacher selected ──────────────────────────────────
+function onTeacherChange() {
+  const name = document.getElementById('teacher-select').value;
+  const container = document.getElementById('periods-container');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (!name) { container.innerHTML = ''; submitBtn.style.display = 'none'; return; }
+
+  const teacher = TEACHERS.find(t => t.name === name);
+  const daySchedule = teacher?.schedule?.[currentDay] || [];
+
+  // Deduplicate double periods (show only once)
+  const seen = new Set();
+  const uniquePeriods = [];
+  for (const p of daySchedule) {
+    const key = p.isDouble ? p.time + p.class : `p${p.period}`;
+    if (!seen.has(key)) { seen.add(key); uniquePeriods.push(p); }
+  }
+
+  if (uniquePeriods.length === 0) {
+    const dayLabel = ['', 'วันจันทร์','วันอังคาร','วันพุธ','วันพฤหัสบดี','วันศุกร์','',''][new Date(currentDate+'T12:00:00').getDay()];
+    container.innerHTML = `<div class="empty-msg"><div class="icon">✅</div><p>${name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}<br>ไม่มีคาบเรียน${dayLabel || 'วันนี้'}</p></div>`;
+    submitBtn.style.display = 'none';
+    return;
+  }
+
+  container.innerHTML = '';
+  uniquePeriods.forEach(p => renderPeriodCard(container, p, name));
+  submitBtn.style.display = 'block';
+}
+
+// ── Render one period card ────────────────────────────
+function renderPeriodCard(container, p, absentName) {
+  const available = getAvailableTeachers(currentDay, p.period, absentName);
+  const isDouble = p.isDouble;
+  const periodLabel = isDouble
+    ? `คาบ ${getPairNums(p)} [คาบคู่]`
+    : `คาบ ${p.period}`;
+
+  const card = document.createElement('div');
+  card.className = 'period-card';
+  card.id = `card-p${p.period}`;
+  card.innerHTML = `
+    <div class="period-header">
+      <span class="period-badge ${isDouble?'double':''}">${periodLabel}</span>
+      <div class="period-info">
+        <div class="period-class">${p.class}</div>
+        <div class="period-subj">${p.subject}</div>
+        <div class="period-time">🕐 ${p.time}</div>
+      </div>
+      <span class="room-tag">ห้อง ${p.room}</span>
+    </div>
+    <span class="sub-label">ครูสอนแทน</span>
+    <select class="sub-select" id="sub-${p.period}" onchange="onSubChange(this, ${p.period})">
+      <option value="">— เลือกครูสอนแทน (${available.length} คนว่าง) —</option>
+      ${available.map(n => `<option value="${n}">${n.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+      <optgroup label="────────────────────"></optgroup>
+      <option value="__all__">แสดงครูทั้งหมด...</option>
+    </select>
+    <div class="free-count" id="note-${p.period}"></div>
+  `;
+  container.appendChild(card);
+}
+
+function onSubChange(sel, period) {
+  if (sel.value === '__all__') {
+    // Repopulate with all teachers
+    const absentName = document.getElementById('teacher-select').value;
+    const allTeachers = TEACHERS.filter(t =>
+      Object.keys(t.schedule).length > 0 && t.name !== absentName
+    );
+    const available = getAvailableTeachers(currentDay, period, absentName);
+    const busy = allTeachers.filter(t => !available.includes(t.name));
+
+    sel.innerHTML = `<option value="">— เลือกครูสอนแทน —</option>
+      <optgroup label="ว่าง (${available.length} คน)">
+        ${available.map(n => `<option value="${n}">${n.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+      </optgroup>
+      <optgroup label="มีคาบอยู่ (${busy.length} คน) — เลือกได้ถ้าจำเป็น">
+        ${busy.map(t => `<option value="${t.name}">${t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+      </optgroup>`;
+    sel.value = '';
+  }
+  const card = sel.closest('.period-card');
+  if (sel.value && sel.value !== '__all__') {
+    card.classList.add('assigned');
+    document.getElementById(`note-${period}`).textContent = `✓ ${sel.value.replace(/^(นาย|นางสาว|นาง)\s*/,'')} รับหน้าที่แทน`;
+  } else {
+    card.classList.remove('assigned');
+    document.getElementById(`note-${period}`).textContent = '';
+  }
+}
+
+// ── Get available teachers for a period ──────────────
+function getAvailableTeachers(day, period, excludeName) {
+  const busyNames = new Set();
+  TEACHERS.forEach(t => {
+    const dayS = t.schedule[day] || [];
+    if (dayS.some(p => p.period === period)) busyNames.add(t.name);
+  });
+  return TEACHERS
+    .filter(t => Object.keys(t.schedule).length > 0 && t.name !== excludeName && !busyNames.has(t.name))
+    .map(t => t.name);
+}
+
+// ── Get pair period numbers as string ────────────────
+function getPairNums(p) {
+  if (!p.isDouble) return String(p.period);
+  // Find which period numbers share this time slot
+  const absent = TEACHERS.find(t => t.name === document.getElementById('teacher-select').value);
+  const pairs = (absent?.schedule?.[currentDay] || []).filter(x => x.isDouble && x.time === p.time).map(x => x.period);
+  return pairs.length > 1 ? `${Math.min(...pairs)}+${Math.max(...pairs)}` : String(p.period);
+}
+
+// ── Submit all assignments ────────────────────────────
+async function submitAll() {
+  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
+    showToast('กรุณาตั้งค่า API URL ก่อน', 'red'); return;
+  }
+  const absentName = document.getElementById('teacher-select').value;
+  const recordedBy = document.getElementById('user-select').value;
+  const teacher = TEACHERS.find(t => t.name === absentName);
+  const daySchedule = teacher?.schedule?.[currentDay] || [];
+
+  // Collect unique periods (deduplicate doubles)
+  const seen = new Set();
+  const toSave = [];
+  for (const p of daySchedule) {
+    const key = p.isDouble ? p.time + p.class : `p${p.period}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const subSel = document.getElementById(`sub-${p.period}`);
+    const sub = subSel?.value;
+    if (sub && sub !== '__all__') toSave.push({ p, sub });
+  }
+
+  if (toSave.length === 0) {
+    showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>กำลังบันทึก...';
+
+  let success = 0;
+  for (const { p, sub } of toSave) {
+    const pairLabel = p.isDouble ? getPairNums(p) : String(p.period);
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          action: 'logSubstitute',
+          date: currentDate,
+          absentTeacher: absentName,
+          period: pairLabel,
+          time: p.time,
+          cls: p.class,
+          subject: p.subject,
+          room: p.room,
+          substitute: sub,
+          recordedBy
+        })
+      });
+      const data = await res.json();
+      if (data.success) success++;
+    } catch(e) { /* continue */ }
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'บันทึกการจัดสอนแทน';
+
+  if (success > 0) {
+    showToast(`บันทึกแล้ว ${success} คาบ ✓`, 'green');
+    // Reset
+    setTimeout(() => {
+      document.getElementById('teacher-select').value = '';
+      document.getElementById('periods-container').innerHTML = '';
+      document.getElementById('submit-btn').style.display = 'none';
+    }, 1200);
+  } else {
+    showToast('บันทึกไม่สำเร็จ ตรวจสอบการเชื่อมต่อ', 'red');
+  }
+}
+
+// ── Load & display records ────────────────────────────
+async function loadRecords() {
+  document.getElementById('rec-title').textContent = `รายการ ${currentDate}`;
+  const list = document.getElementById('records-list');
+  list.innerHTML = '<div style="text-align:center;padding:20px"><span class="spinner"></span>กำลังโหลด...</div>';
+
+  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
+    list.innerHTML = '<div class="empty-msg"><div class="icon">⚠</div><p>ยังไม่ได้ตั้งค่า API URL</p></div>';
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_URL}?action=getByDate&date=${currentDate}`);
+    const data = await res.json();
+    renderRecords(data.records || []);
+  } catch(e) {
+    list.innerHTML = '<div class="empty-msg"><div class="icon">❌</div><p>เชื่อมต่อไม่ได้</p></div>';
+  }
+}
+
+function renderRecords(records) {
+  const list = document.getElementById('records-list');
+  if (records.length === 0) {
+    list.innerHTML = '<div class="empty-msg"><div class="icon">📋</div><p>ยังไม่มีรายการวันนี้</p></div>';
+    return;
+  }
+  list.innerHTML = records.map(r => `
+    <div class="rec-item">
+      <div class="rec-period">คาบ ${r.period}</div>
+      <div class="rec-body">
+        <div class="rec-absent">ครูที่ลา: ${r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</div>
+        <div class="rec-sub">→ ${r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</div>
+        <div class="rec-detail">${r.cls} · ${r.subject} · ห้อง ${r.room} · ${r.time}</div>
+      </div>
+      <button class="btn-del-rec" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
+    </div>
+  `).join('');
+}
+
+async function deleteRecord(rowIndex) {
+  if (!confirm('ลบรายการนี้?')) return;
+  try {
+    await fetch(API_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'deleteRecord', rowIndex })
+    });
+    showToast('ลบแล้ว', 'green');
+    loadRecords();
+  } catch(e) { showToast('ลบไม่สำเร็จ', 'red'); }
+}
+
+// ── UI helpers ────────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', (i===0&&tab==='assign')||(i===1&&tab==='records')));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  if (tab === 'records') loadRecords();
+}
+
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast', 2500);
+}
+</script>
+</body>
+</html>
