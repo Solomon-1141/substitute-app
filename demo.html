@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ระบบจัดสอนแทน — MKP</title>
+<title>[DEMO] ระบบจัดสอนแทน — MKP</title>
 <style>
 :root {
   --blue: #2b6cb0; --blue-light: #ebf8ff; --blue-dark: #1e4e8c;
@@ -14,7 +14,11 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: #1a202c; min-height: 100vh; }
 
-/* Header */
+.demo-bar {
+  background: #dd6b20; color: white; text-align: center;
+  padding: 7px 16px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em;
+}
+
 header {
   background: linear-gradient(135deg, var(--blue-dark), var(--blue));
   color: white; padding: 14px 16px; position: sticky; top: 0; z-index: 50;
@@ -23,7 +27,6 @@ header {
 header h1 { font-size: 1rem; font-weight: 700; }
 header p  { font-size: 0.72rem; opacity: 0.8; margin-top: 2px; }
 
-/* Tabs */
 .tabs { display: flex; background: white; border-bottom: 2px solid var(--border); }
 .tab-btn {
   flex: 1; padding: 11px; border: none; background: none; cursor: pointer;
@@ -32,18 +35,15 @@ header p  { font-size: 0.72rem; opacity: 0.8; margin-top: 2px; }
 }
 .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
 
-/* Content */
 .tab-pane { display: none; padding: 14px; max-width: 600px; margin: 0 auto; }
 .tab-pane.active { display: block; }
 
-/* Cards */
 .card {
   background: white; border-radius: 12px; padding: 16px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px;
 }
 .card-title { font-size: 0.78rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
 
-/* Form elements */
 label { display: block; font-size: 0.75rem; font-weight: 600; color: #4a5568; margin-bottom: 5px; }
 select, input[type=date] {
   width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
@@ -54,7 +54,6 @@ select, input[type=date] {
 select:focus, input[type=date]:focus { border-color: var(--blue); }
 select:last-child, input:last-child { margin-bottom: 0; }
 
-/* Period cards */
 .period-card {
   background: white; border-radius: 10px; padding: 14px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 10px;
@@ -72,7 +71,6 @@ select:last-child, input:last-child { margin-bottom: 0; }
 .period-subj { font-size: 0.75rem; color: var(--gray); }
 .period-time { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-top: 1px; }
 .room-tag { background: #f7fafc; border: 1px solid var(--border); border-radius: 6px; padding: 2px 7px; font-size: 0.7rem; color: var(--gray); }
-
 .sub-label { font-size: 0.72rem; font-weight: 700; color: var(--gray); margin-bottom: 5px; display: block; }
 .sub-select {
   width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
@@ -83,7 +81,6 @@ select:last-child, input:last-child { margin-bottom: 0; }
 .sub-select.selected { border-color: var(--green-mid); background: var(--green-light); }
 .free-count { font-size: 0.7rem; color: var(--green); margin-top: 4px; }
 
-/* Submit button */
 .btn-submit {
   width: 100%; padding: 14px; border-radius: 10px; border: none;
   background: var(--blue); color: white; font-size: 0.9rem; font-weight: 700;
@@ -92,40 +89,19 @@ select:last-child, input:last-child { margin-bottom: 0; }
 .btn-submit:hover { background: var(--blue-dark); }
 .btn-submit:disabled { background: #a0aec0; cursor: not-allowed; }
 
-/* No schedule */
 .empty-msg { text-align: center; padding: 32px 16px; color: var(--gray); }
 .empty-msg .icon { font-size: 2.5rem; margin-bottom: 8px; }
 .empty-msg p { font-size: 0.85rem; }
 
-/* Records tab */
-.rec-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.rec-header h3 { font-size: 0.9rem; font-weight: 700; }
 .btn-refresh {
   border: 1.5px solid var(--border); border-radius: 8px; background: white;
   padding: 6px 12px; font-size: 0.75rem; cursor: pointer; color: var(--gray);
 }
 .btn-refresh:hover { border-color: var(--blue); color: var(--blue); }
-.rec-item {
-  background: white; border-radius: 10px; padding: 12px 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.07); margin-bottom: 8px;
-  display: flex; align-items: center; gap: 12px;
-}
-.rec-period { background: var(--blue); color: white; border-radius: 6px; padding: 4px 8px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; text-align: center; min-width: 44px; }
-.rec-body { flex: 1; }
-.rec-absent { font-size: 0.78rem; color: var(--gray); }
-.rec-sub { font-size: 0.85rem; font-weight: 700; color: var(--blue); }
-.rec-detail { font-size: 0.7rem; color: var(--gray); margin-top: 1px; }
-.btn-del-rec {
-  border: none; background: none; cursor: pointer; color: #fc8181;
-  font-size: 1rem; padding: 4px; border-radius: 6px;
-}
-.btn-del-rec:hover { background: var(--red-light); }
 
-/* Loading / spinner */
 .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #bee3f8; border-top-color: var(--blue); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Toast */
 .toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(10px);
   background: #1a202c; color: white; border-radius: 10px; padding: 10px 20px;
@@ -135,8 +111,38 @@ select:last-child, input:last-child { margin-bottom: 0; }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast.green { background: var(--green); }
 .toast.red { background: var(--red); }
+.toast.orange { background: #dd6b20; }
 
-/* ── Timetable tab ────────────────────────────────── */
+/* Records tab */
+.rec-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.rec-toolbar h3 { font-size: 0.9rem; font-weight: 700; flex: 1; }
+.btn-line {
+  background: #06c755; color: white; border: none; border-radius: 8px;
+  padding: 7px 13px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn-line:hover { background: #05a847; }
+.btn-line:active { transform: scale(0.97); }
+
+.summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.summary-table th {
+  background: var(--blue-dark); color: white; font-size: 0.72rem; font-weight: 700;
+  padding: 9px 10px; text-align: left;
+}
+.summary-table td { padding: 10px; font-size: 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover td { background: var(--blue-light); }
+.td-period { font-weight: 700; color: white; background: var(--blue) !important; text-align: center; white-space: nowrap; width: 52px; }
+.td-period.double { background: #6b46c1 !important; }
+.td-time { color: var(--gray); font-size: 0.72rem; white-space: nowrap; }
+.td-arrow { font-size: 0.75rem; color: var(--gray); }
+.td-absent { color: #744210; font-weight: 600; }
+.td-sub { color: var(--green); font-weight: 700; font-size: 0.88rem; }
+.td-cls { color: var(--gray); font-size: 0.72rem; }
+.del-btn-wrap { text-align: center; width: 30px; }
+.btn-del-rec { border: none; background: none; cursor: pointer; color: #fc8181; font-size: 1rem; padding: 4px; border-radius: 6px; }
+.btn-del-rec:hover { background: var(--red-light); }
+
+/* Timetable tab */
 .day-selector { display: flex; gap: 6px; margin-bottom: 14px; }
 .day-btn {
   flex: 1; padding: 9px 4px; border: 1.5px solid var(--border); border-radius: 8px;
@@ -154,48 +160,16 @@ select:last-child, input:last-child { margin-bottom: 0; }
 .tt td { padding: 6px 5px; border: 1px solid var(--border); text-align: center; vertical-align: middle; background: white; }
 .tt .td-name { text-align: left; font-weight: 700; font-size: 0.76rem; background: #f7fafc; padding: 6px 10px; white-space: nowrap; border-right: 2px solid var(--border); }
 .cell-free { color: #c6f6d5; font-size: 0.6rem; background: #f0fff4 !important; }
-.cell-busy { background: var(--blue-light) !important; cursor: default; }
+.cell-busy { background: var(--blue-light) !important; }
 .cell-double { background: #f0e6ff !important; }
 .cell-cls { font-weight: 700; color: #1e4e8c; }
 .cell-double .cell-cls { color: #6b46c1; }
 .cell-subj { color: var(--gray); font-size: 0.6rem; margin-top: 1px; }
-
-/* Config alert */
-.config-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: 0.78rem; color: #744210; }
-.config-alert strong { display: block; margin-bottom: 4px; }
-
-/* Records tab redesign */
-.rec-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.rec-toolbar h3 { font-size: 0.9rem; font-weight: 700; flex: 1; }
-.btn-line {
-  background: #06c755; color: white; border: none; border-radius: 8px;
-  padding: 7px 13px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
-}
-.btn-line:hover { background: #05a847; }
-.btn-line:active { transform: scale(0.97); }
-
-/* Summary table */
-.summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-.summary-table th {
-  background: var(--blue-dark); color: white; font-size: 0.72rem; font-weight: 700;
-  padding: 9px 10px; text-align: left;
-}
-.summary-table td { padding: 10px; font-size: 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-.summary-table tr:last-child td { border-bottom: none; }
-.summary-table tr:hover td { background: var(--blue-light); }
-.td-period { font-weight: 700; color: white; background: var(--blue) !important; text-align: center; border-radius: 0; white-space: nowrap; width: 52px; }
-.td-period.double { background: #6b46c1 !important; }
-.td-time { color: var(--gray); font-size: 0.72rem; white-space: nowrap; }
-.td-arrow { font-size: 0.75rem; color: var(--gray); }
-.td-absent { color: #744210; font-weight: 600; }
-.td-sub { color: var(--green); font-weight: 700; font-size: 0.88rem; }
-.td-cls { color: var(--gray); font-size: 0.72rem; }
-.del-btn-wrap { text-align: center; width: 30px; }
-.btn-del-rec { border: none; background: none; cursor: pointer; color: #fc8181; font-size: 1rem; padding: 4px; border-radius: 6px; }
-.btn-del-rec:hover { background: var(--red-light); }
 </style>
 </head>
 <body>
+
+<div class="demo-bar">⚡ DEMO MODE — ข้อมูลตัวอย่าง ไม่ได้เชื่อมฐานข้อมูลจริง</div>
 
 <header>
   <h1>ระบบจัดสอนแทน — โรงเรียนเมืองแกพิทยาสรรค์</h1>
@@ -210,32 +184,21 @@ select:last-child, input:last-child { margin-bottom: 0; }
 
 <!-- Tab 1: Assign -->
 <div class="tab-pane active" id="tab-assign">
-
-  <div id="api-warning" class="config-alert" style="display:none">
-    <strong>⚠ ยังไม่ได้ตั้งค่า API URL</strong>
-    แก้ไข <code>API_URL</code> ในไฟล์ index.html ให้เป็น URL ของ Apps Script
-  </div>
-
   <div class="card">
     <div class="card-title">เลือกครูที่ลา</div>
-
     <label>วันที่</label>
     <input type="date" id="date-input" onchange="onDateChange()">
-
     <label>ครูที่ลา</label>
     <select id="teacher-select" onchange="onTeacherChange()">
       <option value="">— เลือกครู —</option>
     </select>
-
     <label>ฉันคือ</label>
     <select id="user-select">
       <option value="ครูภูริณัฐ">ครูภูริณัฐ</option>
       <option value="ครูพงศธร">ครูพงศธร</option>
     </select>
   </div>
-
   <div id="periods-container"></div>
-
   <button class="btn-submit" id="submit-btn" onclick="submitAll()" style="display:none">
     บันทึกการจัดสอนแทน
   </button>
@@ -249,7 +212,7 @@ select:last-child, input:last-child { margin-bottom: 0; }
     <button class="btn-refresh" onclick="loadRecords()">↻ รีเฟรช</button>
   </div>
   <div id="records-list">
-    <div class="empty-msg"><div class="icon">📋</div><p>กด รีเฟรช เพื่อดูข้อมูล</p></div>
+    <div style="text-align:center;padding:20px"><span class="spinner"></span>กำลังโหลด...</div>
   </div>
 </div>
 
@@ -266,39 +229,45 @@ select:last-child, input:last-child { margin-bottom: 0; }
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════════════════
-//  CONFIG — เปลี่ยน URL ด้านล่างหลัง Deploy Apps Script
-// ══════════════════════════════════════════════════════
-const API_URL = 'https://script.google.com/macros/s/AKfycbyf-T_GRggQC2Ba2zpHEcikS057blfXAh_asBNKYn6n2E2vTsqxLIhM-Y4v4-W0FtnKJg/exec';
-
-// ══════════════════════════════════════════════════════
 const DAYS_TH = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
 
 let TEACHERS = [];
 let currentDate = '';
 let currentDay  = '';
 
+// ── Mock records (ข้อมูลตัวอย่าง) ──────────────────────
+const MOCK_RECORDS = [
+  {
+    rowIndex: 2, date: '2026-05-18',
+    absentTeacher: 'นายภูริณัฐ กลั่นกำเนิด', period: '1+2',
+    time: '08:30-10:30', cls: 'ม.6', subject: 'ค33103', room: '323',
+    substitute: 'นายพงศธร สายสุวรรณ', recordedBy: 'ครูภูริณัฐ', timestamp: '18/05/2026 08:30'
+  },
+  {
+    rowIndex: 3, date: '2026-05-18',
+    absentTeacher: 'นายภูริณัฐ กลั่นกำเนิด', period: '3',
+    time: '10:30-11:30', cls: 'ม.4', subject: 'ค31201', room: '328',
+    substitute: 'นางสาวสุภาพร มีมงคล', recordedBy: 'ครูภูริณัฐ', timestamp: '18/05/2026 08:30'
+  },
+  {
+    rowIndex: 4, date: '2026-05-18',
+    absentTeacher: 'นายสมพงษ์ ทองอ่อน', period: '5',
+    time: '13:30-14:30', cls: 'ม.2/3', subject: 'สุขศึกษา', room: '201',
+    substitute: 'นายประทีป รักษ์ไพร', recordedBy: 'ครูพงศธร', timestamp: '18/05/2026 12:15'
+  },
+];
+
+let _mockRecords = [...MOCK_RECORDS];
+let _lastRecords = [];
+
 // ── Init ──────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', async () => {
-  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
-    document.getElementById('api-warning').style.display = 'block';
-  }
-
-  // Restore saved user
-  const saved = localStorage.getItem('mkp_user');
-  if (saved) document.getElementById('user-select').value = saved;
-  document.getElementById('user-select').addEventListener('change', e => {
-    localStorage.setItem('mkp_user', e.target.value);
-  });
-
-  // Set today's date
   const today = new Date();
   const pad = n => String(n).padStart(2,'0');
   currentDate = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
   document.getElementById('date-input').value = currentDate;
   currentDay = DAYS_TH[today.getDay()];
 
-  // Load teachers.json
   try {
     const res = await fetch('./teachers.json');
     TEACHERS = await res.json();
@@ -307,9 +276,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   } catch(e) {
     showToast('โหลด teachers.json ไม่ได้', 'red');
   }
+
+  // Auto-load mock records
+  loadRecords();
 });
 
-// ── Date change ───────────────────────────────────────
 function onDateChange() {
   currentDate = document.getElementById('date-input').value;
   const d = new Date(currentDate + 'T12:00:00');
@@ -317,12 +288,9 @@ function onDateChange() {
   onTeacherChange();
 }
 
-// ── Populate teacher dropdown ─────────────────────────
 function populateTeacherSelect() {
   const sel = document.getElementById('teacher-select');
-  // Only teachers with actual schedule
-  const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
-  active.forEach(t => {
+  TEACHERS.filter(t => Object.keys(t.schedule).length > 0).forEach(t => {
     const opt = document.createElement('option');
     opt.value = t.name;
     opt.textContent = t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'');
@@ -330,7 +298,6 @@ function populateTeacherSelect() {
   });
 }
 
-// ── Teacher selected ──────────────────────────────────
 function onTeacherChange() {
   const name = document.getElementById('teacher-select').value;
   const container = document.getElementById('periods-container');
@@ -341,7 +308,6 @@ function onTeacherChange() {
   const teacher = TEACHERS.find(t => t.name === name);
   const daySchedule = teacher?.schedule?.[currentDay] || [];
 
-  // Deduplicate double periods (show only once)
   const seen = new Set();
   const uniquePeriods = [];
   for (const p of daySchedule) {
@@ -350,8 +316,8 @@ function onTeacherChange() {
   }
 
   if (uniquePeriods.length === 0) {
-    const dayLabel = ['', 'วันจันทร์','วันอังคาร','วันพุธ','วันพฤหัสบดี','วันศุกร์','',''][new Date(currentDate+'T12:00:00').getDay()];
-    container.innerHTML = `<div class="empty-msg"><div class="icon">✅</div><p>${name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}<br>ไม่มีคาบเรียน${dayLabel || 'วันนี้'}</p></div>`;
+    const dayLabel = ['','วันจันทร์','วันอังคาร','วันพุธ','วันพฤหัสบดี','วันศุกร์','',''][new Date(currentDate+'T12:00:00').getDay()];
+    container.innerHTML = `<div class="empty-msg"><div class="icon">✅</div><p>${name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}<br>ไม่มีคาบเรียน${dayLabel||'วันนี้'}</p></div>`;
     submitBtn.style.display = 'none';
     return;
   }
@@ -361,13 +327,10 @@ function onTeacherChange() {
   submitBtn.style.display = 'block';
 }
 
-// ── Render one period card ────────────────────────────
 function renderPeriodCard(container, p, absentName) {
   const available = getAvailableTeachers(currentDay, p.period, absentName);
   const isDouble = p.isDouble;
-  const periodLabel = isDouble
-    ? `คาบ ${getPairNums(p)} [คาบคู่]`
-    : `คาบ ${p.period}`;
+  const periodLabel = isDouble ? `คาบ ${getPairNums(p)} [คาบคู่]` : `คาบ ${p.period}`;
 
   const card = document.createElement('div');
   card.className = 'period-card';
@@ -396,14 +359,10 @@ function renderPeriodCard(container, p, absentName) {
 
 function onSubChange(sel, period) {
   if (sel.value === '__all__') {
-    // Repopulate with all teachers
     const absentName = document.getElementById('teacher-select').value;
-    const allTeachers = TEACHERS.filter(t =>
-      Object.keys(t.schedule).length > 0 && t.name !== absentName
-    );
+    const allTeachers = TEACHERS.filter(t => Object.keys(t.schedule).length > 0 && t.name !== absentName);
     const available = getAvailableTeachers(currentDay, period, absentName);
     const busy = allTeachers.filter(t => !available.includes(t.name));
-
     sel.innerHTML = `<option value="">— เลือกครูสอนแทน —</option>
       <optgroup label="ว่าง (${available.length} คน)">
         ${available.map(n => `<option value="${n}">${n.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
@@ -423,7 +382,6 @@ function onSubChange(sel, period) {
   }
 }
 
-// ── Get available teachers for a period ──────────────
 function getAvailableTeachers(day, period, excludeName) {
   const busyNames = new Set();
   TEACHERS.forEach(t => {
@@ -435,127 +393,63 @@ function getAvailableTeachers(day, period, excludeName) {
     .map(t => t.name);
 }
 
-// ── Get pair period numbers as string ────────────────
 function getPairNums(p) {
   if (!p.isDouble) return String(p.period);
-  // Find which period numbers share this time slot
   const absent = TEACHERS.find(t => t.name === document.getElementById('teacher-select').value);
   const pairs = (absent?.schedule?.[currentDay] || []).filter(x => x.isDouble && x.time === p.time).map(x => x.period);
   return pairs.length > 1 ? `${Math.min(...pairs)}+${Math.max(...pairs)}` : String(p.period);
 }
 
-// ── Submit all assignments ────────────────────────────
+// ── Demo: Submit (ไม่บันทึกจริง) ──────────────────────
 async function submitAll() {
-  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
-    showToast('กรุณาตั้งค่า API URL ก่อน', 'red'); return;
-  }
-  const absentName = document.getElementById('teacher-select').value;
-  const recordedBy = document.getElementById('user-select').value;
-  const teacher = TEACHERS.find(t => t.name === absentName);
-  const daySchedule = teacher?.schedule?.[currentDay] || [];
-
-  // Collect unique periods (deduplicate doubles)
-  const seen = new Set();
   const toSave = [];
+  const teacher = TEACHERS.find(t => t.name === document.getElementById('teacher-select').value);
+  const daySchedule = teacher?.schedule?.[currentDay] || [];
+  const seen = new Set();
   for (const p of daySchedule) {
     const key = p.isDouble ? p.time + p.class : `p${p.period}`;
     if (seen.has(key)) continue;
     seen.add(key);
-    const subSel = document.getElementById(`sub-${p.period}`);
-    const sub = subSel?.value;
-    if (sub && sub !== '__all__') toSave.push({ p, sub });
+    const sub = document.getElementById(`sub-${p.period}`)?.value;
+    if (sub && sub !== '__all__') toSave.push(sub);
   }
+  if (!toSave.length) { showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return; }
 
-  if (toSave.length === 0) {
-    showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return;
-  }
-
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>กำลังบันทึก...';
-
-  let success = 0;
-  for (const { p, sub } of toSave) {
-    const pairLabel = p.isDouble ? getPairNums(p) : String(p.period);
-    try {
-      const res = await fetch(API_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-          action: 'logSubstitute',
-          date: currentDate,
-          absentTeacher: absentName,
-          period: pairLabel,
-          time: p.time,
-          cls: p.class,
-          subject: p.subject,
-          room: p.room,
-          substitute: sub,
-          recordedBy
-        })
-      });
-      const data = await res.json();
-      if (data.success) success++;
-    } catch(e) { /* continue */ }
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = 'บันทึกการจัดสอนแทน';
-
-  if (success > 0) {
-    showToast(`บันทึกแล้ว ${success} คาบ ✓`, 'green');
-    // Reset
-    setTimeout(() => {
-      document.getElementById('teacher-select').value = '';
-      document.getElementById('periods-container').innerHTML = '';
-      document.getElementById('submit-btn').style.display = 'none';
-    }, 1200);
-  } else {
-    showToast('บันทึกไม่สำเร็จ ตรวจสอบการเชื่อมต่อ', 'red');
-  }
+  showToast('DEMO — บันทึกสำเร็จ ✓ (ไม่ได้บันทึกจริง)', 'orange');
+  setTimeout(() => {
+    document.getElementById('teacher-select').value = '';
+    document.getElementById('periods-container').innerHTML = '';
+    document.getElementById('submit-btn').style.display = 'none';
+  }, 1200);
 }
 
-// ── Load & display records ────────────────────────────
-async function loadRecords() {
-  document.getElementById('rec-title').textContent = `รายการ ${currentDate}`;
-  const list = document.getElementById('records-list');
-  list.innerHTML = '<div style="text-align:center;padding:20px"><span class="spinner"></span>กำลังโหลด...</div>';
-
-  if (API_URL.includes('YOUR_APPS_SCRIPT')) {
-    list.innerHTML = '<div class="empty-msg"><div class="icon">⚠</div><p>ยังไม่ได้ตั้งค่า API URL</p></div>';
-    return;
-  }
-
-  try {
-    const res = await fetch(`${API_URL}?action=getByDate&date=${currentDate}`);
-    const data = await res.json();
-    renderRecords(data.records || []);
-  } catch(e) {
-    list.innerHTML = '<div class="empty-msg"><div class="icon">❌</div><p>เชื่อมต่อไม่ได้</p></div>';
-  }
+// ── Demo: Load records (ใช้ข้อมูลสมมุติ) ──────────────
+function loadRecords() {
+  const months = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const [y,m,d] = currentDate.split('-');
+  document.getElementById('rec-title').textContent =
+    `รายการ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y)+543} [DEMO]`;
+  renderRecords(_mockRecords);
 }
 
-let _lastRecords = [];
-
-function shortName(n) { return (n || '').replace(/^(นาย|นางสาว|นาง)\s*/, ''); }
+function shortName(n) { return (n||'').replace(/^(นาย|นางสาว|นาง)\s*/,''); }
 
 function renderRecords(records) {
   _lastRecords = records;
   const list = document.getElementById('records-list');
   const copyBtn = document.getElementById('btn-copy-line');
 
-  if (records.length === 0) {
+  if (!records.length) {
     list.innerHTML = '<div class="empty-msg"><div class="icon">📋</div><p>ยังไม่มีรายการวันนี้</p></div>';
     copyBtn.style.display = 'none';
     return;
   }
-
   copyBtn.style.display = '';
 
   const rows = records.map(r => {
     const isDouble = r.period.includes('+');
-    return `
-    <tr>
-      <td class="td-period${isDouble ? ' double' : ''}">คาบ<br>${r.period}</td>
+    return `<tr>
+      <td class="td-period${isDouble?' double':''}">คาบ<br>${r.period}</td>
       <td>
         <div class="td-time">${r.time}</div>
         <div class="td-cls">${r.cls} · ${r.subject} · ห้อง ${r.room}</div>
@@ -566,33 +460,33 @@ function renderRecords(records) {
         <div class="td-sub">${shortName(r.substitute)} สอนแทน</div>
       </td>
       <td class="del-btn-wrap">
-        <button class="btn-del-rec" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
+        <button class="btn-del-rec" onclick="demoDelete(${r.rowIndex})" title="ลบ">✕</button>
       </td>
     </tr>`;
   }).join('');
 
   list.innerHTML = `
     <table class="summary-table">
-      <thead>
-        <tr>
-          <th>คาบ</th>
-          <th>เวลา / ชั้น</th>
-          <th>ครูที่ลา → สอนแทน</th>
-          <th></th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>คาบ</th><th>เวลา / ชั้น</th><th>ครูที่ลา → สอนแทน</th><th></th>
+      </tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
 }
 
+function demoDelete(rowIndex) {
+  _mockRecords = _mockRecords.filter(r => r.rowIndex !== rowIndex);
+  renderRecords(_mockRecords);
+  showToast('ลบแล้ว [DEMO]', 'green');
+}
+
 function copyForLine() {
-  if (_lastRecords.length === 0) return;
+  if (!_lastRecords.length) return;
   const dateObj = new Date(currentDate + 'T00:00:00');
   const dayTh = DAYS_TH[dateObj.getDay()];
   const months = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-  const [y, m, d] = currentDate.split('-');
-  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y) + 543}`;
-
+  const [y,m,d] = currentDate.split('-');
+  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y)+543}`;
   const lines = [
     `📋 จัดสอนแทน ${dateStr}`,
     `โรงเรียนเมืองแกพิทยาสรรค์`,
@@ -601,39 +495,16 @@ function copyForLine() {
       `คาบ ${r.period} (${r.time})\n${shortName(r.absentTeacher)} ลา → ${shortName(r.substitute)} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`
     )
   ];
-
   navigator.clipboard.writeText(lines.join('\n\n'))
     .then(() => showToast('คัดลอกแล้ว ✓ วางใน LINE ได้เลย', 'green'))
     .catch(() => showToast('คัดลอกไม่สำเร็จ', 'red'));
 }
 
-async function deleteRecord(rowIndex) {
-  if (!confirm('ลบรายการนี้?')) return;
-  try {
-    await fetch(API_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'deleteRecord', rowIndex })
-    });
-    showToast('ลบแล้ว', 'green');
-    loadRecords();
-  } catch(e) { showToast('ลบไม่สำเร็จ', 'red'); }
-}
-
-// ── UI helpers ────────────────────────────────────────
-function switchTab(tab) {
-  const map = ['assign','records','timetable'];
-  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', map[i] === tab));
-  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-  document.getElementById(`tab-${tab}`).classList.add('active');
-  if (tab === 'records')   loadRecords();
-  if (tab === 'timetable') renderTimetable();
-}
-
 // ── Timetable ─────────────────────────────────────────
 const TT_DAYS = ['จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์'];
 const TT_PERIODS = [
-  {p:1, time:'08:30'}, {p:2, time:'09:30'}, {p:3, time:'10:30'},
-  {p:4, time:'12:30'}, {p:5, time:'13:30'}, {p:6, time:'14:30'}, {p:7, time:'15:30'}
+  {p:1,time:'08:30'},{p:2,time:'09:30'},{p:3,time:'10:30'},
+  {p:4,time:'12:30'},{p:5,time:'13:30'},{p:6,time:'14:30'},{p:7,time:'15:30'}
 ];
 let _ttDay = '';
 
@@ -662,8 +533,7 @@ function renderTimetable() {
     ${TT_PERIODS.map(pi => `<th>คาบ ${pi.p}<span class="tt-time">${pi.time}</span></th>`).join('')}
   </tr>`;
 
-  const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
-  const rows = active.map(t => {
+  const rows = TEACHERS.filter(t => Object.keys(t.schedule).length > 0).map(t => {
     const sched = t.schedule[_ttDay] || [];
     const cells = TT_PERIODS.map(pi => {
       const e = sched.find(x => x.period === pi.p);
@@ -673,17 +543,26 @@ function renderTimetable() {
         <div class="cell-subj">${e.subject}</div>
       </td>`;
     }).join('');
-    const sn = t.name.replace(/^(นาย|นางสาว|นาง)\s*/, '').split(' ')[0];
+    const sn = t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'').split(' ')[0];
     return `<tr><td class="td-name">${sn}</td>${cells}</tr>`;
   }).join('');
 
   grid.innerHTML = header + rows;
 }
 
+// ── UI helpers ────────────────────────────────────────
+function switchTab(tab) {
+  const map = ['assign','records','timetable'];
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', map[i] === tab));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  if (tab === 'timetable') renderTimetable();
+}
+
 function showToast(msg, type='') {
   const t = document.getElementById('toast');
   t.textContent = msg; t.className = 'toast show ' + type;
-  setTimeout(() => t.className = 'toast', 2500);
+  setTimeout(() => t.className = 'toast', 2800);
 }
 </script>
 </body>
