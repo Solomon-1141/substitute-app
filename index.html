@@ -6,9 +6,9 @@
 <title>ระบบจัดสอนแทน — MKP</title>
 <style>
 :root {
-  --blue: #2b6cb0; --blue-light: #ebf8ff; --blue-dark: #1e4e8c;
-  --green: #276749; --green-light: #f0fff4; --green-mid: #38a169;
-  --red: #c53030; --red-light: #fff5f5;
+  --blue: #2b6cb0; --blue-lt: #ebf8ff; --blue-dk: #1e4e8c;
+  --green: #276749; --green-lt: #f0fff4; --green-md: #38a169;
+  --red: #c53030; --red-lt: #fff5f5;
   --gray: #718096; --border: #e2e8f0; --bg: #f0f4f8;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,207 +16,187 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color
 
 /* Header */
 header {
-  background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-  color: white; padding: 14px 16px; position: sticky; top: 0; z-index: 50;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, var(--blue-dk), var(--blue));
+  color: #fff; padding: 14px 16px; position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 header h1 { font-size: 1rem; font-weight: 700; }
-header p  { font-size: 0.72rem; opacity: 0.8; margin-top: 2px; }
+header p  { font-size: .72rem; opacity: .8; margin-top: 2px; }
 
 /* Tabs */
-.tabs { display: flex; background: white; border-bottom: 2px solid var(--border); }
+.tabs { display: flex; background: #fff; border-bottom: 2px solid var(--border); }
 .tab-btn {
   flex: 1; padding: 11px; border: none; background: none; cursor: pointer;
-  font-size: 0.82rem; font-weight: 600; color: var(--gray);
-  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.15s;
+  font-size: .82rem; font-weight: 600; color: var(--gray);
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .15s;
 }
 .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
 
-/* Content */
+/* Pane */
 .tab-pane { display: none; padding: 14px; max-width: 600px; margin: 0 auto; }
 .tab-pane.active { display: block; }
 
-/* Cards */
-.card {
-  background: white; border-radius: 12px; padding: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px;
-}
-.card-title { font-size: 0.78rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+/* Card */
+.card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 14px; }
+.card-title { font-size: .78rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
 
-/* Form elements */
-label { display: block; font-size: 0.75rem; font-weight: 600; color: #4a5568; margin-bottom: 5px; }
-select, input[type=date] {
+/* Form */
+.field-label { display: block; font-size: .75rem; font-weight: 600; color: #4a5568; margin-bottom: 5px; }
+input[type=date], select {
   width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
-  padding: 9px 10px; font-size: 0.85rem; color: #1a202c;
-  background: white; outline: none; margin-bottom: 12px;
-  transition: border-color 0.15s; appearance: none;
+  padding: 9px 10px; font-size: .85rem; color: #1a202c;
+  background: #fff; outline: none; margin-bottom: 12px;
+  transition: border-color .15s; appearance: none;
 }
-select:focus, input[type=date]:focus { border-color: var(--blue); }
-select:last-child, input:last-child { margin-bottom: 0; }
+input[type=date]:focus, select:focus { border-color: var(--blue); }
 
-/* Multi-select teacher checkboxes */
+/* Teacher checklist */
 #teacher-checklist {
   max-height: 220px; overflow-y: auto;
   border: 1.5px solid var(--border); border-radius: 8px;
-  padding: 4px; background: white; margin-bottom: 6px;
+  padding: 4px; background: #fff; margin-bottom: 6px;
 }
 #teacher-checklist label {
   display: flex; align-items: center; gap: 8px;
   padding: 7px 8px; cursor: pointer; border-radius: 6px;
-  font-size: 0.82rem; font-weight: 400; color: #1a202c; margin-bottom: 0;
-  transition: background 0.1s;
+  font-size: .82rem; color: #1a202c; margin-bottom: 0; transition: background .1s;
 }
-#teacher-checklist label:hover { background: var(--blue-light); }
+#teacher-checklist label:hover { background: var(--blue-lt); }
 #teacher-checklist input[type=checkbox] { width: 17px; height: 17px; cursor: pointer; accent-color: var(--blue); flex-shrink: 0; }
-#teacher-checklist label.checked-label { background: var(--blue-light); font-weight: 600; color: var(--blue); }
-#selected-summary { font-size: 0.75rem; color: var(--gray); margin-bottom: 12px; min-height: 1.2em; }
+#teacher-checklist label.selected { background: var(--blue-lt); font-weight: 600; color: var(--blue); }
+#selected-summary { font-size: .75rem; color: var(--gray); margin-bottom: 12px; min-height: 1.1em; }
 
-/* Absent teacher group header */
-.absent-group-header {
-  background: var(--blue); color: white;
+/* Group header */
+.group-hdr {
+  background: var(--blue); color: #fff;
   padding: 7px 12px; border-radius: 8px;
-  margin: 12px 0 6px; font-size: 0.82rem; font-weight: 700;
+  margin: 12px 0 6px; font-size: .82rem; font-weight: 700;
 }
 
-/* Period cards */
+/* Period card */
 .period-card {
-  background: white; border-radius: 10px; padding: 14px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 10px;
-  border-left: 4px solid var(--blue);
+  background: #fff; border-radius: 10px; padding: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 10px;
+  border-left: 4px solid var(--blue); transition: border-color .2s;
 }
-.period-card.assigned { border-left-color: var(--green-mid); }
-.period-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-.period-badge {
-  background: var(--blue); color: white; border-radius: 8px;
-  padding: 4px 10px; font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+.period-card.assigned { border-left-color: var(--green-md); }
+.p-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.p-badge {
+  background: var(--blue); color: #fff; border-radius: 8px;
+  padding: 4px 10px; font-size: .75rem; font-weight: 700; white-space: nowrap;
 }
-.period-badge.double { background: #6b46c1; }
-.period-info { flex: 1; }
-.period-class { font-weight: 700; font-size: 0.9rem; }
-.period-subj { font-size: 0.75rem; color: var(--gray); }
-.period-time { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-top: 1px; }
-.room-tag { background: #f7fafc; border: 1px solid var(--border); border-radius: 6px; padding: 2px 7px; font-size: 0.7rem; color: var(--gray); }
+.p-badge.double { background: #6b46c1; }
+.p-info { flex: 1; }
+.p-class { font-weight: 700; font-size: .9rem; }
+.p-subj  { font-size: .75rem; color: var(--gray); }
+.p-time  { font-size: .72rem; color: var(--blue); font-weight: 600; margin-top: 1px; }
+.p-room  { background: #f7fafc; border: 1px solid var(--border); border-radius: 6px; padding: 2px 7px; font-size: .7rem; color: var(--gray); }
 
-.sub-label { font-size: 0.72rem; font-weight: 700; color: var(--gray); margin-bottom: 5px; display: block; }
-.sub-select {
+.sub-lbl { font-size: .72rem; font-weight: 700; color: var(--gray); margin-bottom: 5px; display: block; }
+.sub-sel {
   width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
-  padding: 8px 10px; font-size: 0.82rem; color: #1a202c;
-  background: white; outline: none; transition: border-color 0.15s;
+  padding: 8px 10px; font-size: .82rem; color: #1a202c;
+  background: #fff; outline: none; transition: border-color .15s;
 }
-.sub-select:focus { border-color: var(--green-mid); }
-.sub-select.selected { border-color: var(--green-mid); background: var(--green-light); }
-.free-count { font-size: 0.7rem; color: var(--green); margin-top: 4px; }
+.sub-sel:focus { border-color: var(--green-md); }
+.sub-sel.done { border-color: var(--green-md); background: var(--green-lt); }
+.sub-note { font-size: .7rem; color: var(--green); margin-top: 4px; }
 
-/* Submit button */
+/* Submit */
 .btn-submit {
   width: 100%; padding: 14px; border-radius: 10px; border: none;
-  background: var(--blue); color: white; font-size: 0.9rem; font-weight: 700;
-  cursor: pointer; transition: background 0.15s; margin-top: 4px;
+  background: var(--blue); color: #fff; font-size: .9rem; font-weight: 700;
+  cursor: pointer; transition: background .15s; margin-top: 4px;
 }
-.btn-submit:hover { background: var(--blue-dark); }
+.btn-submit:hover { background: var(--blue-dk); }
 .btn-submit:disabled { background: #a0aec0; cursor: not-allowed; }
 
-/* No schedule */
+/* Empty */
 .empty-msg { text-align: center; padding: 32px 16px; color: var(--gray); }
 .empty-msg .icon { font-size: 2.5rem; margin-bottom: 8px; }
-.empty-msg p { font-size: 0.85rem; }
+.empty-msg p { font-size: .85rem; }
 
-/* Records tab */
-.rec-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.rec-header h3 { font-size: 0.9rem; font-weight: 700; }
+/* Records */
+.rec-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.rec-toolbar h3 { font-size: .9rem; font-weight: 700; flex: 1; }
+.btn-line {
+  background: #06c755; color: #fff; border: none; border-radius: 8px;
+  padding: 7px 13px; font-size: .78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.btn-line:hover { background: #05a847; }
 .btn-refresh {
-  border: 1.5px solid var(--border); border-radius: 8px; background: white;
-  padding: 6px 12px; font-size: 0.75rem; cursor: pointer; color: var(--gray);
+  border: 1.5px solid var(--border); border-radius: 8px; background: #fff;
+  padding: 6px 12px; font-size: .75rem; cursor: pointer; color: var(--gray);
 }
 .btn-refresh:hover { border-color: var(--blue); color: var(--blue); }
-.rec-item {
-  background: white; border-radius: 10px; padding: 12px 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.07); margin-bottom: 8px;
-  display: flex; align-items: center; gap: 12px;
-}
-.rec-period { background: var(--blue); color: white; border-radius: 6px; padding: 4px 8px; font-size: 0.72rem; font-weight: 700; white-space: nowrap; text-align: center; min-width: 44px; }
-.rec-body { flex: 1; }
-.rec-absent { font-size: 0.78rem; color: var(--gray); }
-.rec-sub { font-size: 0.85rem; font-weight: 700; color: var(--blue); }
-.rec-detail { font-size: 0.7rem; color: var(--gray); margin-top: 1px; }
-.btn-del-rec {
-  border: none; background: none; cursor: pointer; color: #fc8181;
-  font-size: 1rem; padding: 4px; border-radius: 6px;
-}
-.btn-del-rec:hover { background: var(--red-light); }
 
-/* Loading / spinner */
-.spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #bee3f8; border-top-color: var(--blue); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
+/* Summary table */
+.sum-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.sum-table th { background: var(--blue-dk); color: #fff; font-size: .72rem; font-weight: 700; padding: 9px 10px; text-align: left; }
+.sum-table td { padding: 10px; font-size: .8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.sum-table tr:last-child td { border-bottom: none; }
+.sum-table tr:hover td { background: var(--blue-lt); }
+.td-period { font-weight: 700; color: #fff; background: var(--blue) !important; text-align: center; white-space: nowrap; width: 52px; }
+.td-period.double { background: #6b46c1 !important; }
+.td-time  { color: var(--gray); font-size: .72rem; white-space: nowrap; }
+.td-absent { color: #744210; font-weight: 600; }
+.td-sub   { color: var(--green); font-weight: 700; font-size: .88rem; }
+.td-cls   { color: var(--gray); font-size: .72rem; }
+.del-wrap { text-align: center; width: 30px; }
+.btn-del  { border: none; background: none; cursor: pointer; color: #fc8181; font-size: 1rem; padding: 4px; border-radius: 6px; }
+.btn-del:hover { background: var(--red-lt); }
+
+/* Spinner / Toast */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #bee3f8; border-top-color: var(--blue); border-radius: 50%; animation: spin .6s linear infinite; vertical-align: middle; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* Toast */
 .toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(10px);
-  background: #1a202c; color: white; border-radius: 10px; padding: 10px 20px;
-  font-size: 0.82rem; font-weight: 600; opacity: 0; transition: all 0.25s;
+  background: #1a202c; color: #fff; border-radius: 10px; padding: 10px 20px;
+  font-size: .82rem; font-weight: 600; opacity: 0; transition: all .25s;
   pointer-events: none; z-index: 100; white-space: nowrap;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 .toast.green { background: var(--green); }
-.toast.red { background: var(--red); }
+.toast.red   { background: var(--red); }
 
-/* ── Timetable tab ────────────────────────────────── */
-.day-selector { display: flex; gap: 6px; margin-bottom: 14px; }
+/* Timetable */
+.day-sel { display: flex; gap: 6px; margin-bottom: 14px; }
 .day-btn {
   flex: 1; padding: 9px 4px; border: 1.5px solid var(--border); border-radius: 8px;
-  background: white; font-size: 0.8rem; font-weight: 700; cursor: pointer; color: var(--gray);
-  text-align: center; transition: all 0.15s;
+  background: #fff; font-size: .8rem; font-weight: 700; cursor: pointer; color: var(--gray);
+  text-align: center; transition: all .15s;
 }
-.day-btn.active { background: var(--blue); color: white; border-color: var(--blue); }
-.timetable-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-.tt { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 0.72rem; }
-.tt th {
-  background: var(--blue-dark); color: white; padding: 7px 5px; text-align: center;
-  font-size: 0.68rem; white-space: nowrap; font-weight: 700;
-}
-.tt th .tt-time { font-weight: 400; font-size: 0.6rem; opacity: 0.8; display: block; }
-.tt td { padding: 6px 5px; border: 1px solid var(--border); text-align: center; vertical-align: middle; background: white; }
-.tt .td-name { text-align: left; font-weight: 700; font-size: 0.76rem; background: #f7fafc; padding: 6px 10px; white-space: nowrap; border-right: 2px solid var(--border); }
-.cell-free { color: #c6f6d5; font-size: 0.6rem; background: #f0fff4 !important; }
-.cell-busy { background: var(--blue-light) !important; cursor: default; }
-.cell-double { background: #f0e6ff !important; }
-.cell-cls { font-weight: 700; color: #1e4e8c; }
-.cell-double .cell-cls { color: #6b46c1; }
-.cell-subj { color: var(--gray); font-size: 0.6rem; margin-top: 1px; }
+.day-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.tt-wrap { overflow-x: auto; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.tt { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .72rem; }
+.tt th { background: var(--blue-dk); color: #fff; padding: 7px 5px; text-align: center; font-size: .68rem; white-space: nowrap; font-weight: 700; }
+.tt th .tt-t { font-weight: 400; font-size: .6rem; opacity: .8; display: block; }
+.tt td { padding: 6px 5px; border: 1px solid var(--border); text-align: center; vertical-align: middle; background: #fff; }
+.tt .td-n { text-align: left; font-weight: 700; font-size: .76rem; background: #f7fafc; padding: 6px 10px; white-space: nowrap; border-right: 2px solid var(--border); }
+.c-free   { color: #c6f6d5; font-size: .6rem; background: #f0fff4 !important; }
+.c-busy   { background: var(--blue-lt) !important; }
+.c-double { background: #f0e6ff !important; }
+.c-cls  { font-weight: 700; color: #1e4e8c; }
+.c-double .c-cls { color: #6b46c1; }
+.c-subj { color: var(--gray); font-size: .6rem; margin-top: 1px; }
+
+/* Summary view */
+.sum-group { background:#fff; border-radius:12px; margin-bottom:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.sum-group-hdr { background:var(--blue); color:#fff; padding:9px 14px; font-size:.82rem; font-weight:700; }
+.sum-row { display:flex; align-items:center; gap:10px; padding:10px 14px; border-bottom:1px solid var(--border); }
+.sum-row:last-child { border-bottom:none; }
+.sum-period { background:var(--blue); color:#fff; border-radius:8px; padding:4px 10px; font-size:.75rem; font-weight:700; white-space:nowrap; min-width:52px; text-align:center; }
+.sum-period.double { background:#6b46c1; }
+.sum-mid { flex:1; }
+.sum-time  { font-size:.72rem; color:var(--blue); font-weight:600; }
+.sum-cls   { font-size:.85rem; font-weight:700; }
+.sum-subj  { font-size:.72rem; color:var(--gray); }
+.sum-arrow { font-size:.7rem; color:var(--gray); white-space:nowrap; }
+.sum-sub   { font-size:.85rem; font-weight:700; color:var(--green); white-space:nowrap; text-align:right; max-width:140px; line-height:1.3; }
 
 /* Config alert */
-.config-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: 0.78rem; color: #744210; }
-.config-alert strong { display: block; margin-bottom: 4px; }
-
-/* Records tab redesign */
-.rec-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.rec-toolbar h3 { font-size: 0.9rem; font-weight: 700; flex: 1; }
-.btn-line {
-  background: #06c755; color: white; border: none; border-radius: 8px;
-  padding: 7px 13px; font-size: 0.78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
-}
-.btn-line:hover { background: #05a847; }
-.btn-line:active { transform: scale(0.97); }
-
-/* Summary table */
-.summary-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-.summary-table th {
-  background: var(--blue-dark); color: white; font-size: 0.72rem; font-weight: 700;
-  padding: 9px 10px; text-align: left;
-}
-.summary-table td { padding: 10px; font-size: 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-.summary-table tr:last-child td { border-bottom: none; }
-.summary-table tr:hover td { background: var(--blue-light); }
-.td-period { font-weight: 700; color: white; background: var(--blue) !important; text-align: center; border-radius: 0; white-space: nowrap; width: 52px; }
-.td-period.double { background: #6b46c1 !important; }
-.td-time { color: var(--gray); font-size: 0.72rem; white-space: nowrap; }
-.td-arrow { font-size: 0.75rem; color: var(--gray); }
-.td-absent { color: #744210; font-weight: 600; }
-.td-sub { color: var(--green); font-weight: 700; font-size: 0.88rem; }
-.td-cls { color: var(--gray); font-size: 0.72rem; }
-.del-btn-wrap { text-align: center; width: 30px; }
-.btn-del-rec { border: none; background: none; cursor: pointer; color: #fc8181; font-size: 1rem; padding: 4px; border-radius: 6px; }
-.btn-del-rec:hover { background: var(--red-light); }
+.cfg-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: .78rem; color: #744210; }
+.cfg-alert strong { display: block; margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -234,41 +214,44 @@ select:last-child, input:last-child { margin-bottom: 0; }
 
 <!-- Tab 1: Assign -->
 <div class="tab-pane active" id="tab-assign">
-
-  <div id="api-warning" class="config-alert" style="display:none">
+  <div id="api-warn" class="cfg-alert" style="display:none">
     <strong>⚠ ยังไม่ได้ตั้งค่า API URL</strong>
-    แก้ไข <code>API_URL</code> ในไฟล์ index.html ให้เป็น URL ของ Apps Script
+    แก้ไข <code>API_URL</code> ในไฟล์ index.html
   </div>
 
   <div class="card">
     <div class="card-title">เลือกครูที่ลา</div>
-
-    <label>วันที่</label>
+    <label class="field-label">วันที่</label>
     <input type="date" id="date-input" onchange="onDateChange()">
 
-    <label>ครูที่ลา (เลือกได้หลายคน)</label>
+    <label class="field-label">ครูที่ลา (เลือกได้หลายคน)</label>
     <div id="teacher-checklist"></div>
     <div id="selected-summary">ยังไม่ได้เลือกครู</div>
 
-    <label>ฉันคือ</label>
-    <select id="user-select">
-      <option value="ครูภูริณัฐ">ครูภูริณัฐ</option>
-      <option value="ครูพงศธร">ครูพงศธร</option>
-    </select>
   </div>
 
   <div id="periods-container"></div>
+  <button class="btn-submit" id="submit-btn" onclick="submitAll()" style="display:none">บันทึกการจัดสอนแทน</button>
+</div>
 
-  <button class="btn-submit" id="submit-btn" onclick="submitAll()" style="display:none">
-    บันทึกการจัดสอนแทน
-  </button>
+<!-- หน้าสรุป (แสดงหลัง submit สำเร็จ) -->
+<div id="summary-view" style="display:none;padding:14px;max-width:600px;margin:0 auto">
+  <div id="summary-header" style="background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+    <div style="font-size:.75rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">สรุปการจัดสอนแทน</div>
+    <div id="summary-date-label" style="font-size:1rem;font-weight:700;color:var(--blue-dk)"></div>
+  </div>
+  <div id="summary-content"></div>
+  <div style="display:flex;gap:8px;margin-top:4px">
+    <button class="btn-line" onclick="copyFromSummary()" style="flex:1">📋 คัดลอกสำหรับ LINE</button>
+    <button class="btn-refresh" onclick="resetAssign()" style="flex:1;padding:10px">➕ จัดสอนแทนเพิ่มเติม</button>
+  </div>
 </div>
 
 <!-- Tab 2: Records -->
 <div class="tab-pane" id="tab-records">
   <div class="rec-toolbar">
     <h3 id="rec-title">รายการวันนี้</h3>
-    <button class="btn-line" id="btn-copy-line" onclick="copyForLine()" style="display:none">📋 คัดลอกสำหรับ LINE</button>
+    <button class="btn-line" id="btn-line" onclick="copyForLine()" style="display:none">📋 คัดลอกสำหรับ LINE</button>
     <button class="btn-refresh" onclick="loadRecords()">↻ รีเฟรช</button>
   </div>
   <div id="records-list">
@@ -278,258 +261,2231 @@ select:last-child, input:last-child { margin-bottom: 0; }
 
 <!-- Tab 3: Timetable -->
 <div class="tab-pane" id="tab-timetable">
-  <div class="day-selector" id="day-selector"></div>
-  <div class="timetable-wrap">
+  <div class="day-sel" id="day-sel"></div>
+  <div class="tt-wrap">
     <table class="tt" id="tt-grid">
       <tr><td colspan="8" style="text-align:center;padding:24px;color:var(--gray)">กำลังโหลด...</td></tr>
     </table>
   </div>
 </div>
 
+<script>
+const TEACHERS_DATA = [
+  {
+    "name": "นางณัฐยา ชิตบัณฑิตย์",
+    "shortName": "ณัฐยา",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว21101 วิทยาศาสตร์",
+          "class": "ม.1",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว21101 วิทยาศาสตร์",
+          "class": "ม.1",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
+          "room": "211",
+          "time": "11:00-11:50"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
+          "room": "211",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ21203 ปฐพีวิทยาเบื้องต้น",
+          "class": "ม.1",
+          "room": "211",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว21101 วิทยาศาสตร์",
+          "class": "ม.1",
+          "room": "211",
+          "time": "10:10-11:00"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30242 ชีววิทยา 2",
+          "class": "ม.5",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30242 ชีววิทยา 2",
+          "class": "ม.5",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "11:00-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว30242 ชีววิทยา 2",
+          "class": "ม.5",
+          "room": "211",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ส21203 สุจริตศึกษา",
+          "class": "ม.1",
+          "room": "211",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางธัญพร ทองหล่อ",
+    "shortName": "ธัญพร",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31102 เคมีพื้นฐาน",
+          "class": "ม.4",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31102 เคมีพื้นฐาน",
+          "class": "ม.4",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "10:10-11:00"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว30224 เคมี",
+          "class": "ม.6",
+          "room": "126",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30224 เคมี",
+          "class": "ม.6",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30224 เคมี",
+          "class": "ม.6",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว30222 เคมี 2",
+          "class": "ม.5",
+          "room": "126",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส33203 สุจริตศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
+          "room": "126",
+          "time": "10:10-11:00"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30222 เคมี 2",
+          "class": "ม.5",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30222 เคมี 2",
+          "class": "ม.5",
+          "room": "126",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ว31102 เคมีพื้นฐาน",
+          "class": "ม.4",
+          "room": "126",
+          "time": "10:10-11:00"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายนพพร กาแก้ว",
+    "shortName": "นพพร",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
+          "room": "125",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
+          "room": "125",
+          "time": "10:10-11:50"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ23203 ผู้ประกอบการข้าวไทย",
+          "class": "ม.3/1",
+          "room": "",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส23203 สุจริตศึกษา",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31104 โลกดาราศาสตร์ฯ",
+          "class": "ม.6",
+          "room": "125",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว31104 โลกดาราศาสตร์ฯ",
+          "class": "ม.6",
+          "room": "125",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "10:10-11:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางมนทกานต์ ธนสิริวรกุล",
+    "shortName": "มนทกานต์",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "กพ22901 จิตสาธารณะ",
+          "class": "ม.2",
+          "room": "",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวกาญจนา ศรีราช",
+    "shortName": "กาญจนา",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท31101 ภาษาไทย",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท31101 ภาษาไทย",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส31231 หน้าที่พลเมือง",
+          "class": "ม.4",
+          "room": "322",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I20201 การศึกษาค้นคว้าและสร้างฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "I20201 การศึกษาค้นคว้าและสร้างฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท33101 ภาษาไทย",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท33101 ภาษาไทย",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส31203 สุจริตศึกษา",
+          "class": "ม.4",
+          "room": "322",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:00"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางยุภาวดี สิงหาด",
+    "shortName": "ยุภาวดี",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท32101 ภาษาไทย",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท32101 ภาษาไทย",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:50"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส32203 สุจริตศึกษา",
+          "class": "ม.5",
+          "room": "328",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I30201 การสืบค้นและนำเสนอฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "I30201 การสืบค้นและนำเสนอฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "11:00-11:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวฤทัยรัตน์ บุตรศรีมาศ",
+    "shortName": "ฤทัยรัตน์",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส23165 ประวัติศาสตร์",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส32101 สังคมศึกษาฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ส32101 สังคมศึกษาฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส23231 หน้าที่พลเมือง",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส23165 ประวัติศาสตร์",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส31101 สังคมศึกษาฯ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ส31101 สังคมศึกษาฯ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส32163 ประวัติศาสตร์",
+          "class": "ม.5",
+          "room": "328",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง31102 การงานอาชีพ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง31102 การงานอาชีพ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ส33101 สังคมศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส33101 สังคมศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส31161 ประวัติศาสตร์",
+          "class": "ม.4",
+          "room": "322",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ส23203 สุจริตศึกษา",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายภูริณัฐ กลั่นกำเนิด",
+    "shortName": "ภูริณัฐ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค32101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค32101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส33231 หน้าที่พลเมือง",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ค31101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ค31101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ33203 เศรษฐศาสตร์ข้าวโลก",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:00"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:00"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายกฤตภาส มูลทอง",
+    "shortName": "กฤตภาส",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "กพ23901 จิตสาธารณะ",
+          "class": "ม.3/2",
+          "room": "",
+          "time": "13:50-14:40"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ23203 ผู้ประกอบการข้าวไทย",
+          "class": "ม.3/2",
+          "room": "",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "08:30-10:10"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ค20203 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.2",
+          "room": "323",
+          "time": "11:00-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "10:10-11:00"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายรักเกียรติ สุภิษะ",
+    "shortName": "รักเกียรติ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ20203 ภาษาอังกฤษฟัง-พูด",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส21231 หน้าที่พลเมือง",
+          "class": "ม.1",
+          "room": "321",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "กพ21901 จิตสาธารณะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ20203 ภาษาอังกฤษฟัง-พูด",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-13:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "จ20201 ภาษาจีน",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ31101 ภาษาอังกฤษ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "อ31101 ภาษาอังกฤษ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "จ30201 ภาษาจีน",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายปัณณวิชญ์ นาไชย",
+    "shortName": "ปัณณวิชญ์",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส22231 หน้าที่พลเมือง",
+          "class": "ม.2",
+          "room": "213",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส22163 ประวัติศาสตร์",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส22203 สุจริตศึกษา",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส21161 ประวัติศาสตร์",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวจิตรา อินทร์ปัญญา",
+    "shortName": "จิตรา",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ศ21101 ศิลปะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ศ21101 ศิลปะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ22101 ศิลปะ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ศ22101 ศิลปะ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส23231 หน้าที่พลเมือง",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ33101 ศิลปะ",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ31101 ศิลปะ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง22101 การงานอาชีพ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง22101 การงานอาชีพ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ศ32101 ศิลปะ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง21101 การงานอาชีพ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง21101 การงานอาชีพ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "กพ23901 จิตสาธารณะ",
+          "class": "ม.3/1",
+          "room": "",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายพงศธร เอื้อเฟื้อสุข",
+    "shortName": "พงศธร",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว20209 เทคโนโลยีสารสนเทศ",
+          "class": "ม.2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20209 เทคโนโลยีสารสนเทศ",
+          "class": "ม.2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31105 วิทยาการคำนวณ",
+          "class": "ม.4",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว31105 วิทยาการคำนวณ",
+          "class": "ม.4",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส32231 หน้าที่พลเมือง",
+          "class": "ม.5",
+          "room": "328",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว30207 เทคโนโลยีฯ",
+          "class": "ม.6",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว30207 เทคโนโลยีฯ",
+          "class": "ม.6",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ32203 นวัตกรรมข้าวเชิงพาณิชย์",
+          "class": "ม.5",
+          "room": "คอม",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20214 โปรแกรมพื้นฐาน",
+          "class": "ม.1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20214 โปรแกรมพื้นฐาน",
+          "class": "ม.1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ว31107 ออกแบบและเทคโนโลยี",
+          "class": "ม.5",
+          "room": "คอม",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายนพคุณ แซ่ลิ้ม",
+    "shortName": "นพคุณ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ21101 สุขศึกษา",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ21102 พลศึกษา",
+          "class": "ม.1",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ23101 สุขศึกษา",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ23102 พลศึกษา",
+          "class": "ม.3/2",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ31203 เกษตรอัจฉริยะ",
+          "class": "ม.4",
+          "room": "",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ31101 สุขศึกษาและพลศึกษา",
+          "class": "ม.4",
+          "room": "สนาม",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ32101 สุขศึกษาและพลศึกษา",
+          "class": "ม.5",
+          "room": "สนาม",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ33101 สุขศึกษาและพลศึกษา",
+          "class": "ม.6",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ22101 สุขศึกษา",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ22102 พลศึกษา",
+          "class": "ม.2",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "พ23101 สุขศึกษา",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ23102 พลศึกษา",
+          "class": "ม.3/1",
+          "room": "สนาม",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ33201 เพศศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวพรนภา บุญมี",
+    "shortName": "พรนภา",
+    "schedule": {
+      "จันทร์": [],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20203 ของเล่นเชิงกลฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20203 ของเล่นเชิงกลฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": []
+    }
+  }
+];
+</script>
+
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════════════════
-//  CONFIG — เปลี่ยน URL ด้านล่างหลัง Deploy Apps Script
-// ══════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
 const API_URL = 'https://script.google.com/macros/s/AKfycbyf-T_GRggQC2Ba2zpHEcikS057blfXAh_asBNKYn6n2E2vTsqxLIhM-Y4v4-W0FtnKJg/exec';
+// ══════════════════════════════════════════════════════════════
 
-// ══════════════════════════════════════════════════════
 const DAYS_TH = ['อาทิตย์','จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์','เสาร์'];
+const TT_DAYS = ['จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์'];
+const TT_PERIODS = [
+  {p:1,t:'08:30'},{p:2,t:'09:30'},{p:3,t:'10:30'},
+  {p:4,t:'12:30'},{p:5,t:'13:30'},{p:6,t:'14:30'},{p:7,t:'15:30'}
+];
 
-let TEACHERS = [];
+let TEACHERS = TEACHERS_DATA;  // ข้อมูลฝังตรงนี้ ไม่ต้อง fetch
 let currentDate = '';
 let currentDay  = '';
+let _lastRecords = [];
+let _ttDay = '';
 
-// ── Init ──────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', async () => {
+// ─── Init ───────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
   if (API_URL.includes('YOUR_APPS_SCRIPT')) {
-    document.getElementById('api-warning').style.display = 'block';
+    document.getElementById('api-warn').style.display = 'block';
   }
 
-  // Restore saved user
-  const saved = localStorage.getItem('mkp_user');
-  if (saved) document.getElementById('user-select').value = saved;
-  document.getElementById('user-select').addEventListener('change', e => {
-    localStorage.setItem('mkp_user', e.target.value);
-  });
-
-  // Set today's date
   const today = new Date();
   const pad = n => String(n).padStart(2,'0');
   currentDate = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
   document.getElementById('date-input').value = currentDate;
   currentDay = DAYS_TH[today.getDay()];
 
-  // Load teachers.json
-  try {
-    const res = await fetch('./teachers.json');
-    TEACHERS = await res.json();
-    populateTeacherSelect();
-    initTimetable();
-  } catch(e) {
-    showToast('โหลด teachers.json ไม่ได้', 'red');
-  }
+  buildChecklist();
+  initTimetable();
 });
 
-// ── Date change ───────────────────────────────────────
-function onDateChange() {
-  currentDate = document.getElementById('date-input').value;
-  const d = new Date(currentDate + 'T12:00:00');
-  currentDay = DAYS_TH[d.getDay()];
-  onTeachersChange();
+// ─── Helpers ────────────────────────────────────────────────────
+function sn(t) {
+  return t.name || '';
 }
 
-// ── Helper: get all checked teacher names ─────────────
-function getCheckedTeachers() {
+function getChecked() {
   return [...document.querySelectorAll('#teacher-checklist input:checked')].map(el => el.value);
 }
 
-// ── Populate teacher checklist ────────────────────────
-function populateTeacherSelect() {
+function getAvailableTeachers(day, period, excludeNames) {
+  const excl = Array.isArray(excludeNames) ? excludeNames : [excludeNames];
+  const busy = new Set();
+  TEACHERS.forEach(t => {
+    if ((t.schedule[day] || []).some(p => p.period === period)) busy.add(t.name);
+  });
+  return TEACHERS
+    .filter(t =>
+      Object.keys(t.schedule).length > 0 &&
+      !excl.includes(t.name) &&
+      !busy.has(t.name)
+    )
+    .map(t => ({ name: t.name, short: sn(t) }));
+}
+
+function getPairLabel(p, absentName) {
+  if (!p.isDouble) return String(p.period);
+  const absent = TEACHERS.find(t => t.name === absentName);
+  const pairs = (absent?.schedule?.[currentDay] || [])
+    .filter(x => x.isDouble && x.time === p.time && x.class === p.class)
+    .map(x => x.period);
+  return pairs.length > 1 ? `${Math.min(...pairs)}+${Math.max(...pairs)}` : String(p.period);
+}
+
+// ─── Build teacher checklist ─────────────────────────────────────
+function buildChecklist() {
   const wrap = document.getElementById('teacher-checklist');
   wrap.innerHTML = '';
-  const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
+  const active = TEACHERS.filter(t => Object.keys(t.schedule).some(d => (t.schedule[d]||[]).length > 0));
   active.forEach(t => {
-    const label = document.createElement('label');
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
+    const lbl = document.createElement('label');
+    const cb  = document.createElement('input');
+    cb.type  = 'checkbox';
     cb.value = t.name;
-    cb.addEventListener('change', function() {
-      label.classList.toggle('checked-label', cb.checked);
+    cb.addEventListener('change', () => {
+      lbl.classList.toggle('selected', cb.checked);
       onTeachersChange();
     });
-    label.appendChild(cb);
+    lbl.appendChild(cb);
     const span = document.createElement('span');
-    span.textContent = shortName(t.name);
-    label.appendChild(span);
-    wrap.appendChild(label);
+    span.textContent = sn(t);
+    lbl.appendChild(span);
+    wrap.appendChild(lbl);
   });
 }
 
-// ── Teachers selected (multi) ─────────────────────────
+// ─── Date change ─────────────────────────────────────────────────
+function onDateChange() {
+  currentDate = document.getElementById('date-input').value;
+  currentDay  = DAYS_TH[new Date(currentDate + 'T12:00:00').getDay()];
+  onTeachersChange();
+}
+
+// ─── Teachers checkbox change ─────────────────────────────────────
 function onTeachersChange() {
-  const checked = getCheckedTeachers();
-  const sumEl = document.getElementById('selected-summary');
-  const container = document.getElementById('periods-container');
+  const checked = getChecked();
+  const sumEl   = document.getElementById('selected-summary');
+  const cont    = document.getElementById('periods-container');
   const submitBtn = document.getElementById('submit-btn');
 
   if (checked.length === 0) {
     sumEl.textContent = 'ยังไม่ได้เลือกครู';
-    container.innerHTML = '';
+    cont.innerHTML    = '';
     submitBtn.style.display = 'none';
     return;
   }
 
-  sumEl.textContent = `เลือกแล้ว ${checked.length} คน: ${checked.map(shortName).join(', ')}`;
+  sumEl.textContent = `เลือกแล้ว ${checked.length} คน: ${checked.map(n => {
+    const t = TEACHERS.find(x => x.name === n);
+    return t ? sn(t) : n;
+  }).join(', ')}`;
 
-  container.innerHTML = '';
-  let totalPeriods = 0;
+  cont.innerHTML = '';
+  let totalCards = 0;
 
   checked.forEach(absentName => {
     const teacher = TEACHERS.find(t => t.name === absentName);
-    const daySchedule = teacher?.schedule?.[currentDay] || [];
+    const periods = (teacher?.schedule?.[currentDay] || []).slice().sort((a,b)=>a.period-b.period);
 
-    // Deduplicate double periods (show only once)
-    const seen = new Set();
-    const uniquePeriods = [];
-    for (const p of daySchedule) {
-      const key = p.isDouble ? p.time + p.class : `p${p.period}`;
-      if (!seen.has(key)) { seen.add(key); uniquePeriods.push(p); }
-    }
+    const hdr = document.createElement('div');
+    hdr.className = 'group-hdr';
+    hdr.textContent = `👤 ${teacher ? sn(teacher) : absentName}`;
+    cont.appendChild(hdr);
 
-    // Group header
-    const header = document.createElement('div');
-    header.className = 'absent-group-header';
-    header.textContent = `👤 ${shortName(absentName)}`;
-    container.appendChild(header);
-
-    if (uniquePeriods.length === 0) {
+    if (periods.length === 0) {
       const msg = document.createElement('p');
-      msg.style.cssText = 'font-size:0.8rem;color:var(--gray);padding:6px 4px 10px;';
+      msg.style.cssText = 'font-size:.8rem;color:var(--gray);padding:6px 4px 10px;';
       msg.textContent = `ไม่มีคาบเรียนวัน${currentDay || 'นี้'}`;
-      container.appendChild(msg);
+      cont.appendChild(msg);
       return;
     }
 
-    uniquePeriods.forEach(p => {
-      renderPeriodCard(container, p, absentName, checked);
-      totalPeriods++;
+    // แสดงทุกคาบแยกกัน (รายชั่วโมง)
+    periods.forEach(p => {
+      renderPeriodCard(cont, p, absentName, checked);
+      totalCards++;
     });
   });
 
-  submitBtn.style.display = totalPeriods > 0 ? 'block' : 'none';
+  submitBtn.style.display = totalCards > 0 ? 'block' : 'none';
 }
 
-// ── Render one period card ────────────────────────────
-function renderPeriodCard(container, p, absentName, allAbsent) {
+// ─── Period card ──────────────────────────────────────────────────
+function renderPeriodCard(cont, p, absentName, allAbsent) {
   const available = getAvailableTeachers(currentDay, p.period, allAbsent);
-  const isDouble = p.isDouble;
-  const periodLabel = isDouble
-    ? `คาบ ${getPairNums(p, absentName)} [คาบคู่]`
-    : `คาบ ${p.period}`;
 
   const card = document.createElement('div');
   card.className = 'period-card';
-  // Store all needed data for submitAll() to read without IDs
   card.dataset.absentName = absentName;
-  card.dataset.period = isDouble ? getPairNums(p, absentName) : String(p.period);
-  card.dataset.time = p.time;
-  card.dataset.cls = p.class;
+  card.dataset.period  = String(p.period);
+  card.dataset.time    = p.time;
+  card.dataset.cls     = p.class;
   card.dataset.subject = p.subject;
-  card.dataset.room = p.room;
+  card.dataset.room    = p.room;
 
   card.innerHTML = `
-    <div class="period-header">
-      <span class="period-badge ${isDouble?'double':''}">${periodLabel}</span>
-      <div class="period-info">
-        <div class="period-class">${p.class}</div>
-        <div class="period-subj">${p.subject}</div>
-        <div class="period-time">🕐 ${p.time}</div>
+    <div class="p-header">
+      <span class="p-badge${p.isDouble?' double':''}">คาบ ${p.period}${p.isDouble?' ✦':''}</span>
+      <div class="p-info">
+        <div class="p-class">${p.class}</div>
+        <div class="p-subj">${p.subject}</div>
+        <div class="p-time">🕐 ${p.time}</div>
       </div>
-      <span class="room-tag">ห้อง ${p.room}</span>
+      <span class="p-room">ห้อง ${p.room}</span>
     </div>
-    <span class="sub-label">ครูสอนแทน</span>
-    <select class="sub-select" onchange="onSubChange(this)">
+    <span class="sub-lbl">ครูสอนแทน</span>
+    <select class="sub-sel" onchange="onSubChange(this)">
       <option value="">— เลือกครูสอนแทน (${available.length} คนว่าง) —</option>
-      ${available.map(n => `<option value="${n}">${shortName(n)}</option>`).join('')}
-      <optgroup label="────────────────────"></optgroup>
+      ${available.map(a=>`<option value="${a.name}">${a.name}</option>`).join('')}
+      <optgroup label="──────────────────"></optgroup>
       <option value="__all__">แสดงครูทั้งหมด...</option>
     </select>
-    <div class="free-count"></div>
+    <div class="sub-note"></div>
   `;
-  container.appendChild(card);
+  cont.appendChild(card);
 }
 
-// ── Sub selection change ──────────────────────────────
+// ─── Substitute select change ─────────────────────────────────────
 function onSubChange(sel) {
-  const card = sel.closest('.period-card');
+  const card      = sel.closest('.period-card');
   const absentName = card.dataset.absentName;
-  const allAbsent = getCheckedTeachers();
-  const period = parseInt(card.dataset.period.split('+')[0]);
+  const allAbsent = getChecked();
+  const period    = parseInt(card.dataset.period.split('+')[0]);
 
   if (sel.value === '__all__') {
-    const allActive = TEACHERS.filter(t => Object.keys(t.schedule).length > 0 && !allAbsent.includes(t.name));
-    const available = getAvailableTeachers(currentDay, period, allAbsent);
-    const busy = allActive.filter(t => !available.includes(t.name));
-
-    sel.innerHTML = `<option value="">— เลือกครูสอนแทน —</option>
-      <optgroup label="ว่าง (${available.length} คน)">
-        ${available.map(n => `<option value="${n}">${shortName(n)}</option>`).join('')}
+    const avail = getAvailableTeachers(currentDay, period, allAbsent);
+    const allActive = TEACHERS.filter(t =>
+      Object.keys(t.schedule).length > 0 && !allAbsent.includes(t.name)
+    );
+    const busy = allActive.filter(t => !avail.find(a => a.name === t.name));
+    sel.innerHTML = `
+      <option value="">— เลือกครูสอนแทน —</option>
+      <optgroup label="ว่าง (${avail.length} คน)">
+        ${avail.map(a=>`<option value="${a.name}">${a.short}</option>`).join('')}
       </optgroup>
-      <optgroup label="มีคาบอยู่ (${busy.length} คน) — เลือกได้ถ้าจำเป็น">
-        ${busy.map(t => `<option value="${t.name}">${shortName(t.name)}</option>`).join('')}
+      <optgroup label="มีคาบอยู่ (${busy.length} คน)">
+        ${busy.map(t=>`<option value="${t.name}">${sn(t)}</option>`).join('')}
       </optgroup>`;
     sel.value = '';
     return;
   }
 
-  if (sel.value && sel.value !== '__all__') {
+  const note = card.querySelector('.sub-note');
+  if (sel.value) {
+    sel.classList.add('done');
     card.classList.add('assigned');
-    card.querySelector('.free-count').textContent = `✓ ${shortName(sel.value)} รับหน้าที่แทน`;
+    const t = TEACHERS.find(x => x.name === sel.value);
+    note.textContent = `✓ ${t ? sn(t) : sel.value} รับหน้าที่แทน`;
   } else {
+    sel.classList.remove('done');
     card.classList.remove('assigned');
-    card.querySelector('.free-count').textContent = '';
+    note.textContent = '';
   }
 }
 
-// ── Get available teachers for a period ──────────────
-function getAvailableTeachers(day, period, excludeNames) {
-  const excluded = Array.isArray(excludeNames) ? excludeNames : [excludeNames];
-  const busyNames = new Set();
-  TEACHERS.forEach(t => {
-    const dayS = t.schedule[day] || [];
-    if (dayS.some(p => p.period === period)) busyNames.add(t.name);
-  });
-  return TEACHERS
-    .filter(t => Object.keys(t.schedule).length > 0 && !excluded.includes(t.name) && !busyNames.has(t.name))
-    .map(t => t.name);
-}
-
-// ── Get pair period numbers as string ────────────────
-function getPairNums(p, absentName) {
-  if (!p.isDouble) return String(p.period);
-  const absent = TEACHERS.find(t => t.name === absentName);
-  const pairs = (absent?.schedule?.[currentDay] || [])
-    .filter(x => x.isDouble && x.time === p.time)
-    .map(x => x.period);
-  return pairs.length > 1 ? `${Math.min(...pairs)}+${Math.max(...pairs)}` : String(p.period);
-}
-
-// ── Submit all assignments ────────────────────────────
+// ─── Submit ───────────────────────────────────────────────────────
 async function submitAll() {
   if (API_URL.includes('YOUR_APPS_SCRIPT')) {
     showToast('กรุณาตั้งค่า API URL ก่อน', 'red'); return;
   }
-
-  const recordedBy = document.getElementById('user-select').value;
-
-  // Collect all assigned period cards
   const toSave = [];
+
   document.querySelectorAll('.period-card').forEach(card => {
-    const sel = card.querySelector('.sub-select');
-    const sub = sel?.value;
-    if (sub && sub !== '__all__') {
+    const val = card.querySelector('.sub-sel')?.value;
+    if (val && val !== '__all__') {
       toSave.push({
         absentName: card.dataset.absentName,
         period:     card.dataset.period,
@@ -537,7 +2493,7 @@ async function submitAll() {
         cls:        card.dataset.cls,
         subject:    card.dataset.subject,
         room:       card.dataset.room,
-        sub
+        substitute: val
       });
     }
   });
@@ -550,7 +2506,7 @@ async function submitAll() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span>กำลังบันทึก...';
 
-  let success = 0;
+  let ok = 0;
   for (const item of toSave) {
     try {
       const res = await fetch(API_URL, {
@@ -564,36 +2520,118 @@ async function submitAll() {
           cls: item.cls,
           subject: item.subject,
           room: item.room,
-          substitute: item.sub,
-          recordedBy
+          substitute: item.substitute
         })
       });
       const data = await res.json();
-      if (data.success) success++;
+      if (data.success) ok++;
     } catch(e) { /* continue */ }
   }
 
   btn.disabled = false;
   btn.innerHTML = 'บันทึกการจัดสอนแทน';
 
-  if (success > 0) {
-    showToast(`บันทึกแล้ว ${success} คาบ ✓`, 'green');
-    // Reset
-    setTimeout(() => {
-      document.querySelectorAll('#teacher-checklist input:checked').forEach(cb => {
-        cb.checked = false;
-        cb.closest('label')?.classList.remove('checked-label');
-      });
-      document.getElementById('selected-summary').textContent = 'ยังไม่ได้เลือกครู';
-      document.getElementById('periods-container').innerHTML = '';
-      document.getElementById('submit-btn').style.display = 'none';
-    }, 1200);
+  if (ok > 0) {
+    showSummary(toSave);
   } else {
     showToast('บันทึกไม่สำเร็จ ตรวจสอบการเชื่อมต่อ', 'red');
   }
 }
 
-// ── Load & display records ────────────────────────────
+// ─── Show summary after submit ─────────────────────────────────────
+let _lastSubmission = [];
+
+function showSummary(items) {
+  _lastSubmission = items;
+
+  // สร้าง label วันที่ภาษาไทย
+  const dateObj = new Date(currentDate + 'T12:00:00');
+  const dayTh   = DAYS_TH[dateObj.getDay()];
+  const months  = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const [y, m, d] = currentDate.split('-');
+  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y)+543}`;
+  document.getElementById('summary-date-label').textContent = dateStr;
+
+  // จัดกลุ่มตามครูที่ลา
+  const groups = {};
+  items.forEach(item => {
+    if (!groups[item.absentName]) groups[item.absentName] = [];
+    groups[item.absentName].push(item);
+  });
+
+  const cont = document.getElementById('summary-content');
+  cont.innerHTML = Object.entries(groups).map(([absent, rows]) => {
+    const rowsHtml = rows
+      .sort((a,b) => parseInt(a.period) - parseInt(b.period))
+      .map(r => {
+        const isDouble = r.subject && (
+          rows.filter(x => x.time === r.time && x.cls === r.cls).length > 1
+        );
+        return `<div class="sum-row">
+          <span class="sum-period${isDouble?' double':''}">คาบ ${r.period}</span>
+          <div class="sum-mid">
+            <div class="sum-time">🕐 ${r.time}</div>
+            <div class="sum-cls">${r.cls} · ห้อง ${r.room}</div>
+            <div class="sum-subj">${r.subject}</div>
+          </div>
+          <span class="sum-arrow">สอนแทนโดย →</span>
+          <div class="sum-sub">${r.substitute}</div>
+        </div>`;
+      }).join('');
+
+    return `<div class="sum-group">
+      <div class="sum-group-hdr">👤 ${absent} ลา</div>
+      ${rowsHtml}
+    </div>`;
+  }).join('');
+
+  // ซ่อน assign form / แสดง summary
+  document.getElementById('tab-assign').style.display  = 'none';
+  document.getElementById('summary-view').style.display = 'block';
+}
+
+function resetAssign() {
+  // ซ่อน summary / แสดง assign form
+  document.getElementById('summary-view').style.display = 'none';
+  document.getElementById('tab-assign').style.display  = 'block';
+
+  // ล้างฟอร์ม
+  document.querySelectorAll('#teacher-checklist input').forEach(cb => {
+    if (cb.checked) { cb.checked = false; cb.closest('label')?.classList.remove('selected'); }
+  });
+  document.getElementById('selected-summary').textContent = 'ยังไม่ได้เลือกครู';
+  document.getElementById('periods-container').innerHTML = '';
+  document.getElementById('submit-btn').style.display = 'none';
+}
+
+function copyFromSummary() {
+  if (!_lastSubmission.length) return;
+  const dateLabel = document.getElementById('summary-date-label').textContent;
+
+  const groups = {};
+  _lastSubmission.forEach(item => {
+    if (!groups[item.absentName]) groups[item.absentName] = [];
+    groups[item.absentName].push(item);
+  });
+
+  const lines = [
+    `📋 จัดสอนแทน ${dateLabel}`,
+    `โรงเรียนเมืองแกพิทยาสรรค์`,
+    `────────────────────`,
+    ...Object.entries(groups).flatMap(([absent, rows]) => [
+      `👤 ${absent} ลา`,
+      ...rows
+        .sort((a,b) => parseInt(a.period) - parseInt(b.period))
+        .map(r => `  คาบ ${r.period} (${r.time}) ${r.cls} ${r.subject}\n  → ${r.substitute}`)
+    ])
+  ];
+
+  navigator.clipboard.writeText(lines.join('\n'))
+    .then(() => showToast('คัดลอกแล้ว ✓ วางใน LINE ได้เลย', 'green'))
+    .catch(() => showToast('คัดลอกไม่สำเร็จ', 'red'));
+}
+
+// ─── Records tab ──────────────────────────────────────────────────
 async function loadRecords() {
   document.getElementById('rec-title').textContent = `รายการ ${currentDate}`;
   const list = document.getElementById('records-list');
@@ -603,9 +2641,8 @@ async function loadRecords() {
     list.innerHTML = '<div class="empty-msg"><div class="icon">⚠</div><p>ยังไม่ได้ตั้งค่า API URL</p></div>';
     return;
   }
-
   try {
-    const res = await fetch(`${API_URL}?action=getByDate&date=${currentDate}`);
+    const res  = await fetch(`${API_URL}?action=getByDate&date=${currentDate}`);
     const data = await res.json();
     renderRecords(data.records || []);
   } catch(e) {
@@ -613,72 +2650,67 @@ async function loadRecords() {
   }
 }
 
-let _lastRecords = [];
-
-function shortName(n) { return (n || '').replace(/^(นาย|นางสาว|นาง)\s*/, ''); }
-
 function renderRecords(records) {
   _lastRecords = records;
-  const list = document.getElementById('records-list');
-  const copyBtn = document.getElementById('btn-copy-line');
+  const list    = document.getElementById('records-list');
+  const lineBtn = document.getElementById('btn-line');
 
   if (records.length === 0) {
     list.innerHTML = '<div class="empty-msg"><div class="icon">📋</div><p>ยังไม่มีรายการวันนี้</p></div>';
-    copyBtn.style.display = 'none';
+    lineBtn.style.display = 'none';
     return;
   }
-
-  copyBtn.style.display = '';
+  lineBtn.style.display = '';
 
   const rows = records.map(r => {
-    const isDouble = r.period.includes('+');
-    return `
-    <tr>
-      <td class="td-period${isDouble ? ' double' : ''}">คาบ<br>${r.period}</td>
+    const dbl = r.period.includes('+');
+    // แสดงชื่อสั้นจาก TEACHERS ถ้าหาได้
+    const tAbsent = TEACHERS.find(t => t.name === r.absentTeacher);
+    const tSub    = TEACHERS.find(t => t.name === r.substitute);
+    const snAbsent = tAbsent ? sn(tAbsent) : r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+    const snSub    = tSub    ? sn(tSub)    : r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+    return `<tr>
+      <td class="td-period${dbl?' double':''}">คาบ<br>${r.period}</td>
       <td>
         <div class="td-time">${r.time}</div>
         <div class="td-cls">${r.cls} · ${r.subject} · ห้อง ${r.room}</div>
       </td>
       <td>
-        <div class="td-absent">⬆ ${shortName(r.absentTeacher)} ลา</div>
-        <div class="td-arrow">↓</div>
-        <div class="td-sub">${shortName(r.substitute)} สอนแทน</div>
+        <div class="td-absent">⬆ ${snAbsent} ลา</div>
+        <div style="font-size:.75rem;color:var(--gray)">↓</div>
+        <div class="td-sub">${snSub} สอนแทน</div>
       </td>
-      <td class="del-btn-wrap">
-        <button class="btn-del-rec" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
+      <td class="del-wrap">
+        <button class="btn-del" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
       </td>
     </tr>`;
   }).join('');
 
-  list.innerHTML = `
-    <table class="summary-table">
-      <thead>
-        <tr>
-          <th>คาบ</th>
-          <th>เวลา / ชั้น</th>
-          <th>ครูที่ลา → สอนแทน</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>${rows}</tbody>
-    </table>`;
+  list.innerHTML = `<table class="sum-table">
+    <thead><tr><th>คาบ</th><th>เวลา / ชั้น</th><th>ครูที่ลา → สอนแทน</th><th></th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
 }
 
 function copyForLine() {
-  if (_lastRecords.length === 0) return;
+  if (!_lastRecords.length) return;
   const dateObj = new Date(currentDate + 'T00:00:00');
-  const dayTh = DAYS_TH[dateObj.getDay()];
-  const months = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const dayTh   = DAYS_TH[dateObj.getDay()];
+  const months  = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
   const [y, m, d] = currentDate.split('-');
-  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y) + 543}`;
+  const dateStr   = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y)+543}`;
 
   const lines = [
     `📋 จัดสอนแทน ${dateStr}`,
     `โรงเรียนเมืองแกพิทยาสรรค์`,
     `───────────────────`,
-    ..._lastRecords.map(r =>
-      `คาบ ${r.period} (${r.time})\n${shortName(r.absentTeacher)} ลา → ${shortName(r.substitute)} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`
-    )
+    ..._lastRecords.map(r => {
+      const tA = TEACHERS.find(t => t.name === r.absentTeacher);
+      const tS = TEACHERS.find(t => t.name === r.substitute);
+      const snA = tA ? sn(tA) : r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+      const snS = tS ? sn(tS) : r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+      return `คาบ ${r.period} (${r.time})\n${snA} ลา → ${snS} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`;
+    })
   ];
 
   navigator.clipboard.writeText(lines.join('\n\n'))
@@ -689,16 +2721,13 @@ function copyForLine() {
 async function deleteRecord(rowIndex) {
   if (!confirm('ลบรายการนี้?')) return;
   try {
-    await fetch(API_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'deleteRecord', rowIndex })
-    });
+    await fetch(API_URL, { method: 'POST', body: JSON.stringify({ action: 'deleteRecord', rowIndex }) });
     showToast('ลบแล้ว', 'green');
     loadRecords();
   } catch(e) { showToast('ลบไม่สำเร็จ', 'red'); }
 }
 
-// ── UI helpers ────────────────────────────────────────
+// ─── Tabs ─────────────────────────────────────────────────────────
 function switchTab(tab) {
   const map = ['assign','records','timetable'];
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', map[i] === tab));
@@ -708,17 +2737,10 @@ function switchTab(tab) {
   if (tab === 'timetable') renderTimetable();
 }
 
-// ── Timetable ─────────────────────────────────────────
-const TT_DAYS = ['จันทร์','อังคาร','พุธ','พฤหัส','ศุกร์'];
-const TT_PERIODS = [
-  {p:1, time:'08:30'}, {p:2, time:'09:30'}, {p:3, time:'10:30'},
-  {p:4, time:'12:30'}, {p:5, time:'13:30'}, {p:6, time:'14:30'}, {p:7, time:'15:30'}
-];
-let _ttDay = '';
-
+// ─── Timetable ────────────────────────────────────────────────────
 function initTimetable() {
-  _ttDay = currentDay && TT_DAYS.includes(currentDay) ? currentDay : 'จันทร์';
-  const sel = document.getElementById('day-selector');
+  _ttDay = TT_DAYS.includes(currentDay) ? currentDay : 'จันทร์';
+  const sel = document.getElementById('day-sel');
   TT_DAYS.forEach(d => {
     const btn = document.createElement('button');
     btn.className = 'day-btn' + (d === _ttDay ? ' active' : '');
@@ -738,30 +2760,31 @@ function renderTimetable() {
   const grid = document.getElementById('tt-grid');
   const header = `<tr>
     <th style="text-align:left;padding-left:10px">ครู</th>
-    ${TT_PERIODS.map(pi => `<th>คาบ ${pi.p}<span class="tt-time">${pi.time}</span></th>`).join('')}
+    ${TT_PERIODS.map(pi => `<th>คาบ ${pi.p}<span class="tt-t">${pi.t}</span></th>`).join('')}
   </tr>`;
 
-  const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
+  const active = TEACHERS.filter(t => Object.keys(t.schedule).some(d => (t.schedule[d]||[]).length > 0));
   const rows = active.map(t => {
     const sched = t.schedule[_ttDay] || [];
     const cells = TT_PERIODS.map(pi => {
       const e = sched.find(x => x.period === pi.p);
-      if (!e) return `<td class="cell-free">ว่าง</td>`;
-      return `<td class="cell-busy${e.isDouble?' cell-double':''}">
-        <div class="cell-cls">${e.class}</div>
-        <div class="cell-subj">${e.subject}</div>
+      if (!e) return `<td class="c-free">ว่าง</td>`;
+      return `<td class="c-busy${e.isDouble?' c-double':''}">
+        <div class="c-cls">${e.class}</div>
+        <div class="c-subj">${e.subject.split(' ')[0]}</div>
       </td>`;
     }).join('');
-    const sn = t.name.replace(/^(นาย|นางสาว|นาง)\s*/, '').split(' ')[0];
-    return `<tr><td class="td-name">${sn}</td>${cells}</tr>`;
+    return `<tr><td class="td-n">${sn(t)}</td>${cells}</tr>`;
   }).join('');
 
   grid.innerHTML = header + rows;
 }
 
+// ─── Toast ────────────────────────────────────────────────────────
 function showToast(msg, type='') {
   const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast show ' + type;
+  t.textContent = msg;
+  t.className = `toast show ${type}`;
   setTimeout(() => t.className = 'toast', 2500);
 }
 </script>

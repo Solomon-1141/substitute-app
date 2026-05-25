@@ -1,1787 +1,1984 @@
 [
   {
-    "name": "นายชัชวาล มั่นคง ผู้อำนวยการโรงเรียน",
-    "schedule": {}
-  },
-  {
-    "name": "นางสาวกาญจนา ศรีราช",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.3/2",
-          "room": "215",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.3/2",
-          "room": "215",
-          "time": "12:30-14:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ท21101",
-          "class": "1/1",
-          "room": "321",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ท21101",
-          "class": "1/1",
-          "room": "321",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ท33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "10:30-11:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.3/1",
-          "room": "215",
-          "time": "13:30-15:30"
-        },
-        {
-          "period": 6,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.3/1",
-          "room": "215",
-          "time": "13:30-15:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ท31101",
-          "class": "ม.4",
-          "room": "328",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ท31101",
-          "class": "ม.4",
-          "room": "328",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 6,
-          "isDouble": false,
-          "subject": "ท33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "14:30-15:30"
-        }
-      ],
-      "พฤหัส": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "I20201",
-          "class": "1/1",
-          "room": "321",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "I20201",
-          "class": "1/1",
-          "room": "321",
-          "time": "12:30-14:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 4,
-          "isDouble": false,
-          "subject": "ท21101",
-          "class": "1/1",
-          "room": "321",
-          "time": "12:30-13:30"
-        }
-      ]
-    }
-  },
-  {
-    "name": "นางยุภาวดี สิงหาด",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ท23101",
-          "class": "ม.3/1",
-          "room": "326",
-          "time": "10:30-11:30"
-        },
-        {
-          "period": 4,
-          "isDouble": false,
-          "subject": "ท32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-13:30"
-        },
-        {
-          "period": 5,
-          "isDouble": false,
-          "subject": "ท32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "13:30-14:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ท22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "09:30-11:30"
-        },
-        {
-          "period": 3,
-          "isDouble": true,
-          "subject": "ท22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "09:30-11:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "I30201 (การสืบค้นและนำเสนอฯ)",
-          "class": "ม.5",
-          "room": "322",
-          "time": "13:30-15:30"
-        },
-        {
-          "period": 6,
-          "isDouble": true,
-          "subject": "I30201 (การสืบค้นและนำเสนอฯ)",
-          "class": "ม.5",
-          "room": "322",
-          "time": "13:30-15:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ท23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "10:30-11:30"
-        }
-      ],
-      "พฤหัส": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ท23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ท23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ท22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "10:30-11:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ท23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ท23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "08:30-10:30"
-        }
-      ]
-    }
-  },
-  {
-    "name": "นายกฤตภาส มูลทอง",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "10:30-11:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค23101",
-          "class": "ม.3/2",
-          "room": "328",
-          "time": "10:30-11:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค23101",
-          "class": "ม.3/1ค",
-          "room": "325",
-          "time": "10:30-11:30"
-        }
-      ],
-      "พฤหัส": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค21101",
-          "class": "ม.1/1",
-          "room": "321",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค21101",
-          "class": "ม.1/1",
-          "room": "321",
-          "time": "08:30-10:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค21101",
-          "class": "ม. 1",
-          "room": "321",
-          "time": "10:30-11:30"
-        }
-      ]
-    }
-  },
-  {
-    "name": "นายภูริณัฐ กลิ่นกำเนิด",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค33103",
-          "class": "ม.6",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค33103",
-          "class": "ม.6",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค31201",
-          "class": "ม.4",
-          "room": "328",
-          "time": "10:30-11:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค33201",
-          "class": "ม.6",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค33201",
-          "class": "ม.6",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค32201",
-          "class": "ม.5",
-          "room": "322",
-          "time": "10:30-11:30"
-        },
-        {
-          "period": 4,
-          "isDouble": false,
-          "subject": "ค32201",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-13:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค31201",
-          "class": "ม.4",
-          "room": "328",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค31201",
-          "class": "ม.4",
-          "room": "328",
-          "time": "08:30-10:30"
-        }
-      ],
-      "พฤหัส": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค32103",
-          "class": "ม.5",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค32103",
-          "class": "ม.5",
-          "room": "323",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค33201",
-          "class": "ม.6ค",
-          "room": "323",
-          "time": "10:30-11:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ค31103",
-          "class": "ม.4",
-          "room": "328",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ค31103",
-          "class": "ม.4",
-          "room": "328",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ค32201",
-          "class": "ม.5",
-          "room": "322",
-          "time": "10:30-11:30"
-        }
-      ]
-    }
-  },
-  {
     "name": "นางณัฐยา ชิตบัณฑิตย์",
+    "shortName": "ณัฐยา",
     "schedule": {
       "จันทร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว22101",
-          "class": "ม.2",
-          "room": "211",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ว22101",
-          "class": "ม.2",
-          "room": "211",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว30244",
-          "class": "ม.6",
-          "room": "211",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว30244",
-          "class": "ม.6",
-          "room": "211",
-          "time": "12:30-14:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 1,
-          "isDouble": false,
-          "subject": "ว22101",
-          "class": "ม.2",
-          "room": "211",
-          "time": "08:30-09:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ว21101",
+          "subject": "ว21101 วิทยาศาสตร์",
           "class": "ม.1",
           "room": "211",
-          "time": "10:30-11:30"
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว21101 วิทยาศาสตร์",
+          "class": "ม.1",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
+          "room": "211",
+          "time": "11:00-11:50"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
+          "room": "211",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ21203 ปฐพีวิทยาเบื้องต้น",
+          "class": "ม.1",
+          "room": "211",
+          "time": "14:40-15:30"
         }
       ],
       "พุธ": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว21101",
-          "class": "ม.1/1",
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
           "room": "211",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว21101",
-          "class": "ม.1/1",
+          "subject": "ว22101 วิทยาศาสตร์",
+          "class": "ม.2",
           "room": "211",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ว30244",
-          "class": "ม.6",
+          "subject": "ว21101 วิทยาศาสตร์",
+          "class": "ม.1",
           "room": "211",
-          "time": "10:30-11:30"
+          "time": "10:10-11:00"
         }
       ],
       "พฤหัส": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว31103",
-          "class": "ม.4",
+          "subject": "ว30242 ชีววิทยา 2",
+          "class": "ม.5",
           "room": "211",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว31103",
-          "class": "ม.4",
-          "room": "211",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ว30242",
+          "subject": "ว30242 ชีววิทยา 2",
           "class": "ม.5",
           "room": "211",
-          "time": "10:30-11:30"
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ว31103 ชีวะวิทยาพื้นฐาน",
+          "class": "ม.4",
+          "room": "211",
+          "time": "11:00-11:50"
         }
       ],
       "ศุกร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30242",
-          "class": "ม.5",
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
           "room": "211",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30242",
-          "class": "ม.5",
+          "subject": "ว30244 ชีววิทยา",
+          "class": "ม.6",
           "room": "211",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
-          "period": 3,
+          "period": 4,
           "isDouble": false,
-          "subject": "ว31103",
-          "class": "ม.4",
+          "subject": "ว30242 ชีววิทยา 2",
+          "class": "ม.5",
           "room": "211",
-          "time": "10:30-11:30"
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ส21203 สุจริตศึกษา",
+          "class": "ม.1",
+          "room": "211",
+          "time": "13:00-13:50"
         }
       ]
     }
   },
   {
     "name": "นางธัญพร ทองหล่อ",
+    "shortName": "ธัญพร",
     "schedule": {
       "จันทร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว31102",
+          "subject": "ว31102 เคมีพื้นฐาน",
           "class": "ม.4",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว31102",
+          "subject": "ว31102 เคมีพื้นฐาน",
           "class": "ม.4",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ว30224",
-          "class": "ม.6",
-          "room": "125",
-          "time": "10:30-11:30"
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
+          "room": "126",
+          "time": "10:10-11:00"
         }
       ],
       "อังคาร": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30222",
-          "class": "ม.5",
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30222",
-          "class": "ม.5",
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
-          "period": 3,
+          "period": 4,
           "isDouble": false,
-          "subject": "ว30222",
-          "class": "ม.4",
+          "subject": "ว30224 เคมี",
+          "class": "ม.6",
           "room": "126",
-          "time": "10:30-11:30"
+          "time": "11:00-11:50"
         }
       ],
       "พุธ": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30224",
+          "subject": "ว30224 เคมี",
           "class": "ม.6",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30224",
+          "subject": "ว30224 เคมี",
           "class": "ม.6",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ว30222",
+          "subject": "ว30222 เคมี 2",
           "class": "ม.5",
           "room": "126",
-          "time": "10:30-11:30"
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส33203 สุจริตศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
         }
       ],
       "พฤหัส": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว23101",
-          "class": "ม.3/1",
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว23101",
-          "class": "ม.3/1",
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/2",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ว23101",
-          "class": "ม.3/2",
+          "subject": "ว23101 วิทยาศาสตร์",
+          "class": "ม.3/1",
           "room": "126",
-          "time": "10:30-11:30"
+          "time": "10:10-11:00"
         }
       ],
       "ศุกร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว23101",
-          "class": "ม.3/2",
+          "subject": "ว30222 เคมี 2",
+          "class": "ม.5",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว23101",
-          "class": "ม.3/2",
+          "subject": "ว30222 เคมี 2",
+          "class": "ม.5",
           "room": "126",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ว23101",
-          "class": "ม.3/1",
+          "subject": "ว31102 เคมีพื้นฐาน",
+          "class": "ม.4",
           "room": "126",
-          "time": "10:30-11:30"
+          "time": "10:10-11:00"
         }
       ]
     }
   },
   {
     "name": "นายนพพร กาแก้ว",
+    "shortName": "นพพร",
     "schedule": {
       "จันทร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30202",
-          "class": "ม.5",
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
           "room": "125",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30202",
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
           "class": "ม.5",
           "room": "125",
-          "time": "08:30-10:30"
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
+          "room": "125",
+          "time": "10:10-11:50"
         }
       ],
       "อังคาร": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว31106",
-          "class": "ม.4",
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
           "room": "125",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว31106",
-          "class": "ม.4",
+          "subject": "ว30202 ฟิสิกส์ 2",
+          "class": "ม.5",
           "room": "125",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว31104",
-          "class": "ม.6",
-          "room": "125",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว31104",
-          "class": "ม.6",
-          "room": "125",
-          "time": "12:30-14:30"
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ23203 ผู้ประกอบการข้าวไทย",
+          "class": "ม.3/1",
+          "room": "",
+          "time": "14:40-15:30"
         }
       ],
       "พุธ": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30202",
-          "class": "ม.5",
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
           "room": "125",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30202",
-          "class": "ม.5",
-          "room": "125",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ว31106",
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
           "class": "ม.4",
           "room": "125",
-          "time": "10:30-11:30"
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส23203 สุจริตศึกษา",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
         }
       ],
       "พฤหัส": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ว30204",
-          "class": "ม.6",
-          "room": "125",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ว30204",
-          "class": "ม.6",
-          "room": "125",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ว31106",
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
           "class": "ม.4",
           "room": "125",
-          "time": "10:30-11:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ว30204",
-          "class": "ม.6",
-          "room": "125",
-          "time": "08:30-10:30"
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ว30204",
+          "subject": "ว31106 ฟิสิกส์พื้นฐาน",
+          "class": "ม.4",
+          "room": "125",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31104 โลกดาราศาสตร์ฯ",
           "class": "ม.6",
           "room": "125",
-          "time": "08:30-10:30"
-        }
-      ]
-    }
-  },
-  {
-    "name": "นางสาวพรนภา บุญมี",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว20205",
-          "class": "3/1",
-          "room": "325",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว20205",
-          "class": "3/1",
-          "room": "325",
-          "time": "12:30-14:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว20205",
-          "class": "3/2",
-          "room": "326",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว20205",
-          "class": "3/2",
-          "room": "326",
-          "time": "12:30-14:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "วิชาเพิ่มเติม",
-          "class": "2/1",
-          "room": "213",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "วิชาเพิ่มเติม",
-          "class": "2/1",
-          "room": "213",
-          "time": "12:30-14:30"
-        }
-      ]
-    }
-  },
-  {
-    "name": "นายพงศธร เอื้อเฟื้อสุข (อัตราจ้างชั่วคราว)",
-    "schedule": {
-      "จันทร์": [
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ว20214",
-          "class": "ม.1",
-          "room": "คอมฯ",
-          "time": "09:30-11:30"
-        },
-        {
-          "period": 3,
-          "isDouble": true,
-          "subject": "ว20214",
-          "class": "ม.1",
-          "room": "คอมฯ",
-          "time": "09:30-11:30"
+          "time": "13:00-14:40"
         },
         {
           "period": 6,
           "isDouble": true,
-          "subject": "ว30228",
+          "subject": "ว31104 โลกดาราศาสตร์ฯ",
           "class": "ม.6",
-          "room": "คอมฯ",
-          "time": "14:30-16:30"
-        },
-        {
-          "period": 7,
-          "isDouble": true,
-          "subject": "ว30228",
-          "class": "ม.6",
-          "room": "คอมฯ",
-          "time": "14:30-16:30"
-        }
-      ],
-      "อังคาร": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว20210",
-          "class": "ม.3/2",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว20210",
-          "class": "ม.3/2",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
-        }
-      ],
-      "พุธ": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "ว20210",
-          "class": "ม.3/1",
-          "room": "คอมฯ",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "ว20210",
-          "class": "ม.3/1",
-          "room": "คอมฯ",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว20209",
-          "class": "ม.2",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว20209",
-          "class": "ม.2",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
-        }
-      ],
-      "พฤหัส": [
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ว31105",
-          "class": "ม.4",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ว31105",
-          "class": "ม.4",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
+          "room": "125",
+          "time": "13:00-14:40"
         }
       ],
       "ศุกร์": [
         {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "10:10-11:50"
+        },
+        {
           "period": 4,
           "isDouble": true,
-          "subject": "ว31107",
-          "class": "ม.5",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
+          "subject": "ว30204 ฟิสิกส์",
+          "class": "ม.6",
+          "room": "125",
+          "time": "10:10-11:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางมนทกานต์ ธนสิริวรกุล",
+    "shortName": "มนทกานต์",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ22102 ภาษาอังกฤษ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ23101 ภาษาอังกฤษ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "อ21101 ภาษาอังกฤษ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "กพ22901 จิตสาธารณะ",
+          "class": "ม.2",
+          "room": "",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวกาญจนา ศรีราช",
+    "shortName": "กาญจนา",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท31101 ภาษาไทย",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท31101 ภาษาไทย",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
         },
         {
           "period": 5,
           "isDouble": true,
-          "subject": "ว31107",
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส31231 หน้าที่พลเมือง",
+          "class": "ม.4",
+          "room": "322",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I20201 การศึกษาค้นคว้าและสร้างฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "I20201 การศึกษาค้นคว้าและสร้างฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท33101 ภาษาไทย",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท33101 ภาษาไทย",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง23101 การงานอาชีพ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส31203 สุจริตศึกษา",
+          "class": "ม.4",
+          "room": "322",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท21101 ภาษาไทย",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:00"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางยุภาวดี สิงหาด",
+    "shortName": "ยุภาวดี",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ท32101 ภาษาไทย",
           "class": "ม.5",
-          "room": "คอมฯ",
-          "time": "12:30-14:30"
+          "room": "328",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ท32101 ภาษาไทย",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:50"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส32203 สุจริตศึกษา",
+          "class": "ม.5",
+          "room": "328",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท23101 ภาษาไทย",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "I30201 การสืบค้นและนำเสนอฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "I30201 การสืบค้นและนำเสนอฯ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ท22101 ภาษาไทย",
+          "class": "ม.2",
+          "room": "213",
+          "time": "11:00-11:50"
         }
       ]
     }
   },
   {
     "name": "นางสาวฤทัยรัตน์ บุตรศรีมาศ",
+    "shortName": "ฤทัยรัตน์",
     "schedule": {
       "จันทร์": [
         {
           "period": 4,
-          "isDouble": true,
-          "subject": "ส31101",
-          "class": "ม.4",
-          "room": "328",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "ส23165 ประวัติศาสตร์",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
           "isDouble": true,
-          "subject": "ส31101",
-          "class": "ม.4",
+          "subject": "ส32101 สังคมศึกษาฯ",
+          "class": "ม.5",
           "room": "328",
-          "time": "12:30-14:30"
+          "time": "13:00-14:40"
         },
         {
           "period": 6,
           "isDouble": true,
-          "subject": "ง31101",
-          "class": "4/1",
+          "subject": "ส32101 สังคมศึกษาฯ",
+          "class": "ม.5",
           "room": "328",
-          "time": "14:30-16:30"
+          "time": "13:00-14:40"
         },
         {
           "period": 7,
-          "isDouble": true,
-          "subject": "ง31101",
-          "class": "4/1",
-          "room": "328",
-          "time": "14:30-16:30"
+          "isDouble": false,
+          "subject": "ส23231 หน้าที่พลเมือง",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "14:40-15:30"
         }
       ],
       "อังคาร": [
         {
           "period": 4,
           "isDouble": false,
-          "subject": "ส23165",
-          "class": "ม.3/1",
+          "subject": "ส23165 ประวัติศาสตร์",
+          "class": "ม.3/2",
           "room": "326",
-          "time": "12:30-13:30"
+          "time": "11:00-11:50"
         },
         {
-          "period": 6,
-          "isDouble": false,
-          "subject": "ส31161",
+          "period": 5,
+          "isDouble": true,
+          "subject": "ส31101 สังคมศึกษาฯ",
           "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ส31101 สังคมศึกษาฯ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส32163 ประวัติศาสตร์",
+          "class": "ม.5",
           "room": "328",
-          "time": "14:30-15:30"
-        }
-      ],
-      "พุธ": [
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง31102 การงานอาชีพ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
         {
           "period": 6,
-          "isDouble": false,
-          "subject": "ส32163",
-          "class": "ม.5",
+          "isDouble": true,
+          "subject": "ง31102 การงานอาชีพ",
+          "class": "ม.4",
           "room": "322",
-          "time": "14:30-15:30"
+          "time": "13:00-14:40"
         }
       ],
       "พฤหัส": [
         {
-          "period": 4,
+          "period": 3,
           "isDouble": true,
-          "subject": "ส32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-14:30"
+          "subject": "ส33101 สังคมศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
         },
         {
-          "period": 5,
+          "period": 4,
           "isDouble": true,
-          "subject": "ส32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-14:30"
+          "subject": "ส33101 สังคมศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:50"
         }
       ],
       "ศุกร์": [
         {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ส23165",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "10:30-11:30"
-        },
-        {
           "period": 4,
-          "isDouble": true,
-          "subject": "ส33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "ส31161 ประวัติศาสตร์",
+          "class": "ม.4",
+          "room": "322",
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
-          "isDouble": true,
-          "subject": "ส33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "ส23203 สุจริตศึกษา",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
         }
       ]
     }
   },
   {
-    "name": "นายปัณณวิชญ์ นาไชย",
+    "name": "นายภูริณัฐ กลั่นกำเนิด",
+    "shortName": "ภูริณัฐ",
     "schedule": {
       "จันทร์": [
         {
-          "period": 4,
-          "isDouble": false,
-          "subject": "ส22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "12:30-13:30"
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค32101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
         },
         {
-          "period": 6,
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค32101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
           "isDouble": false,
-          "subject": "ส23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "14:30-15:30"
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส33231 หน้าที่พลเมือง",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
         }
       ],
       "อังคาร": [
         {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ค31101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
+        },
+        {
           "period": 4,
           "isDouble": true,
-          "subject": "ส21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "12:30-14:30"
+          "subject": "ค31101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:50"
         },
         {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ส21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 6,
+          "period": 7,
           "isDouble": false,
-          "subject": "ส23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "14:30-15:30"
+          "subject": "อ33203 เศรษฐศาสตร์ข้าวโลก",
+          "class": "ม.6",
+          "room": "214",
+          "time": "14:40-15:30"
         }
       ],
       "พุธ": [
         {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ส21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "10:30-11:30"
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
         },
         {
-          "period": 4,
+          "period": 2,
           "isDouble": true,
-          "subject": "ส23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ส23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "12:30-14:30"
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "08:30-10:10"
         }
       ],
       "พฤหัส": [
         {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค33101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค33101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.6",
+          "room": "214",
+          "time": "08:30-10:10"
+        },
+        {
           "period": 3,
           "isDouble": false,
-          "subject": "ส22163",
-          "class": "ม.2",
-          "room": "213",
-          "time": "10:30-11:30"
-        },
-        {
-          "period": 4,
-          "isDouble": true,
-          "subject": "ส23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ส23101",
-          "class": "ม.3/2",
-          "room": "326",
-          "time": "12:30-14:30"
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:00"
         }
       ],
       "ศุกร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ส22101",
-          "class": "ม.2 ค",
-          "room": "213",
-          "time": "08:30-10:30"
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ส22101",
-          "class": "ม.2 ค",
-          "room": "213",
-          "time": "08:30-10:30"
+          "subject": "ค31201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.4",
+          "room": "322",
+          "time": "08:30-10:10"
         },
         {
-          "period": 5,
+          "period": 3,
           "isDouble": false,
-          "subject": "ส21161",
-          "class": "ม.1",
-          "room": "321",
-          "time": "13:30-14:30"
+          "subject": "ค32201 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:00"
         }
       ]
     }
   },
   {
-    "name": "นางมนทกานต์ ธนสีริวรกุล",
+    "name": "นายกฤตภาส มูลทอง",
+    "shortName": "กฤตภาส",
     "schedule": {
-      "พฤหัส": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "อ22101",
-          "class": "2",
-          "room": "213",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "อ22101",
-          "class": "2",
-          "room": "213",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 3,
-          "isDouble": false,
-          "subject": "อ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "10:30-11:30"
-        }
-      ],
-      "ศุกร์": [
-        {
-          "period": 1,
-          "isDouble": true,
-          "subject": "อ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "08:30-10:30"
-        },
-        {
-          "period": 2,
-          "isDouble": true,
-          "subject": "อ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "08:30-10:30"
-        }
-      ],
       "จันทร์": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "อ23101",
-          "class": "3/1",
-          "room": "325",
-          "time": "08:30-10:30"
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "อ23101",
-          "class": "3/1",
-          "room": "325",
-          "time": "08:30-10:30"
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "อ23101",
-          "class": "3/2",
-          "room": "325",
-          "time": "10:30-11:30"
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "กพ23901 จิตสาธารณะ",
+          "class": "ม.3/2",
+          "room": "",
+          "time": "13:50-14:40"
         }
       ],
       "อังคาร": [
         {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
           "period": 3,
           "isDouble": false,
-          "subject": "อ23101",
-          "class": "3/1",
-          "room": "326",
-          "time": "10:30-11:30"
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ23203 ผู้ประกอบการข้าวไทย",
+          "class": "ม.3/2",
+          "room": "",
+          "time": "14:40-15:30"
         }
       ],
       "พุธ": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "อ23101",
-          "class": "3/2",
-          "room": "326",
-          "time": "08:30-10:30"
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "อ23101",
-          "class": "3/2",
-          "room": "326",
-          "time": "08:30-10:30"
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/1",
+          "room": "323",
+          "time": "08:30-10:10"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ค21101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.1",
+          "room": "323",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ค20203 คณิตศาสตร์เพิ่มเติม",
+          "class": "ม.2",
+          "room": "323",
+          "time": "11:00-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ค23101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.3/2",
+          "room": "323",
+          "time": "08:30-10:10"
         },
         {
           "period": 3,
           "isDouble": false,
-          "subject": "อ22101",
-          "class": "2",
-          "room": "213",
-          "time": "10:30-11:30"
+          "subject": "ค22101 คณิตศาสตร์พื้นฐาน",
+          "class": "ม.2",
+          "room": "323",
+          "time": "10:10-11:00"
         }
       ]
     }
   },
   {
     "name": "นายรักเกียรติ สุภิษะ",
+    "shortName": "รักเกียรติ",
     "schedule": {
       "จันทร์": [
         {
-          "period": 1,
-          "isDouble": false,
-          "subject": "ต20201",
-          "class": "ม.1",
-          "room": "321",
-          "time": "08:30-09:30"
-        },
-        {
           "period": 4,
           "isDouble": false,
-          "subject": "อ20203",
-          "class": "3/2",
+          "subject": "อ20203 ภาษาอังกฤษฟัง-พูด",
+          "class": "ม.3/2",
           "room": "326",
-          "time": "12:30-13:30"
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-14:40"
         },
         {
           "period": 6,
+          "isDouble": true,
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
           "isDouble": false,
-          "subject": "อ32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "14:30-15:30"
+          "subject": "ส21231 หน้าที่พลเมือง",
+          "class": "ม.1",
+          "room": "321",
+          "time": "14:40-15:30"
         }
       ],
       "อังคาร": [
         {
           "period": 3,
           "isDouble": false,
-          "subject": "อ20203",
+          "subject": "กพ21901 จิตสาธารณะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "อ20203 ภาษาอังกฤษฟัง-พูด",
           "class": "ม.3/1",
           "room": "325",
-          "time": "10:30-11:30"
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
-          "isDouble": false,
-          "subject": "อ31101",
-          "class": "ม.4",
+          "isDouble": true,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
           "room": "328",
-          "time": "13:30-14:30"
+          "time": "13:00-14:40"
         },
         {
           "period": 6,
-          "isDouble": false,
-          "subject": "อ33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "14:30-15:30"
+          "isDouble": true,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "13:00-14:40"
         }
       ],
       "พุธ": [
         {
-          "period": 4,
-          "isDouble": true,
-          "subject": "อ31101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-14:30"
-        },
-        {
           "period": 5,
-          "isDouble": true,
-          "subject": "อ31101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "12:30-14:30"
-        },
-        {
-          "period": 6,
           "isDouble": false,
-          "subject": "ต30201",
-          "class": "ม.4",
-          "room": "328",
-          "time": "14:30-15:30"
+          "subject": "อ30203 อังกฤษเพื่อการวิเคราะห์",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-13:50"
         }
       ],
       "พฤหัส": [
         {
+          "period": 3,
+          "isDouble": false,
+          "subject": "อ32101 ภาษาอังกฤษ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "10:10-11:00"
+        },
+        {
           "period": 4,
-          "isDouble": true,
-          "subject": "อ33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "จ20201 ภาษาจีน",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
           "isDouble": true,
-          "subject": "อ33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "12:30-14:30"
+          "subject": "อ31101 ภาษาอังกฤษ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "อ31101 ภาษาอังกฤษ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "13:00-14:40"
         }
       ],
       "ศุกร์": [
         {
-          "period": 4,
-          "isDouble": true,
-          "subject": "อ31101",
-          "class": "ม.4",
-          "room": "328",
-          "time": "12:30-14:30"
-        },
-        {
           "period": 5,
-          "isDouble": true,
-          "subject": "อ31101",
+          "isDouble": false,
+          "subject": "จ30201 ภาษาจีน",
           "class": "ม.4",
-          "room": "328",
-          "time": "12:30-14:30"
+          "room": "322",
+          "time": "13:00-13:50"
         }
       ]
     }
   },
   {
-    "name": "นางสาวจิตรา อินทร์ปัญญา (พนักงานราชการ)",
+    "name": "นายปัณณวิชญ์ นาไชย",
+    "shortName": "ปัณณวิชญ์",
     "schedule": {
       "จันทร์": [
         {
-          "period": 3,
-          "isDouble": false,
-          "subject": "ศ32101",
-          "class": "ม.5",
-          "room": "322",
-          "time": "10:30-11:30"
-        },
-        {
           "period": 5,
-          "isDouble": true,
-          "subject": "ศ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "13:30-15:30"
+          "isDouble": false,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
         },
         {
-          "period": 6,
-          "isDouble": true,
-          "subject": "ศ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "13:30-15:30"
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส22231 หน้าที่พลเมือง",
+          "class": "ม.2",
+          "room": "213",
+          "time": "14:40-15:30"
         }
       ],
       "อังคาร": [
         {
           "period": 1,
           "isDouble": true,
-          "subject": "ศ23101",
-          "class": "ม.3/2",
-          "room": "324",
-          "time": "08:30-10:30"
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
         },
         {
           "period": 2,
           "isDouble": true,
-          "subject": "ศ23101",
-          "class": "ม.3/2",
-          "room": "324",
-          "time": "08:30-10:30"
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
         },
         {
           "period": 4,
           "isDouble": false,
-          "subject": "ศ31101",
-          "class": "ม.4",
-          "room": "328",
-          "time": "12:30-13:30"
-        },
-        {
-          "period": 5,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.2",
-          "room": "125",
-          "time": "13:30-15:30"
-        },
-        {
-          "period": 6,
-          "isDouble": true,
-          "subject": "ง22101",
-          "class": "ม.2",
-          "room": "125",
-          "time": "13:30-15:30"
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "11:00-11:50"
         }
       ],
       "พุธ": [
         {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส21101 สังคมศึกษาฯ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส22163 ประวัติศาสตร์",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส22101 สังคมศึกษาฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "11:00-11:50"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ส22203 สุจริตศึกษา",
+          "class": "ม.2",
+          "room": "213",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:50"
+        },
+        {
           "period": 4,
           "isDouble": true,
-          "subject": "ง21101",
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "10:10-11:50"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ส23101 สังคมศึกษาฯ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "ส21161 ประวัติศาสตร์",
           "class": "ม.1",
-          "room": "125",
-          "time": "12:30-14:30"
+          "room": "321",
+          "time": "11:00-11:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นางสาวจิตรา อินทร์ปัญญา",
+    "shortName": "จิตรา",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ศ21101 ศิลปะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ศ21101 ศิลปะ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "10:10-11:50"
         },
         {
           "period": 5,
           "isDouble": true,
-          "subject": "ง21101",
-          "class": "ม.1",
-          "room": "125",
-          "time": "12:30-14:30"
+          "subject": "ศ22101 ศิลปะ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ศ22101 ศิลปะ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส23231 หน้าที่พลเมือง",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ33101 ศิลปะ",
+          "class": "ม.6",
+          "room": "214",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 1,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 2,
+          "isDouble": true,
+          "subject": "ศ23101 ศิลปะ",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "08:30-10:10"
+        },
+        {
+          "period": 3,
+          "isDouble": false,
+          "subject": "ศ31101 ศิลปะ",
+          "class": "ม.4",
+          "room": "322",
+          "time": "10:10-11:00"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ง22101 การงานอาชีพ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง22101 การงานอาชีพ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
         }
       ],
       "พฤหัส": [
         {
           "period": 4,
-          "isDouble": true,
-          "subject": "ศ22101",
-          "class": "ม.2",
-          "room": "321",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "ศ32101 ศิลปะ",
+          "class": "ม.5",
+          "room": "328",
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
           "isDouble": true,
-          "subject": "ศ22101",
-          "class": "ม.2",
+          "subject": "ง21101 การงานอาชีพ",
+          "class": "ม.1",
           "room": "321",
-          "time": "12:30-14:30"
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ง21101 การงานอาชีพ",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "กพ23901 จิตสาธารณะ",
+          "class": "ม.3/1",
+          "room": "",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายพงศธร เอื้อเฟื้อสุข",
+    "shortName": "พงศธร",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว20209 เทคโนโลยีสารสนเทศ",
+          "class": "ม.2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20209 เทคโนโลยีสารสนเทศ",
+          "class": "ม.2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว31105 วิทยาการคำนวณ",
+          "class": "ม.4",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว31105 วิทยาการคำนวณ",
+          "class": "ม.4",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "ส32231 หน้าที่พลเมือง",
+          "class": "ม.5",
+          "room": "328",
+          "time": "14:40-15:30"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว30207 เทคโนโลยีฯ",
+          "class": "ม.6",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว30207 เทคโนโลยีฯ",
+          "class": "ม.6",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ32203 นวัตกรรมข้าวเชิงพาณิชย์",
+          "class": "ม.5",
+          "room": "คอม",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20214 โปรแกรมพื้นฐาน",
+          "class": "ม.1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20214 โปรแกรมพื้นฐาน",
+          "class": "ม.1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        },
+        {
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/1",
+          "room": "คอม",
+          "time": "13:00-14:40"
+        }
+      ],
+      "ศุกร์": [
+        {
+          "period": 3,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 4,
+          "isDouble": true,
+          "subject": "ว20210 กราฟิกและเทคโนโลยี",
+          "class": "ม.3/2",
+          "room": "คอม",
+          "time": "10:10-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "ว31107 ออกแบบและเทคโนโลยี",
+          "class": "ม.5",
+          "room": "คอม",
+          "time": "13:00-13:50"
+        }
+      ]
+    }
+  },
+  {
+    "name": "นายนพคุณ แซ่ลิ้ม",
+    "shortName": "นพคุณ",
+    "schedule": {
+      "จันทร์": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ21101 สุขศึกษา",
+          "class": "ม.1",
+          "room": "321",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ21102 พลศึกษา",
+          "class": "ม.1",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        }
+      ],
+      "อังคาร": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ23101 สุขศึกษา",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ23102 พลศึกษา",
+          "class": "ม.3/2",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        },
+        {
+          "period": 7,
+          "isDouble": false,
+          "subject": "อ31203 เกษตรอัจฉริยะ",
+          "class": "ม.4",
+          "room": "",
+          "time": "14:40-15:30"
+        }
+      ],
+      "พุธ": [
+        {
+          "period": 4,
+          "isDouble": false,
+          "subject": "พ31101 สุขศึกษาและพลศึกษา",
+          "class": "ม.4",
+          "room": "สนาม",
+          "time": "11:00-11:50"
+        },
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ32101 สุขศึกษาและพลศึกษา",
+          "class": "ม.5",
+          "room": "สนาม",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ33101 สุขศึกษาและพลศึกษา",
+          "class": "ม.6",
+          "room": "สนาม",
+          "time": "13:50-14:40"
+        }
+      ],
+      "พฤหัส": [
+        {
+          "period": 5,
+          "isDouble": false,
+          "subject": "พ22101 สุขศึกษา",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-13:50"
+        },
+        {
+          "period": 6,
+          "isDouble": false,
+          "subject": "พ22102 พลศึกษา",
+          "class": "ม.2",
+          "room": "สนาม",
+          "time": "13:50-14:40"
         }
       ],
       "ศุกร์": [
         {
           "period": 3,
           "isDouble": false,
-          "subject": "ศ33101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "10:30-11:30"
+          "subject": "พ23101 สุขศึกษา",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "10:10-11:00"
         },
         {
           "period": 4,
-          "isDouble": true,
-          "subject": "ศ23101",
+          "isDouble": false,
+          "subject": "พ23102 พลศึกษา",
           "class": "ม.3/1",
-          "room": "325",
-          "time": "12:30-14:30"
+          "room": "สนาม",
+          "time": "11:00-11:50"
         },
         {
           "period": 5,
-          "isDouble": true,
-          "subject": "ศ23101",
-          "class": "ม.3/1",
-          "room": "325",
-          "time": "12:30-14:30"
+          "isDouble": false,
+          "subject": "พ33201 เพศศึกษา",
+          "class": "ม.6",
+          "room": "214",
+          "time": "13:00-13:50"
         }
       ]
     }
   },
   {
-    "name": "นายนพคุณ แซ่ลิ้ม (อัตราจ้างชั่วคราว)",
+    "name": "นางสาวพรนภา บุญมี",
+    "shortName": "พรนภา",
     "schedule": {
-      "จันทร์": [
-        {
-          "period": 4,
-          "isDouble": false,
-          "subject": "พ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "12:30-13:30"
-        },
-        {
-          "period": 5,
-          "isDouble": false,
-          "subject": "พ22101",
-          "class": "ม.2",
-          "room": "213",
-          "time": "13:30-14:30"
-        },
-        {
-          "period": 6,
-          "isDouble": false,
-          "subject": "พ22102",
-          "class": "ม.2",
-          "room": "สนาม",
-          "time": "14:30-15:30"
-        },
-        {
-          "period": 7,
-          "isDouble": false,
-          "subject": "พ32101",
-          "class": "ม.5",
-          "room": "สนาม",
-          "time": "15:30-16:30"
-        }
-      ],
+      "จันทร์": [],
       "อังคาร": [
         {
-          "period": 6,
-          "isDouble": false,
-          "subject": "พ21101",
-          "class": "ม.1",
-          "room": "321",
-          "time": "14:30-15:30"
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20203 ของเล่นเชิงกลฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
         },
         {
-          "period": 7,
-          "isDouble": false,
-          "subject": "พ31101",
-          "class": "ม.4",
-          "room": "สนาม",
-          "time": "15:30-16:30"
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20203 ของเล่นเชิงกลฯ",
+          "class": "ม.2",
+          "room": "213",
+          "time": "13:00-14:40"
         }
       ],
       "พุธ": [
         {
-          "period": 4,
-          "isDouble": false,
-          "subject": "พ33201",
-          "class": "ม.6",
-          "room": "214",
-          "time": "12:30-13:30"
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
         },
         {
-          "period": 5,
-          "isDouble": false,
-          "subject": "พ31101",
-          "class": "ม.6",
-          "room": "214",
-          "time": "13:30-14:30"
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/1",
+          "room": "325",
+          "time": "13:00-14:40"
         }
       ],
       "พฤหัส": [
         {
-          "period": 4,
-          "isDouble": false,
-          "subject": "พ23101",
-          "class": "3/1",
-          "room": "325",
-          "time": "12:30-13:30"
+          "period": 5,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
         },
         {
-          "period": 5,
-          "isDouble": false,
-          "subject": "พ23102",
-          "class": "3/1",
-          "room": "สนาม",
-          "time": "13:30-14:30"
+          "period": 6,
+          "isDouble": true,
+          "subject": "ว20205 พันธุกรรมกับการอยู่รอด",
+          "class": "ม.3/2",
+          "room": "326",
+          "time": "13:00-14:40"
         }
       ],
-      "ศุกร์": [
-        {
-          "period": 4,
-          "isDouble": false,
-          "subject": "พ23101",
-          "class": "3/2",
-          "room": "325",
-          "time": "12:30-13:30"
-        },
-        {
-          "period": 5,
-          "isDouble": false,
-          "subject": "พ23102",
-          "class": "3/2",
-          "room": "สนาม",
-          "time": "13:30-14:30"
-        }
-      ]
+      "ศุกร์": []
     }
   }
 ]
