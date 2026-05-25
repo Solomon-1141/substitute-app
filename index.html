@@ -54,6 +54,30 @@ select, input[type=date] {
 select:focus, input[type=date]:focus { border-color: var(--blue); }
 select:last-child, input:last-child { margin-bottom: 0; }
 
+/* Multi-select teacher checkboxes */
+#teacher-checklist {
+  max-height: 220px; overflow-y: auto;
+  border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 4px; background: white; margin-bottom: 6px;
+}
+#teacher-checklist label {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 8px; cursor: pointer; border-radius: 6px;
+  font-size: 0.82rem; font-weight: 400; color: #1a202c; margin-bottom: 0;
+  transition: background 0.1s;
+}
+#teacher-checklist label:hover { background: var(--blue-light); }
+#teacher-checklist input[type=checkbox] { width: 17px; height: 17px; cursor: pointer; accent-color: var(--blue); flex-shrink: 0; }
+#teacher-checklist label.checked-label { background: var(--blue-light); font-weight: 600; color: var(--blue); }
+#selected-summary { font-size: 0.75rem; color: var(--gray); margin-bottom: 12px; min-height: 1.2em; }
+
+/* Absent teacher group header */
+.absent-group-header {
+  background: var(--blue); color: white;
+  padding: 7px 12px; border-radius: 8px;
+  margin: 12px 0 6px; font-size: 0.82rem; font-weight: 700;
+}
+
 /* Period cards */
 .period-card {
   background: white; border-radius: 10px; padding: 14px;
@@ -222,10 +246,9 @@ select:last-child, input:last-child { margin-bottom: 0; }
     <label>วันที่</label>
     <input type="date" id="date-input" onchange="onDateChange()">
 
-    <label>ครูที่ลา</label>
-    <select id="teacher-select" onchange="onTeacherChange()">
-      <option value="">— เลือกครู —</option>
-    </select>
+    <label>ครูที่ลา (เลือกได้หลายคน)</label>
+    <div id="teacher-checklist"></div>
+    <div id="selected-summary">ยังไม่ได้เลือกครู</div>
 
     <label>ฉันคือ</label>
     <select id="user-select">
@@ -314,64 +337,108 @@ function onDateChange() {
   currentDate = document.getElementById('date-input').value;
   const d = new Date(currentDate + 'T12:00:00');
   currentDay = DAYS_TH[d.getDay()];
-  onTeacherChange();
+  onTeachersChange();
 }
 
-// ── Populate teacher dropdown ─────────────────────────
+// ── Helper: get all checked teacher names ─────────────
+function getCheckedTeachers() {
+  return [...document.querySelectorAll('#teacher-checklist input:checked')].map(el => el.value);
+}
+
+// ── Populate teacher checklist ────────────────────────
 function populateTeacherSelect() {
-  const sel = document.getElementById('teacher-select');
-  // Only teachers with actual schedule
+  const wrap = document.getElementById('teacher-checklist');
+  wrap.innerHTML = '';
   const active = TEACHERS.filter(t => Object.keys(t.schedule).length > 0);
   active.forEach(t => {
-    const opt = document.createElement('option');
-    opt.value = t.name;
-    opt.textContent = t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'');
-    sel.appendChild(opt);
+    const label = document.createElement('label');
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = t.name;
+    cb.addEventListener('change', function() {
+      label.classList.toggle('checked-label', cb.checked);
+      onTeachersChange();
+    });
+    label.appendChild(cb);
+    const span = document.createElement('span');
+    span.textContent = shortName(t.name);
+    label.appendChild(span);
+    wrap.appendChild(label);
   });
 }
 
-// ── Teacher selected ──────────────────────────────────
-function onTeacherChange() {
-  const name = document.getElementById('teacher-select').value;
+// ── Teachers selected (multi) ─────────────────────────
+function onTeachersChange() {
+  const checked = getCheckedTeachers();
+  const sumEl = document.getElementById('selected-summary');
   const container = document.getElementById('periods-container');
   const submitBtn = document.getElementById('submit-btn');
 
-  if (!name) { container.innerHTML = ''; submitBtn.style.display = 'none'; return; }
-
-  const teacher = TEACHERS.find(t => t.name === name);
-  const daySchedule = teacher?.schedule?.[currentDay] || [];
-
-  // Deduplicate double periods (show only once)
-  const seen = new Set();
-  const uniquePeriods = [];
-  for (const p of daySchedule) {
-    const key = p.isDouble ? p.time + p.class : `p${p.period}`;
-    if (!seen.has(key)) { seen.add(key); uniquePeriods.push(p); }
-  }
-
-  if (uniquePeriods.length === 0) {
-    const dayLabel = ['', 'วันจันทร์','วันอังคาร','วันพุธ','วันพฤหัสบดี','วันศุกร์','',''][new Date(currentDate+'T12:00:00').getDay()];
-    container.innerHTML = `<div class="empty-msg"><div class="icon">✅</div><p>${name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}<br>ไม่มีคาบเรียน${dayLabel || 'วันนี้'}</p></div>`;
+  if (checked.length === 0) {
+    sumEl.textContent = 'ยังไม่ได้เลือกครู';
+    container.innerHTML = '';
     submitBtn.style.display = 'none';
     return;
   }
 
+  sumEl.textContent = `เลือกแล้ว ${checked.length} คน: ${checked.map(shortName).join(', ')}`;
+
   container.innerHTML = '';
-  uniquePeriods.forEach(p => renderPeriodCard(container, p, name));
-  submitBtn.style.display = 'block';
+  let totalPeriods = 0;
+
+  checked.forEach(absentName => {
+    const teacher = TEACHERS.find(t => t.name === absentName);
+    const daySchedule = teacher?.schedule?.[currentDay] || [];
+
+    // Deduplicate double periods (show only once)
+    const seen = new Set();
+    const uniquePeriods = [];
+    for (const p of daySchedule) {
+      const key = p.isDouble ? p.time + p.class : `p${p.period}`;
+      if (!seen.has(key)) { seen.add(key); uniquePeriods.push(p); }
+    }
+
+    // Group header
+    const header = document.createElement('div');
+    header.className = 'absent-group-header';
+    header.textContent = `👤 ${shortName(absentName)}`;
+    container.appendChild(header);
+
+    if (uniquePeriods.length === 0) {
+      const msg = document.createElement('p');
+      msg.style.cssText = 'font-size:0.8rem;color:var(--gray);padding:6px 4px 10px;';
+      msg.textContent = `ไม่มีคาบเรียนวัน${currentDay || 'นี้'}`;
+      container.appendChild(msg);
+      return;
+    }
+
+    uniquePeriods.forEach(p => {
+      renderPeriodCard(container, p, absentName, checked);
+      totalPeriods++;
+    });
+  });
+
+  submitBtn.style.display = totalPeriods > 0 ? 'block' : 'none';
 }
 
 // ── Render one period card ────────────────────────────
-function renderPeriodCard(container, p, absentName) {
-  const available = getAvailableTeachers(currentDay, p.period, absentName);
+function renderPeriodCard(container, p, absentName, allAbsent) {
+  const available = getAvailableTeachers(currentDay, p.period, allAbsent);
   const isDouble = p.isDouble;
   const periodLabel = isDouble
-    ? `คาบ ${getPairNums(p)} [คาบคู่]`
+    ? `คาบ ${getPairNums(p, absentName)} [คาบคู่]`
     : `คาบ ${p.period}`;
 
   const card = document.createElement('div');
   card.className = 'period-card';
-  card.id = `card-p${p.period}`;
+  // Store all needed data for submitAll() to read without IDs
+  card.dataset.absentName = absentName;
+  card.dataset.period = isDouble ? getPairNums(p, absentName) : String(p.period);
+  card.dataset.time = p.time;
+  card.dataset.cls = p.class;
+  card.dataset.subject = p.subject;
+  card.dataset.room = p.room;
+
   card.innerHTML = `
     <div class="period-header">
       <span class="period-badge ${isDouble?'double':''}">${periodLabel}</span>
@@ -383,64 +450,69 @@ function renderPeriodCard(container, p, absentName) {
       <span class="room-tag">ห้อง ${p.room}</span>
     </div>
     <span class="sub-label">ครูสอนแทน</span>
-    <select class="sub-select" id="sub-${p.period}" onchange="onSubChange(this, ${p.period})">
+    <select class="sub-select" onchange="onSubChange(this)">
       <option value="">— เลือกครูสอนแทน (${available.length} คนว่าง) —</option>
-      ${available.map(n => `<option value="${n}">${n.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+      ${available.map(n => `<option value="${n}">${shortName(n)}</option>`).join('')}
       <optgroup label="────────────────────"></optgroup>
       <option value="__all__">แสดงครูทั้งหมด...</option>
     </select>
-    <div class="free-count" id="note-${p.period}"></div>
+    <div class="free-count"></div>
   `;
   container.appendChild(card);
 }
 
-function onSubChange(sel, period) {
+// ── Sub selection change ──────────────────────────────
+function onSubChange(sel) {
+  const card = sel.closest('.period-card');
+  const absentName = card.dataset.absentName;
+  const allAbsent = getCheckedTeachers();
+  const period = parseInt(card.dataset.period.split('+')[0]);
+
   if (sel.value === '__all__') {
-    // Repopulate with all teachers
-    const absentName = document.getElementById('teacher-select').value;
-    const allTeachers = TEACHERS.filter(t =>
-      Object.keys(t.schedule).length > 0 && t.name !== absentName
-    );
-    const available = getAvailableTeachers(currentDay, period, absentName);
-    const busy = allTeachers.filter(t => !available.includes(t.name));
+    const allActive = TEACHERS.filter(t => Object.keys(t.schedule).length > 0 && !allAbsent.includes(t.name));
+    const available = getAvailableTeachers(currentDay, period, allAbsent);
+    const busy = allActive.filter(t => !available.includes(t.name));
 
     sel.innerHTML = `<option value="">— เลือกครูสอนแทน —</option>
       <optgroup label="ว่าง (${available.length} คน)">
-        ${available.map(n => `<option value="${n}">${n.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+        ${available.map(n => `<option value="${n}">${shortName(n)}</option>`).join('')}
       </optgroup>
       <optgroup label="มีคาบอยู่ (${busy.length} คน) — เลือกได้ถ้าจำเป็น">
-        ${busy.map(t => `<option value="${t.name}">${t.name.replace(/^(นาย|นางสาว|นาง)\s*/,'')}</option>`).join('')}
+        ${busy.map(t => `<option value="${t.name}">${shortName(t.name)}</option>`).join('')}
       </optgroup>`;
     sel.value = '';
+    return;
   }
-  const card = sel.closest('.period-card');
+
   if (sel.value && sel.value !== '__all__') {
     card.classList.add('assigned');
-    document.getElementById(`note-${period}`).textContent = `✓ ${sel.value.replace(/^(นาย|นางสาว|นาง)\s*/,'')} รับหน้าที่แทน`;
+    card.querySelector('.free-count').textContent = `✓ ${shortName(sel.value)} รับหน้าที่แทน`;
   } else {
     card.classList.remove('assigned');
-    document.getElementById(`note-${period}`).textContent = '';
+    card.querySelector('.free-count').textContent = '';
   }
 }
 
 // ── Get available teachers for a period ──────────────
-function getAvailableTeachers(day, period, excludeName) {
+function getAvailableTeachers(day, period, excludeNames) {
+  const excluded = Array.isArray(excludeNames) ? excludeNames : [excludeNames];
   const busyNames = new Set();
   TEACHERS.forEach(t => {
     const dayS = t.schedule[day] || [];
     if (dayS.some(p => p.period === period)) busyNames.add(t.name);
   });
   return TEACHERS
-    .filter(t => Object.keys(t.schedule).length > 0 && t.name !== excludeName && !busyNames.has(t.name))
+    .filter(t => Object.keys(t.schedule).length > 0 && !excluded.includes(t.name) && !busyNames.has(t.name))
     .map(t => t.name);
 }
 
 // ── Get pair period numbers as string ────────────────
-function getPairNums(p) {
+function getPairNums(p, absentName) {
   if (!p.isDouble) return String(p.period);
-  // Find which period numbers share this time slot
-  const absent = TEACHERS.find(t => t.name === document.getElementById('teacher-select').value);
-  const pairs = (absent?.schedule?.[currentDay] || []).filter(x => x.isDouble && x.time === p.time).map(x => x.period);
+  const absent = TEACHERS.find(t => t.name === absentName);
+  const pairs = (absent?.schedule?.[currentDay] || [])
+    .filter(x => x.isDouble && x.time === p.time)
+    .map(x => x.period);
   return pairs.length > 1 ? `${Math.min(...pairs)}+${Math.max(...pairs)}` : String(p.period);
 }
 
@@ -449,22 +521,26 @@ async function submitAll() {
   if (API_URL.includes('YOUR_APPS_SCRIPT')) {
     showToast('กรุณาตั้งค่า API URL ก่อน', 'red'); return;
   }
-  const absentName = document.getElementById('teacher-select').value;
-  const recordedBy = document.getElementById('user-select').value;
-  const teacher = TEACHERS.find(t => t.name === absentName);
-  const daySchedule = teacher?.schedule?.[currentDay] || [];
 
-  // Collect unique periods (deduplicate doubles)
-  const seen = new Set();
+  const recordedBy = document.getElementById('user-select').value;
+
+  // Collect all assigned period cards
   const toSave = [];
-  for (const p of daySchedule) {
-    const key = p.isDouble ? p.time + p.class : `p${p.period}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    const subSel = document.getElementById(`sub-${p.period}`);
-    const sub = subSel?.value;
-    if (sub && sub !== '__all__') toSave.push({ p, sub });
-  }
+  document.querySelectorAll('.period-card').forEach(card => {
+    const sel = card.querySelector('.sub-select');
+    const sub = sel?.value;
+    if (sub && sub !== '__all__') {
+      toSave.push({
+        absentName: card.dataset.absentName,
+        period:     card.dataset.period,
+        time:       card.dataset.time,
+        cls:        card.dataset.cls,
+        subject:    card.dataset.subject,
+        room:       card.dataset.room,
+        sub
+      });
+    }
+  });
 
   if (toSave.length === 0) {
     showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return;
@@ -475,21 +551,20 @@ async function submitAll() {
   btn.innerHTML = '<span class="spinner"></span>กำลังบันทึก...';
 
   let success = 0;
-  for (const { p, sub } of toSave) {
-    const pairLabel = p.isDouble ? getPairNums(p) : String(p.period);
+  for (const item of toSave) {
     try {
       const res = await fetch(API_URL, {
         method: 'POST',
         body: JSON.stringify({
           action: 'logSubstitute',
           date: currentDate,
-          absentTeacher: absentName,
-          period: pairLabel,
-          time: p.time,
-          cls: p.class,
-          subject: p.subject,
-          room: p.room,
-          substitute: sub,
+          absentTeacher: item.absentName,
+          period: item.period,
+          time: item.time,
+          cls: item.cls,
+          subject: item.subject,
+          room: item.room,
+          substitute: item.sub,
           recordedBy
         })
       });
@@ -505,7 +580,11 @@ async function submitAll() {
     showToast(`บันทึกแล้ว ${success} คาบ ✓`, 'green');
     // Reset
     setTimeout(() => {
-      document.getElementById('teacher-select').value = '';
+      document.querySelectorAll('#teacher-checklist input:checked').forEach(cb => {
+        cb.checked = false;
+        cb.closest('label')?.classList.remove('checked-label');
+      });
+      document.getElementById('selected-summary').textContent = 'ยังไม่ได้เลือกครู';
       document.getElementById('periods-container').innerHTML = '';
       document.getElementById('submit-btn').style.display = 'none';
     }, 1200);
