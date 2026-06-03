@@ -23,26 +23,9 @@ const result = src.map(teacher => {
     const sorted = [...periods].sort((a, b) => a.period - b.period);
     const converted = [];
 
-    let i = 0;
-    while (i < sorted.length) {
-      const cur = sorted[i];
-      const nxt = sorted[i + 1];
-
-      const isDouble = nxt &&
-        nxt.period === cur.period + 1 &&
-        nxt.subject === cur.subject &&
-        nxt.class === cur.class;
-
-      if (isDouble) {
-        const t = `${TIMES[cur.period].s}-${TIMES[nxt.period].e}`;
-        converted.push({ period: cur.period, isDouble: true,  subject: cur.subject, class: cur.class, room: cur.room, time: t });
-        converted.push({ period: nxt.period, isDouble: true,  subject: nxt.subject, class: nxt.class, room: nxt.room, time: t });
-        i += 2;
-      } else {
-        const t = `${TIMES[cur.period].s}-${TIMES[cur.period].e}`;
-        converted.push({ period: cur.period, isDouble: false, subject: cur.subject, class: cur.class, room: cur.room, time: t });
-        i++;
-      }
+    for (const cur of sorted) {
+      const t = `${TIMES[cur.period].s}-${TIMES[cur.period].e}`;
+      converted.push({ period: cur.period, isDouble: false, subject: cur.subject, class: cur.class, room: cur.room, time: t });
     }
 
     newSchedule[day] = converted;
