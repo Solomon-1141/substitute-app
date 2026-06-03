@@ -197,6 +197,42 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
 /* Config alert */
 .cfg-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: .78rem; color: #744210; }
 .cfg-alert strong { display: block; margin-bottom: 4px; }
+
+/* ─── Print styles ──────────────────────────────────────────── */
+#print-form { display: none; }
+
+@media print {
+  body > *:not(#print-form) { display: none !important; }
+  #print-form {
+    display: block !important;
+    font-family: 'TH SarabunPSK', 'Sarabun', serif;
+    font-size: 14pt;
+    color: #000;
+    padding: 0;
+    margin: 0;
+  }
+  .pf-school { text-align: center; font-size: 15pt; font-weight: bold; margin-bottom: 2px; }
+  .pf-title  { text-align: center; font-size: 17pt; font-weight: bold; margin-bottom: 2px; }
+  .pf-date   { text-align: center; font-size: 13pt; margin-bottom: 14px; }
+  .pf-absent { font-size: 13pt; margin-bottom: 8px; }
+  .pf-table  { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .pf-table th, .pf-table td {
+    border: 1px solid #000;
+    padding: 5px 8px;
+    text-align: center;
+    font-size: 13pt;
+    vertical-align: middle;
+  }
+  .pf-table th { background: #f0f0f0; font-weight: bold; }
+  .pf-table td.left { text-align: left; }
+  .pf-table td.sig  { height: 36px; }
+  .pf-sig-area { margin-top: 32px; display: flex; justify-content: flex-end; }
+  .pf-sig-box  { text-align: center; width: 240px; }
+  .pf-sig-line { border-top: 1px solid #000; margin: 0 16px 4px; padding-top: 4px; }
+  .pf-sig-name { font-size: 13pt; }
+  .pf-sig-pos  { font-size: 12pt; color: #333; }
+  @page { margin: 1.5cm 2cm; size: A4 portrait; }
+}
 </style>
 </head>
 <body>
@@ -241,8 +277,9 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
     <div id="summary-date-label" style="font-size:1rem;font-weight:700;color:var(--blue-dk)"></div>
   </div>
   <div id="summary-content"></div>
-  <div style="display:flex;gap:8px;margin-top:4px">
+  <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
     <button class="btn-line" onclick="copyFromSummary()" style="flex:1">📋 คัดลอกสำหรับ LINE</button>
+    <button class="btn-refresh" onclick="printSubstituteForm()" style="flex:1;padding:10px;background:#2d7dd2;color:#fff;border:none;border-radius:10px;font-size:.9rem;cursor:pointer">🖨️ พิมพ์ใบสอนแทน</button>
     <button class="btn-refresh" onclick="resetAssign()" style="flex:1;padding:10px">➕ จัดสอนแทนเพิ่มเติม</button>
   </div>
 </div>
@@ -2803,6 +2840,81 @@ function showToast(msg, type='') {
   t.className = `toast show ${type}`;
   setTimeout(() => t.className = 'toast', 2500);
 }
+
+// ─── Print substitute form ──────────────────────────────────────────
+function printSubstituteForm() {
+  if (!_lastSubmission || _lastSubmission.length === 0) {
+    showToast('ไม่มีข้อมูลสอนแทน', 'red');
+    return;
+  }
+
+  // Build date string
+  const dateObj = new Date(currentDate + 'T12:00:00');
+  const dayTh   = DAYS_TH[dateObj.getDay()];
+  const months  = ['','มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน',
+                   'กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  const [y, m, d] = currentDate.split('-');
+  const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} พ.ศ. ${parseInt(y)+543}`;
+
+  // Collect absent teacher names
+  const absentSet = [...new Set(_lastSubmission.map(r => r.absentName))];
+  const absentStr = absentSet.join(', ');
+
+  // Sort all rows by period
+  const rows = [..._lastSubmission].sort((a, b) => parseInt(a.period) - parseInt(b.period));
+
+  // Build table rows
+  const tableRows = rows.map((r, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td class="left">${r.absentName}</td>
+      <td>${r.period}</td>
+      <td>${r.time}</td>
+      <td class="left">${r.subject}</td>
+      <td>${r.cls}</td>
+      <td>${r.room}</td>
+      <td class="left">${r.substitute}</td>
+      <td class="sig"></td>
+    </tr>`).join('');
+
+  const form = document.getElementById('print-form');
+  form.innerHTML = `
+    <div class="pf-school">โรงเรียนเมืองแกพิทยาสรรค์</div>
+    <div class="pf-title">บันทึกการจัดสอนแทน</div>
+    <div class="pf-date">${dateStr}</div>
+    <div class="pf-absent">ครูที่ขาด/ลา : ${absentStr}</div>
+    <table class="pf-table">
+      <thead>
+        <tr>
+          <th style="width:36px">ที่</th>
+          <th>ครูที่ขาด</th>
+          <th style="width:50px">คาบ</th>
+          <th style="width:100px">เวลา</th>
+          <th>วิชา</th>
+          <th style="width:55px">ห้อง</th>
+          <th style="width:55px">ห้องเรียน</th>
+          <th>ครูสอนแทน</th>
+          <th style="width:110px">ลายเซ็นรับทราบ</th>
+        </tr>
+      </thead>
+      <tbody>${tableRows}</tbody>
+    </table>
+    <div class="pf-sig-area">
+      <div class="pf-sig-box">
+        <div class="pf-sig-line">&nbsp;</div>
+        <div class="pf-sig-name">( นางอุดมลักษณ์  นพพิบูลย์ )</div>
+        <div class="pf-sig-pos">รองผู้อำนวยการโรงเรียนเมืองแกพิทยาสรรค์</div>
+        <div class="pf-sig-pos">ผู้รับทราบ</div>
+      </div>
+    </div>
+  `;
+
+  window.print();
+}
 </script>
+
+<!-- Print form (hidden — shown only when printing) -->
+<div id="print-form"></div>
+
 </body>
 </html>
