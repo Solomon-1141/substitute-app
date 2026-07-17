@@ -2492,16 +2492,65 @@ function renderPeriodCard(cont, p, absentName, allAbsent) {
 }
 
 // ─── Substitute select change ─────────────────────────────────────
+function getAssignedSubsAtTime(time, excludeCard) {
+  const set = new Set();
+  document.querySelectorAll('.period-card').forEach(c => {
+    if (c === excludeCard) return;
+    if (c.dataset.time !== time) return;
+    const v = c.querySelector('.sub-sel')?.value;
+    if (v && v !== '__all__') set.add(v);
+  });
+  return set;
+}
+
+// เมื่อมีการเลือก/ยกเลิกครูสอนแทนในคาบใดคาบหนึ่ง ให้อัปเดต dropdown
+// ของทุกคาบที่มี "เวลา" ตรงกัน — กันไม่ให้เลือกครูคนเดียวสอนแทน 2 ห้องพร้อมกัน
+function refreshSiblingOptions(time, changedCard) {
+  document.querySelectorAll('.period-card').forEach(card => {
+    if (card.dataset.time !== time || card === changedCard) return;
+    const sel = card.querySelector('.sub-sel');
+    if (!sel) return;
+
+    const allAbsent = getChecked();
+    const period     = parseInt(card.dataset.period.split('+')[0]);
+    const assignedElsewhere = getAssignedSubsAtTime(time, card);
+    let currentVal = sel.value;
+
+    // ครูที่เลือกไว้ในคาบนี้ถูกครูอื่นแย่งไปสอนแทนคาบเวลาเดียวกันแล้ว → เคลียร์ค่าและเตือน
+    if (currentVal && currentVal !== '__all__' && assignedElsewhere.has(currentVal)) {
+      currentVal = '';
+      card.classList.remove('assigned');
+      const note = card.querySelector('.sub-note');
+      if (note) note.textContent = '⚠️ ครูคนนี้ถูกจัดสอนแทนคาบเวลาเดียวกันไปแล้ว กรุณาเลือกใหม่';
+    }
+
+    const available = getAvailableTeachers(currentDay, period, allAbsent)
+      .filter(a => !assignedElsewhere.has(a.name));
+
+    sel.innerHTML = `
+      <option value="">— เลือกครูสอนแทน (${available.length} คนว่าง) —</option>
+      ${available.map(a=>`<option value="${a.name}"${a.name===currentVal?' selected':''}>${a.name}</option>`).join('')}
+      <optgroup label="──────────────────"></optgroup>
+      <option value="__all__">แสดงครูทั้งหมด...</option>
+    `;
+    sel.value = currentVal;
+    sel.classList.toggle('done', !!currentVal);
+  });
+}
+
 function onSubChange(sel) {
   const card      = sel.closest('.period-card');
   const absentName = card.dataset.absentName;
   const allAbsent = getChecked();
   const period    = parseInt(card.dataset.period.split('+')[0]);
+  const time      = card.dataset.time;
 
   if (sel.value === '__all__') {
-    const avail = getAvailableTeachers(currentDay, period, allAbsent);
+    const assignedElsewhere = getAssignedSubsAtTime(time, card);
+    const avail = getAvailableTeachers(currentDay, period, allAbsent)
+      .filter(a => !assignedElsewhere.has(a.name));
     const allActive = TEACHERS.filter(t =>
-      Object.keys(t.schedule).length > 0 && !allAbsent.includes(t.name)
+      Object.keys(t.schedule).length > 0 && !allAbsent.includes(t.name) && !assignedElsewhere.has(t.name)
     );
     const busy = allActive.filter(t => !avail.find(a => a.name === t.name));
     sel.innerHTML = `
@@ -2527,6 +2576,8 @@ function onSubChange(sel) {
     card.classList.remove('assigned');
     note.textContent = '';
   }
+
+  refreshSiblingOptions(time, card);
 }
 
 // ─── Submit ───────────────────────────────────────────────────────
@@ -2553,6 +2604,25 @@ async function submitAll() {
 
   if (toSave.length === 0) {
     showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return;
+  }
+
+  // ── ด่านตรวจสุดท้ายก่อนบันทึก: ครูสอนแทนคนเดียวกัน ห้ามซ้ำเวลาเดียวกัน ──
+  const byTime = {};
+  toSave.forEach(item => (byTime[item.time] = byTime[item.time] || []).push(item));
+  const conflicts = [];
+  Object.entries(byTime).forEach(([time, items]) => {
+    const bySub = {};
+    items.forEach(item => (bySub[item.substitute] = bySub[item.substitute] || []).push(item));
+    Object.entries(bySub).forEach(([subName, list]) => {
+      if (list.length > 1) {
+        conflicts.push(`• ${subName} เวลา ${time} ถูกจัดสอนแทนพร้อมกัน ${list.length} ห้อง: ${list.map(x=>x.cls).join(', ')}`);
+      }
+    });
+  });
+  if (conflicts.length > 0) {
+    showToast('⚠️ พบครูสอนแทนซ้ำซ้อนเวลาเดียวกัน', 'red');
+    alert('พบการจัดครูสอนแทนซ้ำซ้อน กรุณาแก้ไขก่อนบันทึก:\n\n' + conflicts.join('\n'));
+    return;
   }
 
   const btn = document.getElementById('submit-btn');
