@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ระบบจัดสอนแทน — MKP</title>
+<title>ระบบลาออนไลน์และจัดสอนแทน — MKP</title>
 <style>
 :root {
   --blue: #2b6cb0; --blue-lt: #ebf8ff; --blue-dk: #1e4e8c;
@@ -49,6 +49,38 @@ input[type=date], select {
   transition: border-color .15s; appearance: none;
 }
 input[type=date]:focus, select:focus { border-color: var(--blue); }
+
+input[type=text], input[type=tel], textarea {
+  width: 100%; border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 9px 10px; font-size: .85rem; color: #1a202c;
+  background: #fff; outline: none; margin-bottom: 12px;
+  transition: border-color .15s; font-family: inherit;
+}
+textarea { min-height: 78px; resize: vertical; line-height: 1.45; }
+input[type=text]:focus, input[type=tel]:focus, textarea:focus { border-color: var(--blue); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form-grid > div { min-width: 0; }
+.leave-status {
+  display: inline-flex; align-items: center; gap: 5px; border-radius: 999px;
+  padding: 4px 9px; font-size: .7rem; font-weight: 700; background: #fffbeb; color: #744210;
+}
+.leave-list { display: flex; flex-direction: column; gap: 10px; }
+.leave-item {
+  background: #fff; border-radius: 10px; padding: 12px;
+  border-left: 4px solid var(--blue); box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.leave-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.leave-name { font-weight: 700; font-size: .9rem; }
+.leave-meta { font-size: .74rem; color: var(--gray); line-height: 1.45; }
+.leave-reason { font-size: .8rem; color: #2d3748; background: #f7fafc; border-radius: 8px; padding: 8px; margin: 8px 0; }
+.leave-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-secondary {
+  border: 1.5px solid var(--border); border-radius: 8px; background: #fff;
+  padding: 8px 11px; font-size: .76rem; font-weight: 700; cursor: pointer; color: var(--blue);
+}
+.btn-secondary:hover { border-color: var(--blue); background: var(--blue-lt); }
+.btn-danger { color: var(--red); }
+.btn-danger:hover { border-color: var(--red); background: var(--red-lt); }
 
 /* Teacher checklist */
 #teacher-checklist {
@@ -194,6 +226,51 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
 .sum-arrow { font-size:.7rem; color:var(--gray); white-space:nowrap; }
 .sum-sub   { font-size:.85rem; font-weight:700; color:var(--green); white-space:nowrap; text-align:right; max-width:140px; line-height:1.3; }
 
+/* Dashboard */
+.dash-mode { display:flex; gap:8px; margin-bottom:14px; }
+.dash-mode button {
+  flex:1; border:1.5px solid var(--border); border-radius:8px; background:#fff;
+  padding:10px 8px; font-size:.82rem; font-weight:700; color:var(--gray); cursor:pointer;
+}
+.dash-mode button.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+.metric-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:14px; }
+.metric {
+  background:#fff; border-radius:10px; padding:13px; box-shadow:0 1px 4px rgba(0,0,0,.08);
+  border-top:4px solid var(--blue);
+}
+.metric.green { border-top-color:var(--green-md); }
+.metric.red { border-top-color:var(--red); }
+.metric .num { font-size:1.45rem; font-weight:800; color:var(--blue-dk); line-height:1; }
+.metric .lbl { font-size:.72rem; color:var(--gray); margin-top:5px; }
+.dash-section-title { font-size:.82rem; font-weight:800; color:#2d3748; margin:12px 0 8px; }
+.dash-item {
+  background:#fff; border-radius:10px; padding:12px; margin-bottom:10px;
+  box-shadow:0 1px 4px rgba(0,0,0,.08); border-left:4px solid var(--blue);
+}
+.dash-item h4 { font-size:.9rem; margin-bottom:4px; }
+.dash-line { font-size:.77rem; color:#4a5568; line-height:1.55; }
+.mini-table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.mini-table th { background:#f7fafc; color:#4a5568; font-size:.72rem; text-align:left; padding:8px; border-bottom:1px solid var(--border); }
+.mini-table td { font-size:.76rem; padding:8px; border-bottom:1px solid var(--border); vertical-align:top; }
+.mini-table tr:last-child td { border-bottom:none; }
+.dash-actions { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.pending-leave {
+  border-left-color: var(--red);
+  background: #fff;
+}
+.pending-leave .leave-status { background: var(--red-lt); color: var(--red); }
+.pending-list { display:flex; flex-direction:column; gap:10px; }
+.pending-date {
+  display:inline-block; border-radius:999px; background:#edf2f7; color:#4a5568;
+  padding:3px 8px; font-size:.7rem; font-weight:700; margin-top:4px;
+}
+.leave-type-row {
+  background:#fff; border:1.5px solid var(--border); border-radius:10px;
+  padding:10px 12px; margin:0 0 10px; box-shadow:0 1px 4px rgba(0,0,0,.06);
+}
+.leave-type-row .field-label { margin-bottom:6px; }
+.leave-type-row select { margin-bottom:0; }
+
 /* Config alert */
 .cfg-alert { background: #fffbeb; border: 1.5px solid #f6e05e; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-size: .78rem; color: #744210; }
 .cfg-alert strong { display: block; margin-bottom: 4px; }
@@ -233,26 +310,118 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
   .pf-sig-pos  { font-size: 12pt; color: #333; }
   @page { margin: 1.5cm 2cm; size: A4 portrait; }
 }
+@media (max-width: 520px) {
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .metric-grid { grid-template-columns: 1fr; }
+  .tabs { overflow-x: auto; }
+  .tab-btn { min-width: 92px; flex: 0 0 auto; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>ระบบจัดสอนแทน — โรงเรียนเมืองแกพิทยาสรรค์</h1>
+  <h1>ระบบลาออนไลน์และจัดสอนแทน — โรงเรียนเมืองแกพิทยาสรรค์</h1>
   <p>ภาคเรียนที่ 1/2569</p>
 </header>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('assign')">จัดสอนแทน</button>
+  <button class="tab-btn active" onclick="switchTab('leave')">ใบลาออนไลน์</button>
+  <button class="tab-btn" onclick="switchTab('dashboard')">สรุป</button>
+  <button class="tab-btn" onclick="switchTab('assign')">จัดสอนแทน</button>
   <button class="tab-btn" onclick="switchTab('records')">บันทึกวันนี้</button>
   <button class="tab-btn" onclick="switchTab('timetable')">ตารางสอน</button>
 </div>
 
-<!-- Tab 1: Assign -->
-<div class="tab-pane active" id="tab-assign">
+<!-- Tab 0: Leave request -->
+<div class="tab-pane active" id="tab-leave">
+  <div class="card">
+    <div class="card-title">ยื่นใบลาออนไลน์</div>
+    <label class="field-label">ชื่อครูผู้ลา</label>
+    <select id="leave-teacher"></select>
+
+    <div class="form-grid">
+      <div>
+        <label class="field-label">ประเภทการลา</label>
+        <select id="leave-type">
+          <option value="ลาป่วย">ลาป่วย</option>
+          <option value="ลากิจ">ลากิจ</option>
+          <option value="ลาคลอด">ลาคลอด</option>
+          <option value="ลาไปราชการ">ลาไปราชการ</option>
+          <option value="อื่น ๆ">อื่น ๆ</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label">เบอร์ติดต่อ</label>
+        <input type="tel" id="leave-phone" placeholder="เช่น 08x-xxx-xxxx">
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div>
+        <label class="field-label">วันที่เริ่มลา</label>
+        <input type="date" id="leave-start">
+      </div>
+      <div>
+        <label class="field-label">วันที่สิ้นสุด</label>
+        <input type="date" id="leave-end">
+      </div>
+    </div>
+
+    <label class="field-label">เหตุผล / รายละเอียด</label>
+    <textarea id="leave-reason" placeholder="ระบุเหตุผลโดยย่อ เช่น ไปพบแพทย์ หรือมีกิจจำเป็น"></textarea>
+
+    <label class="field-label">ผู้รับผิดชอบงาน/หมายเหตุถึงธุรการ</label>
+    <input type="text" id="leave-note" placeholder="เช่น ฝากงานไว้ที่ห้องวิชาการ">
+
+    <button class="btn-submit" onclick="saveLeaveRequest()">บันทึกใบลา</button>
+  </div>
+
+  <div class="card">
+    <div class="rec-toolbar" style="margin-bottom:10px">
+      <h3>รายการใบลาล่าสุด</h3>
+      <button class="btn-refresh" onclick="renderLeaveRequests()">↻ รีเฟรช</button>
+    </div>
+    <div id="leave-list" class="leave-list">
+      <div class="empty-msg"><div class="icon">📝</div><p>ยังไม่มีรายการใบลา</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab 1: Dashboard -->
+<div class="tab-pane" id="tab-dashboard">
+  <div class="dash-mode">
+    <button id="dash-today-btn" class="active" onclick="setDashboardMode('today')">วันนี้</button>
+    <button id="dash-term-btn" onclick="setDashboardMode('term')">รายเทอม</button>
+  </div>
+  <div class="card">
+    <div class="rec-toolbar" style="margin-bottom:10px">
+      <h3 id="dashboard-title">สรุปวันนี้</h3>
+      <button class="btn-refresh" onclick="renderDashboard()">↻ รีเฟรช</button>
+    </div>
+    <div class="dash-actions">
+      <button class="btn-line" onclick="copyDashboardForLine()">📋 คัดลอกสรุป</button>
+      <button class="btn-refresh" onclick="printDashboardReport()">🖨️ พิมพ์รายงาน</button>
+    </div>
+    <div id="dashboard-content"></div>
+  </div>
+</div>
+
+<!-- Tab 2: Assign -->
+<div class="tab-pane" id="tab-assign">
   <div id="api-warn" class="cfg-alert" style="display:none">
     <strong>⚠ ยังไม่ได้ตั้งค่า API URL</strong>
     แก้ไข <code>API_URL</code> ในไฟล์ index.html
+  </div>
+
+  <div class="card" id="pending-leave-card">
+    <div class="rec-toolbar" style="margin-bottom:10px">
+      <h3>ใบลารอจัดสอนแทน</h3>
+      <button class="btn-refresh" onclick="renderPendingSubstitutions()">↻ รีเฟรช</button>
+    </div>
+    <div id="pending-leave-list" class="pending-list">
+      <div class="empty-msg"><div class="icon">✓</div><p>ไม่มีใบลารอจัดสอนแทน</p></div>
+    </div>
   </div>
 
   <div class="card">
@@ -284,7 +453,7 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
   </div>
 </div>
 
-<!-- Tab 2: Records -->
+<!-- Tab 3: Records -->
 <div class="tab-pane" id="tab-records">
   <div class="rec-toolbar">
     <h3 id="rec-title">รายการวันนี้</h3>
@@ -296,7 +465,7 @@ input[type=date]:focus, select:focus { border-color: var(--blue); }
   </div>
 </div>
 
-<!-- Tab 3: Timetable -->
+<!-- Tab 4: Timetable -->
 <div class="tab-pane" id="tab-timetable">
   <div class="day-sel" id="day-sel"></div>
   <div class="tt-wrap">
@@ -2328,6 +2497,9 @@ let currentDate = '';
 let currentDay  = '';
 let _lastRecords = [];
 let _ttDay = '';
+const LEAVE_STORAGE_KEY = 'mkpLeaveRequests';
+const SUB_STORAGE_KEY = 'mkpSubstituteRecords';
+let _dashboardMode = 'today';
 
 // ─── Init ───────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
@@ -2339,8 +2511,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const pad = n => String(n).padStart(2,'0');
   currentDate = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
   document.getElementById('date-input').value = currentDate;
+  document.getElementById('leave-start').value = currentDate;
+  document.getElementById('leave-end').value = currentDate;
   currentDay = DAYS_TH[today.getDay()];
 
+  initLeaveForm();
+  renderLeaveRequests();
   buildChecklist();
   initTimetable();
 });
@@ -2352,6 +2528,443 @@ function sn(t) {
 
 function getChecked() {
   return [...document.querySelectorAll('#teacher-checklist input:checked')].map(el => el.value);
+}
+
+function formatDateTh(dateText, longMonth=false) {
+  if (!dateText) return '-';
+  const monthsShort = ['','ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const monthsLong = ['','มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  const [y, m, d] = dateText.split('-');
+  const months = longMonth ? monthsLong : monthsShort;
+  return `${parseInt(d)} ${months[parseInt(m)]} ${parseInt(y) + 543}`;
+}
+
+function getLeaveRequests() {
+  try {
+    return JSON.parse(localStorage.getItem(LEAVE_STORAGE_KEY) || '[]');
+  } catch(e) {
+    return [];
+  }
+}
+
+function setLeaveRequests(items) {
+  localStorage.setItem(LEAVE_STORAGE_KEY, JSON.stringify(items));
+}
+
+function getStoredSubs() {
+  try {
+    return JSON.parse(localStorage.getItem(SUB_STORAGE_KEY) || '[]');
+  } catch(e) {
+    return [];
+  }
+}
+
+function setStoredSubs(items) {
+  localStorage.setItem(SUB_STORAGE_KEY, JSON.stringify(items));
+}
+
+function upsertStoredSubs(dateText, rows) {
+  const oldRows = getStoredSubs();
+  const ids = new Set(rows.map(r => `${dateText}|${r.absentName}|${r.period}|${r.time}|${r.cls}|${r.substitute}`));
+  const kept = oldRows.filter(r => !ids.has(`${r.date}|${r.absentName}|${r.period}|${r.time}|${r.cls}|${r.substitute}`));
+  const stamped = rows.map(r => ({ ...r, leaveType: r.leaveType || getLeaveTypeForTeacherDate(r.absentName, dateText) || 'ลา', date: dateText, savedAt: new Date().toISOString() }));
+  setStoredSubs([...kept, ...stamped].slice(-1000));
+}
+
+function getStoredSubsByDate(dateText) {
+  return getStoredSubs()
+    .filter(r => r.date === dateText)
+    .map((r, i) => ({
+      rowIndex: r.rowIndex || '',
+      absentTeacher: r.absentTeacher || r.absentName,
+      leaveType: r.leaveType || getLeaveTypeForTeacherDate(r.absentName || r.absentTeacher, dateText) || 'ลา',
+      period: r.period,
+      time: r.time,
+      cls: r.cls,
+      subject: r.subject,
+      room: r.room,
+      substitute: r.substitute,
+      localOnly: !r.rowIndex,
+      localIndex: i
+    }));
+}
+
+function daysBetweenInclusive(start, end) {
+  const a = new Date(start + 'T12:00:00');
+  const b = new Date((end || start) + 'T12:00:00');
+  return Math.max(1, Math.round((b - a) / 86400000) + 1);
+}
+
+function leaveCoversDate(item, dateText) {
+  return item.start <= dateText && (item.end || item.start) >= dateText;
+}
+
+function getLeaveForTeacherDate(teacherName, dateText) {
+  return getLeaveRequests().find(item => item.teacher === teacherName && leaveCoversDate(item, dateText));
+}
+
+function getLeaveTypeForTeacherDate(teacherName, dateText) {
+  return getLeaveForTeacherDate(teacherName, dateText)?.type || '';
+}
+
+function getManualLeaveType(teacherName) {
+  const safeName = CSS.escape(teacherName);
+  return document.querySelector(`.leave-type-select[data-teacher="${safeName}"]`)?.value || '';
+}
+
+function getLeaveTypeLabel(teacherName, dateText=currentDate) {
+  return getManualLeaveType(teacherName) || getLeaveTypeForTeacherDate(teacherName, dateText) || 'ลา';
+}
+
+function leaveTypeOptions(selected='') {
+  const values = ['ลาป่วย','ลากิจ','ลาไปราชการ','ลาคลอด','ลาพักผ่อน','อื่น ๆ'];
+  return '<option value="">— เลือกประเภท/ลาไปไหน —</option>' +
+    values.map(v => `<option value="${v}"${v === selected ? ' selected' : ''}>${v}</option>`).join('');
+}
+
+function hasSubstitutionForLeave(item) {
+  const rows = getStoredSubs();
+  return rows.some(r => r.absentName === item.teacher && leaveCoversDate(item, r.date));
+}
+
+function refreshLeaveStatuses() {
+  const items = getLeaveRequests();
+  let changed = false;
+  const next = items.map(item => {
+    const hasSub = hasSubstitutionForLeave(item);
+    const status = hasSub ? 'จัดสอนแทนแล้ว' : 'รอจัดสอนแทน';
+    if ((item.status || '') !== status) changed = true;
+    return { ...item, status };
+  });
+  if (changed) setLeaveRequests(next);
+  return next;
+}
+
+function initLeaveForm() {
+  const select = document.getElementById('leave-teacher');
+  const active = TEACHERS.filter(t => Object.keys(t.schedule).some(d => (t.schedule[d]||[]).length > 0));
+  select.innerHTML = '<option value="">— เลือกชื่อครู —</option>' +
+    active.map(t => `<option value="${t.name}">${t.name}</option>`).join('');
+}
+
+function saveLeaveRequest() {
+  const teacher = document.getElementById('leave-teacher').value;
+  const type = document.getElementById('leave-type').value;
+  const phone = document.getElementById('leave-phone').value.trim();
+  const start = document.getElementById('leave-start').value;
+  const end = document.getElementById('leave-end').value || start;
+  const reason = document.getElementById('leave-reason').value.trim();
+  const note = document.getElementById('leave-note').value.trim();
+
+  if (!teacher) { showToast('กรุณาเลือกชื่อครูผู้ลา', 'red'); return; }
+  if (!start) { showToast('กรุณาเลือกวันที่เริ่มลา', 'red'); return; }
+  if (end < start) { showToast('วันที่สิ้นสุดต้องไม่ก่อนวันที่เริ่มลา', 'red'); return; }
+  if (!reason) { showToast('กรุณาระบุเหตุผลการลา', 'red'); return; }
+
+  const items = getLeaveRequests();
+  items.unshift({
+    id: Date.now(),
+    teacher, type, phone, start, end, reason, note,
+    status: 'รอจัดสอนแทน',
+    createdAt: new Date().toISOString()
+  });
+  setLeaveRequests(items.slice(0, 50));
+  document.getElementById('leave-reason').value = '';
+  document.getElementById('leave-note').value = '';
+  showToast('บันทึกใบลาแล้ว', 'green');
+  renderLeaveRequests();
+  renderPendingSubstitutions();
+}
+
+function renderLeaveRequests() {
+  const list = document.getElementById('leave-list');
+  const items = refreshLeaveStatuses();
+  if (!items.length) {
+    list.innerHTML = '<div class="empty-msg"><div class="icon">📝</div><p>ยังไม่มีรายการใบลา</p></div>';
+    return;
+  }
+
+  list.innerHTML = items.map(item => {
+    const dateRange = item.start === item.end
+      ? formatDateTh(item.start)
+      : `${formatDateTh(item.start)} - ${formatDateTh(item.end)}`;
+    return `<div class="leave-item">
+      <div class="leave-top">
+        <div>
+          <div class="leave-name">${item.teacher}</div>
+          <div class="leave-meta">${item.type} · ${dateRange}${item.phone ? ' · โทร ' + item.phone : ''}</div>
+        </div>
+        <span class="leave-status">${item.status || 'รอจัดสอนแทน'}</span>
+      </div>
+      <div class="leave-reason">${item.reason}</div>
+      ${item.note ? `<div class="leave-meta">หมายเหตุ: ${item.note}</div>` : ''}
+      <div class="leave-actions">
+        <button class="btn-secondary" onclick="prepareSubstitutionFromLeave(${item.id})">นำไปจัดสอนแทน</button>
+        <button class="btn-secondary" onclick="copyLeaveForLine(${item.id})">คัดลอกแจ้ง LINE</button>
+        <button class="btn-secondary btn-danger" onclick="deleteLeaveRequest(${item.id})">ลบ</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderPendingSubstitutions() {
+  const list = document.getElementById('pending-leave-list');
+  if (!list) return;
+  const items = refreshLeaveStatuses()
+    .filter(item => !hasSubstitutionForLeave(item))
+    .sort((a,b) => a.start.localeCompare(b.start));
+
+  if (!items.length) {
+    list.innerHTML = '<div class="empty-msg"><div class="icon">✓</div><p>ไม่มีใบลารอจัดสอนแทน</p></div>';
+    return;
+  }
+
+  list.innerHTML = items.map(item => {
+    const dateRange = item.start === item.end
+      ? formatDateTh(item.start)
+      : `${formatDateTh(item.start)} - ${formatDateTh(item.end)}`;
+    const teacher = TEACHERS.find(t => t.name === item.teacher);
+    const dayName = DAYS_TH[new Date(item.start + 'T12:00:00').getDay()];
+    const periodCount = (teacher?.schedule?.[dayName] || []).length;
+    return `<div class="leave-item pending-leave">
+      <div class="leave-top">
+        <div>
+          <div class="leave-name">${item.teacher}</div>
+          <div class="leave-meta">${item.type} · ${item.reason}</div>
+          <span class="pending-date">${dateRange} · มีคาบ ${periodCount} คาบในวันแรก</span>
+        </div>
+        <span class="leave-status">ยังไม่จัด</span>
+      </div>
+      <div class="dash-line">ไป/หมายเหตุ: ${item.note || item.reason || '-'}</div>
+      <div class="leave-actions">
+        <button class="btn-secondary" onclick="prepareSubstitutionFromLeave(${item.id})">จัดสอนแทนรายการนี้</button>
+        <button class="btn-secondary" onclick="copyLeaveForLine(${item.id})">คัดลอกแจ้ง LINE</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function prepareSubstitutionFromLeave(id) {
+  const item = getLeaveRequests().find(x => x.id === id);
+  if (!item) return;
+  document.getElementById('date-input').value = item.start;
+  onDateChange();
+  document.querySelectorAll('#teacher-checklist input').forEach(cb => {
+    cb.checked = cb.value === item.teacher;
+    cb.closest('label').classList.toggle('selected', cb.checked);
+  });
+  onTeachersChange();
+  switchTab('assign');
+  renderPendingSubstitutions();
+  showToast('เลือกครูและวันที่ให้แล้ว', 'green');
+}
+
+function copyLeaveForLine(id) {
+  const item = getLeaveRequests().find(x => x.id === id);
+  if (!item) return;
+  const dateRange = item.start === item.end
+    ? formatDateTh(item.start, true)
+    : `${formatDateTh(item.start, true)} ถึง ${formatDateTh(item.end, true)}`;
+  const lines = [
+    '📝 แจ้งใบลาออนไลน์',
+    `โรงเรียนเมืองแกพิทยาสรรค์`,
+    `ครูผู้ลา: ${item.teacher}`,
+    `ประเภท: ${item.type}`,
+    `วันที่ลา: ${dateRange}`,
+    `เหตุผล: ${item.reason}`,
+    item.phone ? `เบอร์ติดต่อ: ${item.phone}` : '',
+    item.note ? `หมายเหตุ: ${item.note}` : '',
+    `สถานะ: ${item.status || 'รอจัดสอนแทน'}`
+  ].filter(Boolean);
+  navigator.clipboard.writeText(lines.join('\n'))
+    .then(() => showToast('คัดลอกข้อความใบลาแล้ว', 'green'))
+    .catch(() => showToast('คัดลอกไม่สำเร็จ', 'red'));
+}
+
+function deleteLeaveRequest(id) {
+  if (!confirm('ลบรายการใบลานี้?')) return;
+  setLeaveRequests(getLeaveRequests().filter(x => x.id !== id));
+  renderLeaveRequests();
+  renderPendingSubstitutions();
+  showToast('ลบรายการใบลาแล้ว', 'green');
+}
+
+function setDashboardMode(mode) {
+  _dashboardMode = mode;
+  document.getElementById('dash-today-btn').classList.toggle('active', mode === 'today');
+  document.getElementById('dash-term-btn').classList.toggle('active', mode === 'term');
+  renderDashboard();
+}
+
+function getDashboardData() {
+  const leaves = getLeaveRequests();
+  const storedSubs = getStoredSubs();
+  const todayLeaves = leaves.filter(item => leaveCoversDate(item, currentDate));
+  const todaySubs = [
+    ...storedSubs.filter(r => r.date === currentDate),
+    ..._lastRecords.filter(r => !storedSubs.some(s =>
+      s.date === currentDate && s.absentName === r.absentTeacher && s.period === r.period && s.time === r.time
+    )).map(r => ({
+      date: currentDate,
+      absentName: r.absentTeacher,
+      period: r.period,
+      time: r.time,
+      cls: r.cls,
+      subject: r.subject,
+      room: r.room,
+      substitute: r.substitute
+    }))
+  ];
+  return { leaves, storedSubs, todayLeaves, todaySubs };
+}
+
+function groupCount(items, keyFn) {
+  const map = {};
+  items.forEach(item => {
+    const key = keyFn(item) || 'ไม่ระบุ';
+    map[key] = (map[key] || 0) + 1;
+  });
+  return map;
+}
+
+function renderMetrics(metrics) {
+  return `<div class="metric-grid">
+    ${metrics.map(m => `<div class="metric ${m.type || ''}">
+      <div class="num">${m.value}</div>
+      <div class="lbl">${m.label}</div>
+    </div>`).join('')}
+  </div>`;
+}
+
+function renderDashboard() {
+  const box = document.getElementById('dashboard-content');
+  document.getElementById('dashboard-title').textContent = _dashboardMode === 'today'
+    ? `สรุปวันนี้ ${formatDateTh(currentDate)}`
+    : 'สรุปรายเทอม';
+
+  const data = getDashboardData();
+  box.innerHTML = _dashboardMode === 'today'
+    ? renderTodayDashboard(data)
+    : renderTermDashboard(data);
+}
+
+function renderTodayDashboard({ todayLeaves, todaySubs }) {
+  const absentNames = [...new Set(todayLeaves.map(x => x.teacher).concat(todaySubs.map(x => x.absentName)))].filter(Boolean);
+  const assignedPeriods = todaySubs.length;
+  const typeCounts = groupCount(todayLeaves, x => x.type);
+  const metrics = renderMetrics([
+    { value: absentNames.length, label: 'ครูที่ลาวันนี้' },
+    { value: assignedPeriods, label: 'คาบที่จัดสอนแทนแล้ว', type: 'green' },
+    { value: Object.keys(typeCounts).length, label: 'ประเภทการลาที่พบ' },
+    { value: todayLeaves.filter(x => !todaySubs.some(r => r.absentName === x.teacher)).length, label: 'ใบลาที่ยังไม่พบรายการสอนแทน', type: 'red' }
+  ]);
+
+  const leaveHtml = todayLeaves.length ? todayLeaves.map(item => {
+    const rows = todaySubs.filter(r => r.absentName === item.teacher)
+      .sort((a,b) => parseInt(a.period) - parseInt(b.period));
+    return `<div class="dash-item">
+      <h4>${item.teacher}</h4>
+      <div class="dash-line">${item.type} · ${item.reason}</div>
+      <div class="dash-line">ไป/อยู่ที่: ${item.note || item.reason || '-'}</div>
+      <div class="dash-line">ช่วงลา: ${formatDateTh(item.start)}${item.end !== item.start ? ' - ' + formatDateTh(item.end) : ''}</div>
+      <div class="dash-line">สอนแทน: ${rows.length ? rows.map(r => `คาบ ${r.period} ${r.substitute}`).join(' · ') : 'ยังไม่มีรายการสอนแทนในระบบ'}</div>
+    </div>`;
+  }).join('') : '<div class="empty-msg"><div class="icon">✓</div><p>วันนี้ยังไม่มีใบลาที่บันทึกไว้</p></div>';
+
+  const subRows = todaySubs.length ? `<table class="mini-table">
+    <thead><tr><th>คาบ</th><th>ครูที่ลา</th><th>ครูสอนแทน</th><th>ชั้น/วิชา</th></tr></thead>
+    <tbody>${todaySubs.sort((a,b)=>parseInt(a.period)-parseInt(b.period)).map(r => `<tr>
+      <td>${r.period}<br><span class="leave-meta">${r.time}</span></td>
+      <td>${r.absentName}</td>
+      <td><strong>${r.substitute}</strong></td>
+      <td>${r.cls} · ${r.subject}<br><span class="leave-meta">ห้อง ${r.room}</span></td>
+    </tr>`).join('')}</tbody>
+  </table>` : '<div class="empty-msg"><div class="icon">📋</div><p>ยังไม่มีรายการสอนแทนของวันนี้</p></div>';
+
+  return `${metrics}
+    <div class="dash-section-title">ครูที่ลา / ไปไหนบ้าง</div>
+    ${leaveHtml}
+    <div class="dash-section-title">รายการสอนแทนวันนี้</div>
+    ${subRows}`;
+}
+
+function renderTermDashboard({ leaves, storedSubs }) {
+  const totalDays = leaves.reduce((sum, item) => sum + daysBetweenInclusive(item.start, item.end), 0);
+  const teacherMap = {};
+  leaves.forEach(item => {
+    teacherMap[item.teacher] = teacherMap[item.teacher] || { count:0, days:0, latest:'', types:{} };
+    teacherMap[item.teacher].count++;
+    teacherMap[item.teacher].days += daysBetweenInclusive(item.start, item.end);
+    teacherMap[item.teacher].latest = item.reason || '';
+    teacherMap[item.teacher].types[item.type] = (teacherMap[item.teacher].types[item.type] || 0) + 1;
+  });
+  const subMap = groupCount(storedSubs, x => x.substitute);
+  const typeMap = groupCount(leaves, x => x.type);
+
+  const metrics = renderMetrics([
+    { value: leaves.length, label: 'ใบลาทั้งหมด' },
+    { value: totalDays, label: 'วันลารวม' },
+    { value: storedSubs.length, label: 'คาบสอนแทนสะสม', type: 'green' },
+    { value: Object.keys(teacherMap).length, label: 'จำนวนครูที่เคยลา' }
+  ]);
+
+  const typeRows = Object.entries(typeMap).sort((a,b)=>b[1]-a[1])
+    .map(([type, count]) => `<tr><td>${type}</td><td>${count} ครั้ง</td></tr>`).join('');
+  const teacherRows = Object.entries(teacherMap).sort((a,b)=>b[1].days-a[1].days)
+    .map(([name, s]) => `<tr>
+      <td>${name}</td><td>${s.count} ครั้ง</td><td>${s.days} วัน</td>
+      <td>${Object.entries(s.types).map(([t,c])=>`${t} ${c}`).join(', ')}</td>
+      <td>${s.latest || '-'}</td>
+    </tr>`).join('');
+  const subRows = Object.entries(subMap).sort((a,b)=>b[1]-a[1])
+    .map(([name, count]) => `<tr><td>${name}</td><td>${count} คาบ</td></tr>`).join('');
+
+  return `${metrics}
+    <div class="dash-section-title">แยกตามประเภทการลา</div>
+    ${typeRows ? `<table class="mini-table"><thead><tr><th>ประเภท</th><th>จำนวน</th></tr></thead><tbody>${typeRows}</tbody></table>` : '<div class="empty-msg"><p>ยังไม่มีข้อมูลใบลา</p></div>'}
+    <div class="dash-section-title">สรุปรายครูที่ลา</div>
+    ${teacherRows ? `<table class="mini-table"><thead><tr><th>ครู</th><th>ครั้ง</th><th>วัน</th><th>ประเภท</th><th>เหตุผลล่าสุด</th></tr></thead><tbody>${teacherRows}</tbody></table>` : '<div class="empty-msg"><p>ยังไม่มีข้อมูลรายครู</p></div>'}
+    <div class="dash-section-title">สรุปครูสอนแทน</div>
+    ${subRows ? `<table class="mini-table"><thead><tr><th>ครูสอนแทน</th><th>จำนวนคาบ</th></tr></thead><tbody>${subRows}</tbody></table>` : '<div class="empty-msg"><p>ยังไม่มีข้อมูลสอนแทนสะสม</p></div>'}`;
+}
+
+function buildDashboardText() {
+  const data = getDashboardData();
+  if (_dashboardMode === 'today') {
+    const names = [...new Set(data.todayLeaves.map(x => x.teacher).concat(data.todaySubs.map(x => x.absentName)))].filter(Boolean);
+    return [
+      `สรุปการลาและสอนแทน ${formatDateTh(currentDate, true)}`,
+      `ครูที่ลา: ${names.length} คน`,
+      `คาบสอนแทนที่จัดแล้ว: ${data.todaySubs.length} คาบ`,
+      '',
+      ...data.todayLeaves.map(item => {
+        const subs = data.todaySubs.filter(r => r.absentName === item.teacher);
+        return `${item.teacher} - ${item.type}\nเหตุผล/ไปไหน: ${item.note || item.reason}\nสอนแทน: ${subs.length ? subs.map(r => `คาบ ${r.period} ${r.substitute}`).join(', ') : 'ยังไม่มีรายการ'}`;
+      })
+    ].join('\n');
+  }
+  const totalDays = data.leaves.reduce((sum, item) => sum + daysBetweenInclusive(item.start, item.end), 0);
+  return [
+    'สรุปรายเทอม ระบบลาและสอนแทน',
+    `ใบลาทั้งหมด: ${data.leaves.length} ใบ`,
+    `วันลารวม: ${totalDays} วัน`,
+    `คาบสอนแทนสะสม: ${data.storedSubs.length} คาบ`
+  ].join('\n');
+}
+
+function copyDashboardForLine() {
+  navigator.clipboard.writeText(buildDashboardText())
+    .then(() => showToast('คัดลอกสรุปแล้ว', 'green'))
+    .catch(() => showToast('คัดลอกไม่สำเร็จ', 'red'));
+}
+
+function printDashboardReport() {
+  const form = document.getElementById('print-form');
+  form.innerHTML = `<div class="pf-school">โรงเรียนเมืองแกพิทยาสรรค์</div>
+    <div class="pf-title">${_dashboardMode === 'today' ? 'สรุปการลาประจำวัน' : 'สรุปการลารายเทอม'}</div>
+    <div class="pf-date">${_dashboardMode === 'today' ? formatDateTh(currentDate, true) : 'ภาคเรียนที่ 1/2569'}</div>
+    <pre style="font-family:'TH SarabunPSK','Sarabun',serif;font-size:14pt;white-space:pre-wrap;line-height:1.45">${buildDashboardText()}</pre>`;
+  window.print();
 }
 
 function getAvailableTeachers(day, period, excludeNames) {
@@ -2432,11 +3045,21 @@ function onTeachersChange() {
   checked.forEach(absentName => {
     const teacher = TEACHERS.find(t => t.name === absentName);
     const periods = (teacher?.schedule?.[currentDay] || []).slice().sort((a,b)=>a.period-b.period);
+    const autoType = getLeaveTypeForTeacherDate(absentName, currentDate);
 
     const hdr = document.createElement('div');
     hdr.className = 'group-hdr';
     hdr.textContent = `👤 ${teacher ? sn(teacher) : absentName}`;
     cont.appendChild(hdr);
+
+    const typeRow = document.createElement('div');
+    typeRow.className = 'leave-type-row';
+    typeRow.innerHTML = `
+      <label class="field-label">ลาไปไหน / ประเภทการลา ${autoType ? '(ดึงจากใบลาออนไลน์)' : '(เลือกเอง)'}</label>
+      <select class="leave-type-select" data-teacher="${absentName}" onchange="onLeaveTypeSelectChange(this)">
+        ${leaveTypeOptions(autoType)}
+      </select>`;
+    cont.appendChild(typeRow);
 
     if (periods.length === 0) {
       const msg = document.createElement('p');
@@ -2468,6 +3091,7 @@ function renderPeriodCard(cont, p, absentName, allAbsent) {
   card.dataset.cls     = p.class;
   card.dataset.subject = p.subject;
   card.dataset.room    = p.room;
+  card.dataset.leaveType = getLeaveTypeLabel(absentName);
 
   card.innerHTML = `
     <div class="p-header">
@@ -2489,6 +3113,13 @@ function renderPeriodCard(cont, p, absentName, allAbsent) {
     <div class="sub-note"></div>
   `;
   cont.appendChild(card);
+}
+
+function onLeaveTypeSelectChange(sel) {
+  const teacherName = sel.dataset.teacher;
+  document.querySelectorAll(`.period-card[data-absent-name="${CSS.escape(teacherName)}"]`).forEach(card => {
+    card.dataset.leaveType = sel.value || 'ลา';
+  });
 }
 
 // ─── Substitute select change ─────────────────────────────────────
@@ -2590,8 +3221,10 @@ async function submitAll() {
   document.querySelectorAll('.period-card').forEach(card => {
     const val = card.querySelector('.sub-sel')?.value;
     if (val && val !== '__all__') {
+      const leaveType = getLeaveTypeLabel(card.dataset.absentName);
       toSave.push({
         absentName: card.dataset.absentName,
+        leaveType:  leaveType,
         period:     card.dataset.period,
         time:       card.dataset.time,
         cls:        card.dataset.cls,
@@ -2604,6 +3237,15 @@ async function submitAll() {
 
   if (toSave.length === 0) {
     showToast('กรุณาเลือกครูสอนแทนอย่างน้อย 1 คาบ', 'red'); return;
+  }
+
+  const missingType = [...new Set(toSave
+    .filter(item => !item.leaveType || item.leaveType === 'ลา')
+    .map(item => item.absentName))];
+  if (missingType.length) {
+    showToast('กรุณาเลือกว่าครูลาไปไหน', 'red');
+    alert('กรุณาเลือกประเภทการลา/ลาไปไหน ให้ครบก่อนบันทึก:\n\n' + missingType.join('\n'));
+    return;
   }
 
   // ── ด่านตรวจสุดท้ายก่อนบันทึก: ครูสอนแทนคนเดียวกัน ห้ามซ้ำเวลาเดียวกัน ──
@@ -2638,6 +3280,7 @@ async function submitAll() {
           action: 'logSubstitute',
           date: currentDate,
           absentTeacher: item.absentName,
+          leaveType: item.leaveType,
           period: item.period,
           time: item.time,
           cls: item.cls,
@@ -2655,6 +3298,9 @@ async function submitAll() {
   btn.innerHTML = 'บันทึกการจัดสอนแทน';
 
   if (ok > 0) {
+    upsertStoredSubs(currentDate, toSave);
+    refreshLeaveStatuses();
+    renderPendingSubstitutions();
     showSummary(toSave);
   } else {
     showToast('บันทึกไม่สำเร็จ ตรวจสอบการเชื่อมต่อ', 'red');
@@ -2703,20 +3349,21 @@ function showSummary(items) {
       }).join('');
 
     return `<div class="sum-group">
-      <div class="sum-group-hdr">👤 ${absent} ลา</div>
+      <div class="sum-group-hdr">👤 ${absent} ${rows[0]?.leaveType || 'ลา'}</div>
       ${rowsHtml}
     </div>`;
   }).join('');
 
   // ซ่อน assign form / แสดง summary
-  document.getElementById('tab-assign').style.display  = 'none';
+  document.getElementById('tab-assign').classList.remove('active');
   document.getElementById('summary-view').style.display = 'block';
 }
 
 function resetAssign() {
   // ซ่อน summary / แสดง assign form
   document.getElementById('summary-view').style.display = 'none';
-  document.getElementById('tab-assign').style.display  = 'block';
+  document.getElementById('tab-assign').classList.add('active');
+  renderPendingSubstitutions();
 
   // ล้างฟอร์ม
   document.querySelectorAll('#teacher-checklist input').forEach(cb => {
@@ -2742,7 +3389,7 @@ function copyFromSummary() {
     `โรงเรียนเมืองแกพิทยาสรรค์`,
     `────────────────────`,
     ...Object.entries(groups).flatMap(([absent, rows]) => [
-      `👤 ${absent} ลา`,
+      `👤 ${absent} ${rows[0]?.leaveType || 'ลา'}`,
       ...rows
         .sort((a,b) => parseInt(a.period) - parseInt(b.period))
         .map(r => `  คาบ ${r.period} (${r.time}) ${r.cls} ${r.subject}\n  → ${r.substitute}`)
@@ -2758,23 +3405,49 @@ function copyFromSummary() {
 async function loadRecords() {
   document.getElementById('rec-title').textContent = `รายการ ${currentDate}`;
   const list = document.getElementById('records-list');
-  list.innerHTML = '<div style="text-align:center;padding:20px"><span class="spinner"></span>กำลังโหลด...</div>';
+  const localRecords = getStoredSubsByDate(currentDate);
+  if (localRecords.length) {
+    renderRecords(localRecords, { skipStore: true });
+  } else {
+    list.innerHTML = '<div style="text-align:center;padding:20px"><span class="spinner"></span>กำลังโหลด...</div>';
+  }
 
   if (API_URL.includes('YOUR_APPS_SCRIPT')) {
-    list.innerHTML = '<div class="empty-msg"><div class="icon">⚠</div><p>ยังไม่ได้ตั้งค่า API URL</p></div>';
+    if (!localRecords.length) {
+      list.innerHTML = '<div class="empty-msg"><div class="icon">⚠</div><p>ยังไม่ได้ตั้งค่า API URL</p></div>';
+    }
     return;
   }
   try {
     const res  = await fetch(`${API_URL}?action=getByDate&date=${currentDate}`);
     const data = await res.json();
-    renderRecords(data.records || []);
+    const apiRecords = data.records || [];
+    renderRecords(apiRecords.length ? apiRecords : localRecords, { skipStore: !apiRecords.length });
   } catch(e) {
-    list.innerHTML = '<div class="empty-msg"><div class="icon">❌</div><p>เชื่อมต่อไม่ได้</p></div>';
+    if (!localRecords.length) {
+      list.innerHTML = '<div class="empty-msg"><div class="icon">❌</div><p>เชื่อมต่อไม่ได้</p></div>';
+    } else {
+      showToast('แสดงข้อมูลที่บันทึกไว้ในเครื่อง', 'green');
+    }
   }
 }
 
-function renderRecords(records) {
+function renderRecords(records, opts={}) {
   _lastRecords = records;
+  if (records.length && !opts.skipStore) {
+    upsertStoredSubs(currentDate, records.map(r => ({
+      absentName: r.absentTeacher,
+      leaveType: r.leaveType || getLeaveTypeForTeacherDate(r.absentTeacher, currentDate) || 'ลา',
+      period: r.period,
+      time: r.time,
+      cls: r.cls,
+      subject: r.subject,
+      room: r.room,
+      substitute: r.substitute
+    })));
+    refreshLeaveStatuses();
+    renderPendingSubstitutions();
+  }
   const list    = document.getElementById('records-list');
   const lineBtn = document.getElementById('btn-line');
 
@@ -2792,6 +3465,7 @@ function renderRecords(records) {
     const tSub    = TEACHERS.find(t => t.name === r.substitute);
     const snAbsent = tAbsent ? sn(tAbsent) : r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'');
     const snSub    = tSub    ? sn(tSub)    : r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'');
+    const leaveType = r.leaveType || getLeaveTypeForTeacherDate(r.absentTeacher, currentDate) || 'ลา';
     return `<tr>
       <td class="td-period${dbl?' double':''}">คาบ<br>${r.period}</td>
       <td>
@@ -2799,12 +3473,12 @@ function renderRecords(records) {
         <div class="td-cls">${r.cls} · ${r.subject} · ห้อง ${r.room}</div>
       </td>
       <td>
-        <div class="td-absent">⬆ ${snAbsent} ลา</div>
+        <div class="td-absent">⬆ ${snAbsent} ${leaveType}</div>
         <div style="font-size:.75rem;color:var(--gray)">↓</div>
         <div class="td-sub">${snSub} สอนแทน</div>
       </td>
       <td class="del-wrap">
-        <button class="btn-del" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>
+        ${r.rowIndex ? `<button class="btn-del" onclick="deleteRecord(${r.rowIndex})" title="ลบ">✕</button>` : '<span class="leave-meta">ในเครื่อง</span>'}
       </td>
     </tr>`;
   }).join('');
@@ -2832,7 +3506,8 @@ function copyForLine() {
       const tS = TEACHERS.find(t => t.name === r.substitute);
       const snA = tA ? sn(tA) : r.absentTeacher.replace(/^(นาย|นางสาว|นาง)\s*/,'');
       const snS = tS ? sn(tS) : r.substitute.replace(/^(นาย|นางสาว|นาง)\s*/,'');
-      return `คาบ ${r.period} (${r.time})\n${snA} ลา → ${snS} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`;
+      const leaveType = r.leaveType || getLeaveTypeForTeacherDate(r.absentTeacher, currentDate) || 'ลา';
+      return `คาบ ${r.period} (${r.time})\n${snA} ${leaveType} → ${snS} สอนแทน\n${r.cls} · ${r.subject} · ห้อง ${r.room}`;
     })
   ];
 
@@ -2852,10 +3527,12 @@ async function deleteRecord(rowIndex) {
 
 // ─── Tabs ─────────────────────────────────────────────────────────
 function switchTab(tab) {
-  const map = ['assign','records','timetable'];
+  const map = ['leave','dashboard','assign','records','timetable'];
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', map[i] === tab));
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.getElementById(`tab-${tab}`).classList.add('active');
+  if (tab === 'dashboard') renderDashboard();
+  if (tab === 'assign') renderPendingSubstitutions();
   if (tab === 'records')   loadRecords();
   if (tab === 'timetable') renderTimetable();
 }
@@ -2927,7 +3604,7 @@ function printSubstituteForm() {
   const dateStr = `วัน${dayTh}ที่ ${parseInt(d)} ${months[parseInt(m)]} พ.ศ. ${parseInt(y)+543}`;
 
   // Collect absent teacher names
-  const absentSet = [...new Set(_lastSubmission.map(r => r.absentName))];
+  const absentSet = [...new Map(_lastSubmission.map(r => [r.absentName, `${r.absentName} ${r.leaveType || 'ลา'}`])).values()];
   const absentStr = absentSet.join(', ');
 
   // Sort all rows by period
@@ -2937,7 +3614,7 @@ function printSubstituteForm() {
   const tableRows = rows.map((r, i) => `
     <tr>
       <td>${i + 1}</td>
-      <td class="left">${r.absentName}</td>
+      <td class="left">${r.absentName} ${r.leaveType || 'ลา'}</td>
       <td>${r.period}</td>
       <td>${r.time}</td>
       <td class="left">${r.subject}</td>
