@@ -2796,13 +2796,22 @@ function setDashboardMode(mode) {
   renderDashboard();
 }
 
+// วันเปิดภาคเรียนปัจจุบัน — สรุปรายเทอมนับตั้งแต่วันนี้เป็นต้นไป (เปลี่ยนทุกเทอม)
+const TERM_START = '2026-10-27';
+const TERM_LABEL = 'ภาคเรียนที่ 2/2569';
+
 function getDashboardData() {
-  const leaves = getLeaveRequests();
-  const storedSubs = getStoredSubs();
-  const todayLeaves = leaves.filter(item => leaveCoversDate(item, currentDate));
+  const allLeaves = getLeaveRequests();
+  const allSubs = getStoredSubs();
+  // เฉพาะเทอมนี้: ใบลาที่ลาคร่อมวันเปิดภาค นับเฉพาะวันที่อยู่ในเทอม
+  const leaves = allLeaves
+    .filter(item => (item.end || item.start) >= TERM_START)
+    .map(item => item.start < TERM_START ? { ...item, start: TERM_START } : item);
+  const storedSubs = allSubs.filter(r => r.date >= TERM_START);
+  const todayLeaves = allLeaves.filter(item => leaveCoversDate(item, currentDate));
   const todaySubs = [
-    ...storedSubs.filter(r => r.date === currentDate),
-    ..._lastRecords.filter(r => !storedSubs.some(s =>
+    ...allSubs.filter(r => r.date === currentDate),
+    ..._lastRecords.filter(r => !allSubs.some(s =>
       s.date === currentDate && s.absentName === r.absentTeacher && s.period === r.period && s.time === r.time
     )).map(r => ({
       date: currentDate,
@@ -2840,7 +2849,7 @@ function renderDashboard() {
   const box = document.getElementById('dashboard-content');
   document.getElementById('dashboard-title').textContent = _dashboardMode === 'today'
     ? `สรุปวันนี้ ${formatDateTh(currentDate)}`
-    : 'สรุปรายเทอม';
+    : `สรุป${TERM_LABEL} (ตั้งแต่ ${formatDateTh(TERM_START)})`;
 
   const data = getDashboardData();
   box.innerHTML = _dashboardMode === 'today'
@@ -2945,7 +2954,8 @@ function buildDashboardText() {
   }
   const totalDays = data.leaves.reduce((sum, item) => sum + daysBetweenInclusive(item.start, item.end), 0);
   return [
-    'สรุปรายเทอม ระบบลาและสอนแทน',
+    `สรุปการลาและสอนแทน ${TERM_LABEL}`,
+    `นับตั้งแต่ ${formatDateTh(TERM_START, true)}`,
     `ใบลาทั้งหมด: ${data.leaves.length} ใบ`,
     `วันลารวม: ${totalDays} วัน`,
     `คาบสอนแทนสะสม: ${data.storedSubs.length} คาบ`
@@ -2962,7 +2972,7 @@ function printDashboardReport() {
   const form = document.getElementById('print-form');
   form.innerHTML = `<div class="pf-school">โรงเรียนเมืองแกพิทยาสรรค์</div>
     <div class="pf-title">${_dashboardMode === 'today' ? 'สรุปการลาประจำวัน' : 'สรุปการลารายเทอม'}</div>
-    <div class="pf-date">${_dashboardMode === 'today' ? formatDateTh(currentDate, true) : 'ภาคเรียนที่ 2/2569'}</div>
+    <div class="pf-date">${_dashboardMode === 'today' ? formatDateTh(currentDate, true) : TERM_LABEL}</div>
     <pre style="font-family:'TH SarabunPSK','Sarabun',serif;font-size:14pt;white-space:pre-wrap;line-height:1.45">${buildDashboardText()}</pre>`;
   window.print();
 }
